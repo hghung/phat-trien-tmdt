@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SubCategory extends Migration
+class TaiKhoan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,22 @@ class SubCategory extends Migration
      */
     public function up()
     {
-        Schema::create('sub_category', function (Blueprint $table) {
+        Schema::create('tai_khoan', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('subcategory_name');
+            $table->string('username');
+            $table->string('password');
 
-            $table->integer('id_category')->unsigned();
-            $table->foreign('id_category')
+            $table->integer('id_vaitro')->unsigned();
+            $table->foreign('id_vaitro')
                     ->references('id')
-                    ->on('category')
+                    ->on('Role')
                     ->onDelete('cascade');
+
+
+            $table->timestamps();
+
+
+
         });
     }
 
@@ -32,6 +39,6 @@ class SubCategory extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_category');
+        Schema::dropIfExists('tai_khoan');
     }
 }

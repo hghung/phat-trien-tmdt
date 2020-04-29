@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Payment extends Migration
+class TaiSan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class Payment extends Migration
      */
     public function up()
     {
-        Schema::create('payment', function (Blueprint $table) {
+        Schema::create('tai_san', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('payment_name');
-            $table->text('payment_note')->nullable();
-
-            
+            $table->string('ten_ts');
+            $table->string('soluong');
 
         });
     }
@@ -30,6 +28,6 @@ class Payment extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment');
+        Schema::dropIfExists('tai_san');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class PublishingHouse extends Migration
+class BangtinThuenha extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class PublishingHouse extends Migration
      */
     public function up()
     {
-        Schema::create('publishing_house', function (Blueprint $table) {
+        Schema::create('bangtin_thuenha', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('publishinghouse_name');
+            $table->string('ten_bangtin');
+            $table->inther('gia_thue');
+            $table->date('thoi_han');
+            $table->date('thoigian_dangtin');
+
+
         });
     }
 
@@ -26,6 +31,6 @@ class PublishingHouse extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('publishing_house');
+        Schema::dropIfExists('bangtin_thuenha');
     }
 }

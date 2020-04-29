@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class BookCompany extends Migration
+class LoaiNha extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,16 @@ class BookCompany extends Migration
      */
     public function up()
     {
-        Schema::create('Book_company', function (Blueprint $table) {
+        Schema::create('loai_nha', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('bookcompany_name');
+            $table->string('ten_loai');
+
+            // $table->integer('level')->unsigned();
+            // $table->foreign('level')
+            //         ->references('id')
+            //         ->on('Role')
+            //         ->onDelete('cascade');
+
         });
     }
 
@@ -26,6 +33,6 @@ class BookCompany extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Book_company');
+        Schema::dropIfExists('loai_nha');
     }
 }
