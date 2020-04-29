@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ThongTin extends Migration
+class KhachHang extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,18 @@ class ThongTin extends Migration
      */
     public function up()
     {
-        Schema::create('thong_tin', function (Blueprint $table) {
+        Schema::create('khach_hang', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ma_user');
-            $table->string('name');
-            $table->string('lastname');
-            $table->string('dia_chi');
-            $table->integer('cmnd');
-            
+            $table->string('kh_hoten');
+            $table->string('kh_diachi');
+            $table->integer('kh_cmnd');
+            $table->string('kh_phone');
+
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')
                     ->references('id')
                     ->on('Role')
                     ->onDelete('cascade');
-
 
         });
     }
@@ -38,6 +36,6 @@ class ThongTin extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('thong_tin');
+        Schema::dropIfExists('khach_hang');
     }
 }

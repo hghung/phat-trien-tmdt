@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class VaiTro extends Migration
+class HopDongthue extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class VaiTro extends Migration
      */
     public function up()
     {
-        Schema::create('vai_tro', function (Blueprint $table) {
+        Schema::create('hop_dongthue', function (Blueprint $table) {
             $table->increments('id');
-            $table->name('ten_vaitro');
-            
+            $table->string('ten_hopdong');
+            $table->dateTime('time_start');
+            $table->dateTime('time_end');
+
         });
     }
 
@@ -27,6 +29,6 @@ class VaiTro extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vai_tro');
+        Schema::dropIfExists('hop_dongthue');
     }
 }
