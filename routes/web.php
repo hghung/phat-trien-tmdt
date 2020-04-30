@@ -14,13 +14,11 @@ use App\User;
 
 use Carbon\Carbon; // lấy ngày hiên tại
 
-use App\Models\role;
+Route::group(['prefix'=>'SPS'],function(){
+	Route::get('/','AdminController@home')->name('admin.home');
+	Route::get('/master','AdminController@master')->name('admin.lyout');
 
-use App\Models\category;
-
-use App\Models\status;
-
-use App\Models\payment;
+});
 
 
 

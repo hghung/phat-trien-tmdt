@@ -1,759 +1,291 @@
-<!-- Page Loader -->
-	    <div class="page-loader-wrapper">
-	            <div class="loader">
-	                <div class="bar1"></div>
-	                <div class="bar2"></div>
-	                <div class="bar3"></div>
-	                <div class="bar4"></div>
-	                <div class="bar5"></div>
-	            </div>
-	    </div>
-
-	    <!-- Theme Setting -->
-	    <div class="themesetting">
-	        <a href="javascript:void(0);" class="theme_btn"><i class="icon-magic-wand"></i></a>
-	        <div class="card theme_color">
-	            <div class="header">
-	                <h2>Theme Color</h2>
-	            </div>
-	            <ul class="choose-skin list-unstyled mb-0">
-	                <li data-theme="green"><div class="green"></div></li>
-	                <li data-theme="orange"><div class="orange"></div></li>
-	                <li data-theme="blush"><div class="blush"></div></li>
-	                <li data-theme="cyan" class="active"><div class="cyan"></div></li>
-	                <li data-theme="indigo"><div class="indigo"></div></li>
-	                <li data-theme="red"><div class="red"></div></li>
-	            </ul>
-	        </div>
-	        <div class="card font_setting">
-	            <div class="header">
-	                <h2>Font Settings</h2>
-	            </div>
-	            <div>
-	                <div class="fancy-radio mb-2">
-	                    <label><input name="font" value="font-krub" type="radio"><span><i></i>Krub Google font</span></label>
-	                </div>
-	                <div class="fancy-radio mb-2">
-	                    <label><input name="font" value="font-montserrat" type="radio" checked><span><i></i>Montserrat Google font</span></label>
-	                </div>
-	                <div class="fancy-radio">
-	                    <label><input name="font" value="font-roboto" type="radio"><span><i></i>Robot Google font</span></label>
-	                </div>
-	            </div>
-	        </div>
-	        <div class="card setting_switch">
-	            <div class="header">
-	                <h2>Settings</h2>
-	            </div>
-	            <ul class="list-group">
-	                <li class="list-group-item">
-	                    Light Version
-	                    <div class="float-right">
-	                        <label class="switch">
-	                            <input type="checkbox" class="lv-btn">
-	                            <span class="slider round"></span>
-	                        </label>
-	                    </div>
-	                </li>
-	                <li class="list-group-item">
-	                    RTL Version
-	                    <div class="float-right">
-	                        <label class="switch">
-	                            <input type="checkbox" class="rtl-btn">
-	                            <span class="slider round"></span>
-	                        </label>
-	                    </div>
-	                </li>
-	                <li class="list-group-item">
-	                    Horizontal Henu
-	                    <div class="float-right">
-	                        <label class="switch">
-	                            <input type="checkbox" class="hmenu-btn" >
-	                            <span class="slider round"></span>
-	                        </label>
-	                    </div>
-	                </li>
-	                <li class="list-group-item">
-	                    Mini Sidebar
-	                    <div class="float-right">
-	                        <label class="switch">
-	                            <input type="checkbox" class="mini-sidebar-btn">
-	                            <span class="slider round"></span>
-	                        </label>
-	                    </div>
-	                </li>
-	            </ul>
-	        </div>   
-	        <div class="card">
-	            <div class="form-group">
-	                <label class="d-block">Traffic this Month <span class="float-right">77%</span></label>
-	                <div class="progress progress-xxs">
-	                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%;"></div>
-	                </div>
-	            </div>
-	            <div class="form-group">
-	                <label class="d-block">Server Load <span class="float-right">50%</span></label>
-	                <div class="progress progress-xxs">
-	                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-
-	    <!-- Overlay For Sidebars -->
-    	<div class="overlay"></div>
-
-    	<div id="wrapper">
-	        <nav class="navbar top-navbar">
-	            <div class="container-fluid">
-
-	                <div class="navbar-left">
-	                    <div class="navbar-btn">
-	                        <a href="{{route('ad.home')}}" ><img src="{{asset('public/admin/css/icon.svg')}}"  alt="Admin Logo" class="img-fluid logo"></a>
-	                        <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
-	                    </div>
-	                    <ul class="nav navbar-nav">
-	                        <li class="dropdown">
-	                            <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-	                                <i class="icon-envelope"></i>
-	                                <span class="notification-dot bg-green">4</span>
-	                            </a>
-	                            <ul class="dropdown-menu right_chat email vivify fadeIn">
-	                                <li class="header green">You have 4 New eMail</li>
-	                                <li>
-	                                    <a href="javascript:void(0);">
-	                                        <div class="media">
-	                                            <div class="avtar-pic w35 bg-red"><span>FC</span></div>
-	                                            <div class="media-body">
-	                                                <span class="name">James Wert <small class="float-right text-muted">Just now</small></span>
-	                                                <span class="message">Update GitHub</span>
-	                                            </div>
-	                                        </div>
-	                                    </a>
-	                                </li>
-	                                <li>
-	                                    <a href="javascript:void(0);">
-	                                        <div class="media">
-	                                            <div class="avtar-pic w35 bg-indigo"><span>FC</span></div>
-	                                            <div class="media-body">
-	                                                <span class="name">Folisise Chosielie <small class="float-right text-muted">12min ago</small></span>
-	                                                <span class="message">New Messages</span>
-	                                            </div>
-	                                        </div>
-	                                    </a>
-	                                </li>
-	                                <li>
-	                                    <a href="javascript:void(0);">
-	                                        <div class="media">
-	                                            <img class="media-object " src="{{asset('public/admin/img/avatar5.jpg')}}"  alt="">
-	                                            <div class="media-body">
-	                                                <span class="name">Louis Henry <small class="float-right text-muted">38min ago</small></span>
-	                                                <span class="message">Design bug fix</span>
-	                                            </div>
-	                                        </div>
-	                                    </a>
-	                                </li>
-	                                <li>
-	                                    <a href="javascript:void(0);">
-	                                        <div class="media mb-0">
-	                                            <img class="media-object " src="{{asset('public/admin/img/avatar2.jpg')}}"  alt="">
-	                                            <div class="media-body">
-	                                                <span class="name">Debra Stewart <small class="float-right text-muted">2hr ago</small></span>
-	                                                <span class="message">Fix Bug</span>
-	                                            </div>
-	                                        </div>
-	                                    </a>
-	                                </li>
-	                            </ul>
-	                        </li>
-	                        <li class="dropdown">
-	                            <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-	                                <i class="icon-bell"></i>
-	                                <span class="notification-dot bg-azura">4</span>
-	                            </a>
-	                            <ul class="dropdown-menu feeds_widget vivify fadeIn">
-	                                <li class="header blue">You have 4 New Notifications</li>
-	                                <li>
-	                                    <a href="javascript:void(0);">
-	                                        <div class="feeds-left bg-red"><i class="fa fa-check"></i></div>
-	                                        <div class="feeds-body">
-	                                            <h4 class="title text-danger">Issue Fixed <small class="float-right text-muted">9:10 AM</small></h4>
-	                                            <small>WE have fix all Design bug with Responsive</small>
-	                                        </div>
-	                                    </a>
-	                                </li>                               
-	                                <li>
-	                                    <a href="javascript:void(0);">
-	                                        <div class="feeds-left bg-info"><i class="fa fa-user"></i></div>
-	                                        <div class="feeds-body">
-	                                            <h4 class="title text-info">New User <small class="float-right text-muted">9:15 AM</small></h4>
-	                                            <small>I feel great! Thanks team</small>
-	                                        </div>
-	                                    </a>
-	                                </li>
-	                                <li>
-	                                    <a href="javascript:void(0);">
-	                                        <div class="feeds-left bg-orange"><i class="fa fa-question-circle"></i></div>
-	                                        <div class="feeds-body">
-	                                            <h4 class="title text-warning">Server Warning <small class="float-right text-muted">9:17 AM</small></h4>
-	                                            <small>Your connection is not private</small>
-	                                        </div>
-	                                    </a>
-	                                </li>
-	                                <li>
-	                                    <a href="javascript:void(0);">
-	                                        <div class="feeds-left bg-green"><i class="fa fa-thumbs-o-up"></i></div>
-	                                        <div class="feeds-body">
-	                                            <h4 class="title text-success">2 New Feedback <small class="float-right text-muted">9:22 AM</small></h4>
-	                                            <small>It will give a smart finishing to your site</small>
-	                                        </div>
-	                                    </a>
-	                                </li>
-	                            </ul>
-	                        </li>
-	                        <li class="dropdown language-menu">
-	                            <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-	                                <i class="fa fa-language"></i>
-	                            </a>
-	                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	                                <a class="dropdown-item pt-2 pb-2" href="#"><img src="{{asset('public/admin/css/us.svg')}}"  class="w20 mr-2 rounded-circle"> US English</a>
-	                                <a class="dropdown-item pt-2 pb-2" href="#"><img src="{{asset('public/admin/css/gb.svg')}}" " class="w20 mr-2 rounded-circle"> UK English</a>
-	                                <div class="dropdown-divider"></div>
-	                                <a class="dropdown-item pt-2 pb-2" href="#"><img src="{{asset('public/admin/css/russia.svg')}}"  class="w20 mr-2 rounded-circle"> Russian</a>
-	                                <a class="dropdown-item pt-2 pb-2" href="#"><img src="{{asset('public/admin/css/arabia.svg')}}"  class="w20 mr-2 rounded-circle"> Arabic</a>
-	                                <a class="dropdown-item pt-2 pb-2" href="#"><img src="{{asset('public/admin/css/france.svg')}}"  class="w20 mr-2 rounded-circle"> French</a>
-	                            </div>
-	                        </li>
-	                        <li><a href="javascript:void(0);" class="megamenu_toggle icon-menu" title="Mega Menu">Mega</a></li>
-	                        <li class="p_social"><a href="page-social.html"  class="social icon-menu" title="News">Social</a></li>
-	                        <li class="p_news"><a href="page-news.html"  class="news icon-menu" title="News">News</a></li>
-	                        <li class="p_blog"><a href="page-blog.html"  class="blog icon-menu" title="Blog">Blog</a></li>
-	                    </ul>
-	                </div>
-	                
-	                <div class="navbar-right">
-	                    <div id="navbar-menu">
-	                        <ul class="nav navbar-nav">
-	                            <li><a href="javascript:void(0);" class="search_toggle icon-menu" title="Search Result"><i class="icon-magnifier"></i></a></li>                        
-	                            <li><a href="javascript:void(0);" class="right_toggle icon-menu" title="Right Menu"><i class="icon-bubbles"></i><span class="notification-dot bg-pink">2</span></a></li>
-	                            <li><a href="{{route('p.logout')}}"  class="icon-menu"><i class="icon-power"></i></a></li>
-	                        </ul>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
-	        </nav>
-	        
-	        <div class="search_div">
-	            <div class="card">
-	                <div class="body">
-	                    <form id="navbar-search" class="navbar-form search-form">
-	                        <div class="input-group mb-0">
-	                            <input type="text" class="form-control" placeholder="Search...">
-	                            <div class="input-group-append">
-	                                <span class="input-group-text"><i class="icon-magnifier"></i></span>
-	                                <a href="javascript:void(0);" class="search_toggle btn btn-danger"><i class="icon-close"></i></a>
-	                            </div>
-	                        </div>
-	                    </form>
-	                </div>            
-	            </div>
-	            <span>Search Result <small class="float-right text-muted">About 90 results (0.47 seconds)</small></span>
-	            <div class="table-responsive">
-	                <table class="table table-hover table-custom spacing5">
-	                    <tbody>
-	                        <tr>
-	                            <td class="w40">
-	                                <span>01</span>
-	                            </td>
-	                            <td>
-	                                <div class="d-flex align-items-center">
-	                                    <div class="avtar-pic w35 bg-red" data-toggle="tooltip" data-placement="top" title="" data-original-title="Avatar Name"><span>SS</span></div>
-	                                    <div class="ml-3">
-	                                        <a href="page-invoices-detail.html"  title="">South Shyanne</a>
-	                                        <p class="mb-0">south.shyanne@example.com</p>
-	                                    </div>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td>
-	                                <span>02</span>
-	                            </td>
-	                            <td>
-	                                <div class="d-flex align-items-center">
-	                                    <img src="{{asset('public/admin/img/avatar2.jpg')}}"  data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
-	                                    <div class="ml-3">
-	                                        <a href="javascript:void(0);" title="">Zoe Baker</a>
-	                                        <p class="mb-0">zoe.baker@example.com</p>
-	                                    </div>
-	                                </div>                                        
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td>
-	                                <span>03</span>
-	                            </td>
-	                            <td>
-	                                <div class="d-flex align-items-center">
-	                                        <div class="avtar-pic w35 bg-indigo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Avatar Name"><span>CB</span></div>
-	                                    <div class="ml-3">
-	                                        <a href="javascript:void(0);" title="">Colin Brown</a>
-	                                        <p class="mb-0">colinbrown@example.com</p>
-	                                    </div>
-	                                </div>                                        
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td>
-	                                <span>04</span>
-	                            </td>
-	                            <td>
-	                                <div class="d-flex align-items-center">
-	                                    <div class="avtar-pic w35 bg-green" data-toggle="tooltip" data-placement="top" title="" data-original-title="Avatar Name"><span>KG</span></div>
-	                                    <div class="ml-3">
-	                                        <a href="javascript:void(0);" title="">Kevin Gill</a>
-	                                        <p class="mb-0">kevin.gill@example.com</p>
-	                                    </div>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td>
-	                                <span>05</span>
-	                            </td>
-	                            <td>
-	                                <div class="d-flex align-items-center">
-	                                    <img src="{{asset('public/admin/img/avatar5.jpg')}}"  data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
-	                                    <div class="ml-3">
-	                                        <a href="javascript:void(0);" title="">Brandon Smith</a>
-	                                        <p class="mb-0">Maria.gill@example.com</p>
-	                                    </div>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td>
-	                                <span>06</span>
-	                            </td>
-	                            <td>
-	                                <div class="d-flex align-items-center">
-	                                    <img src="{{asset('public/admin/img/avatar6.jpg')}}"  data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
-	                                    <div class="ml-3">
-	                                        <a href="javascript:void(0);" title="">Kevin Baker</a>
-	                                        <p class="mb-0">kevin.baker@example.com</p>
-	                                    </div>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td>
-	                                <span>07</span>
-	                            </td>
-	                            <td>
-	                                <div class="d-flex align-items-center">
-	                                    <img src="{{asset('public/admin/img/avatar2.jpg')}}"  data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
-	                                    <div class="ml-3">
-	                                        <a href="javascript:void(0);" title="">Zoe Baker</a>
-	                                        <p class="mb-0">zoe.baker@example.com</p>
-	                                    </div>
-	                                </div>                                        
-	                            </td>
-	                        </tr>
-	                    </tbody>
-	                </table>
-	            </div>
-	        </div>
-
-	        <div id="megamenu" class="megamenu particles_js">
-	            <a href="javascript:void(0);" class="megamenu_toggle btn btn-danger"><i class="icon-close"></i></a>
-
-	            <div class="container"> 
-	                <div class="row clearfix">
-
-	                    <div class="col-12">
-	                        <ul class="q_links">
-	                            <li><a href="app-inbox.html"><i class="icon-envelope"></i><span>Inbox</span></a></li>
-	                            <li><a href="app-chat.html" ></i><span>Messenger</span></a></li>
-	                            <li><a href="app-calendar.html" ><i class="icon-calendar"></i><span>Event</span></a></li>
-	                            <li><a href="page-profile.html" ><i class="icon-user"></i><span>Profile</span></a></li>
-	                            <li><a href="page-invoices.html" ><i class="icon-printer"></i><span>Invoice</span></a></li>
-	                            <li><a href="page-timeline.html" ><i class="icon-list"></i><span>Timeline</span></a></li>
-	                        </ul>
-	                    </div>
-
-			            <div class="col-md-4 col-sm-12">
-			                <div class="card w_card3">
-			                    <div class="body">
-			                        <div class="text-center"><i class="icon-picture text-info"></i>
-			                            <h4 class="m-t-25 mb-0">104 Picture</h4>
-			                            <p>Your gallery download complete</p>
-			                            <a href="javascript:void(0);" class="btn btn-info btn-round">Download now</a>
-			                        </div>
-			                    </div>
-			                </div>
-			            </div>
-			            <div class="col-md-4 col-sm-12">
-			                <div class="card w_card3">
-			                    <div class="body">
-			                        <div class="text-center"><i class="icon-diamond text-success"></i>
-			                            <h4 class="m-t-25 mb-0">813 Point</h4>
-			                            <p>You are doing great job!</p>
-			                            <a href="javascript:void(0);" class="btn btn-success btn-round">Read now</a>
-			                        </div>
-			                    </div>
-			                </div>
-			            </div>
-			            <div class="col-md-4 col-sm-12">
-			                <div class="card w_card3">
-			                    <div class="body">
-			                        <div class="text-center"><i class="icon-social-twitter text-primary"></i>
-			                            <h4 class="m-t-25 mb-0">3,756</h4>
-			                            <p>New Followers on Twitter</p>
-			                            <a href="javascript:void(0);" class="btn btn-primary btn-round">Find more</a>
-			                        </div>
-			                    </div>
-			                </div>
-			            </div>
-			            <div class="col-12">
-			                <ul class="list-group">
-			                    <li class="list-group-item">
-			                        Anyone send me a message
-			                        <div class="float-right">
-			                            <label class="switch">
-			                                <input type="checkbox" checked="">
-			                                <span class="slider round"></span>
-			                            </label>
-			                        </div>
-			                    </li>
-			                    <li class="list-group-item">
-			                        Anyone seeing my profile page
-			                        <div class="float-right">
-			                            <label class="switch">
-			                                <input type="checkbox" checked="">
-			                                <span class="slider round"></span>
-			                            </label>
-			                        </div>
-			                    </li>
-			                    <li class="list-group-item">
-			                        Anyone posts a comment on my post
-			                        <div class="float-right">
-			                            <label class="switch">
-			                                <input type="checkbox">
-			                                <span class="slider round"></span>
-			                            </label>
-			                        </div>
-			                    </li>
-			                </ul>
-			            </div>
-	                </div>
-	            </div>
-
-	            <div id="particles-js"></div>
-	        </div>
-
-	        <div id="rightbar" class="rightbar">
-	            <div class="body">
-	                <ul class="nav nav-tabs2">
-	                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#Chat-one">Chat</a></li>
-	                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Chat-list">List</a></li>
-	                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Chat-groups">Groups</a></li>
-	                </ul>
-	                <hr>
-
-	                <div class="tab-content">
-
-	                    <div class="tab-pane vivify fadeIn delay-100 active" id="Chat-one">
-	                        <div class="slim_scroll">
-	                            <div class="chat_detail">
-	                                <ul class="chat-widget clearfix">
-	                                    <li class="left float-left">
-	                                        <div class="avtar-pic w35 bg-pink"><span>KG</span></div>
-	                                        <div class="chat-info">       
-	                                            <span class="message">Hello, John<br>What is the update on Project X?</span>
-	                                        </div>
-	                                    </li>
-	                                    <li class="right">
-	                                        <img src="{{asset('public/admin/img/avatar1.jpg')}}"  class="rounded" alt="">
-	                                        <div class="chat-info">
-	                                            <span class="message">Hi, Alizee<br> It is almost completed. I will send you an email later today.</span>
-	                                        </div>
-	                                    </li>
-	                                    <li class="left float-left">
-	                                        <div class="avtar-pic w35 bg-pink"><span>KG</span></div>
-	                                        <div class="chat-info">
-	                                            <span class="message">That's great. Will catch you in evening.</span>
-	                                        </div>
-	                                    </li>
-	                                    <li class="right">
-	                                        <img src="{{asset('public/admin/img/avatar1.jpg')}}"  class="rounded" alt="">
-	                                        <div class="chat-info">
-	                                            <span class="message">Sure we'will have a blast today.</span>
-	                                        </div>
-	                                    </li>
-	                                </ul>
-	                                <div class="input-group p-t-15">
-	                                    <textarea rows="3" class="form-control" placeholder="Enter text here..."></textarea>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-
-	                    <div class="tab-pane vvivify fadeIn delay-100" id="Chat-list">
-	                        <ul class="right_chat list-unstyled mb-0">
-	                            <li class="offline">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <div class="avtar-pic w35 bg-red"><span>FC</span></div>
-	                                        <div class="media-body">
-	                                            <span class="name">Folisise Chosielie</span>
-	                                            <span class="message">offline</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                            <li class="online">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <img class="media-object " src="{{asset('public/admin/img/avatar3.jpg')}}"  alt="">
-	                                        <div class="media-body">
-	                                            <span class="name">Marshall Nichols</span>
-	                                            <span class="message">online</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                            <li class="online">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <div class="avtar-pic w35 bg-red"><span>FC</span></div>
-	                                        <div class="media-body">
-	                                            <span class="name">Louis Henry</span>
-	                                            <span class="message">online</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                            <li class="online">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <div class="avtar-pic w35 bg-orange"><span>DS</span></div>
-	                                        <div class="media-body">
-	                                            <span class="name">Debra Stewart</span>
-	                                            <span class="message">online</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                            <li class="offline">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <div class="avtar-pic w35 bg-green"><span>SW</span></div>
-	                                        <div class="media-body">
-	                                            <span class="name">Lisa Garett</span>
-	                                            <span class="message">offline since May 12</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                            <li class="online">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <img class="media-object " src="{{asset('public/admin/img/avatar5.jpg')}}"  alt="">
-	                                        <div class="media-body">
-	                                            <span class="name">Debra Stewart</span>
-	                                            <span class="message">online</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                            <li class="offline">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <img class="media-object " src="{{asset('public/admin/img/avatar2.jpg')}}"  alt="">
-	                                        <div class="media-body">
-	                                            <span class="name">Lisa Garett</span>
-	                                            <span class="message">offline since Jan 18</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                            <li class="online">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <div class="avtar-pic w35 bg-indigo"><span>FC</span></div>
-	                                        <div class="media-body">
-	                                            <span class="name">Louis Henry</span>
-	                                            <span class="message">online</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                            <li class="online">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <div class="avtar-pic w35 bg-pink"><span>DS</span></div>
-	                                        <div class="media-body">
-	                                            <span class="name">Debra Stewart</span>
-	                                            <span class="message">online</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                            <li class="offline">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <div class="avtar-pic w35 bg-info"><span>SW</span></div>
-	                                        <div class="media-body">
-	                                            <span class="name">Lisa Garett</span>
-	                                            <span class="message">offline since May 12</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                        </ul>
-	                    </div>
-
-	                    <div class="tab-pane vivify fadeIn delay-100" id="Chat-groups">
-	                        <ul class="right_chat list-unstyled mb-0">
-	                            <li class="offline">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <div class="avtar-pic w35 bg-cyan"><span>DT</span></div>
-	                                        <div class="media-body">
-	                                            <span class="name">Designer Team</span>
-	                                            <span class="message">offline</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>
-	                            <li class="online">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <div class="avtar-pic w35 bg-azura"><span>SG</span></div>
-	                                        <div class="media-body">
-	                                            <span class="name">Sale Groups</span>
-	                                            <span class="message">online</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                            <li class="online">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <div class="avtar-pic w35 bg-orange"><span>NF</span></div>
-	                                        <div class="media-body">
-	                                            <span class="name">New Fresher</span>
-	                                            <span class="message">online</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                            <li class="offline">
-	                                <a href="javascript:void(0);">
-	                                    <div class="media">
-	                                        <div class="avtar-pic w35 bg-indigo"><span>PL</span></div>
-	                                        <div class="media-body">
-	                                            <span class="name">Project Lead</span>
-	                                            <span class="message">offline since May 12</span>
-	                                            <span class="badge badge-outline status"></span>
-	                                        </div>
-	                                    </div>
-	                                </a>                            
-	                            </li>
-	                        </ul>
-	                    </div>
-	                </div>
-
-	            </div>
-	        </div>
-
-
-	        <div id="left-sidebar" class="sidebar">
-            <div class="navbar-brand">
-                <a href="{{route('ad.home')}}" ><img src="{{asset('public/admin/css/icon.svg')}}" alt="Admin Logo" class="img-fluid logo"><span>Admin</span></a>
-                <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right"><i class="lnr lnr-menu icon-close"></i></button>
-            </div>
-            <div class="sidebar-scroll">
-                <div class="user-account">
-                    <div class="user_div">
-                        <img src="{{asset('public/admin/img/user.png')}}"  class="user-photo" alt="User Profile Picture">
+<div class="main-header">
+    <div class="logo">
+        <img src="{{asset('public/admin/img/logo.png')}}" alt="">
+    </div>
+    <div class="menu-toggle">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="d-flex align-items-center">
+        <!-- Mega menu -->
+        <div class="dropdown mega-menu d-none d-md-block">
+            <a href="#" class="btn text-muted dropdown-toggle mr-3" id="dropdownMegaMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mega Menu</a>
+            <div class="dropdown-menu text-left" aria-labelledby="dropdownMenuButton">
+                <div class="row m-0">
+                    <div class="col-md-4 p-4 bg-img">
+                        <h2 class="title">Mega Menu <br> Sidebar</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores natus laboriosam fugit, consequatur.
+                        </p>
+                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem odio amet eos dolore suscipit placeat.</p>
+                        <button class="btn btn-lg btn-rounded btn-outline-warning">Learn More</button>
                     </div>
-                    <div class="dropdown">
-                        <span>Welcome,</span>
-                        <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>{{Auth::user()->info->info_lastname}} {{Auth::user()->info->info_name}}</strong></a>
-                        <ul class="dropdown-menu dropdown-menu-right account vivify flipInY">
-                            <li><a href="#" ><i class="icon-user"></i>My Profile</a></li>
-
-                            <li><a href="{{route('act.home')}}" ><i class="icon-home"></i>Trang của tui</a></li>
-
-                            <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
-
-                            <li class="divider"></li>
-                            <li><a href="{{route('p.logout')}}" ><i class="icon-power"></i>Logout</a></li>
+                    <div class="col-md-4 p-4">
+                        <p class="text-primary text--cap border-bottom-primary d-inline-block">Features</p>
+                        <div class="menu-icon-grid w-auto p-0">
+                            <a href="#"><i class="i-Shop-4"></i> Home</a>
+                            <a href="#"><i class="i-Library"></i> UI Kits</a>
+                            <a href="#"><i class="i-Drop"></i> Apps</a>
+                            <a href="#"><i class="i-File-Clipboard-File--Text"></i> Forms</a>
+                            <a href="#"><i class="i-Checked-User"></i> Sessions</a>
+                            <a href="#"><i class="i-Ambulance"></i> Support</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-4">
+                        <p class="text-primary text--cap border-bottom-primary d-inline-block">Components</p>
+                        <ul class="links">
+                            <li><a href="accordion.html">Accordion</a></li>
+                            <li><a href="alerts.html">Alerts</a></li>
+                            <li><a href="buttons.html">Buttons</a></li>
+                            <li><a href="badges.html">Badges</a></li>
+                            <li><a href="carousel.html">Carousels</a></li>
+                            <li><a href="lists.html">Lists</a></li>
+                            <li><a href="popover.html">Popover</a></li>
+                            <li><a href="tables.html">Tables</a></li>
+                            <li><a href="datatables.html">Datatables</a></li>
+                            <li><a href="modals.html">Modals</a></li>
+                            <li><a href="nouislider.html">Sliders</a></li>
+                            <li><a href="tabs.html">Tabs</a></li>
                         </ul>
-                    </div>                
-                </div>  
-                <nav id="left-sidebar-nav" class="sidebar-nav">
-                    <ul id="main-menu" class="metismenu">
-                                            
-                        <li class="header">Bản điều khiển</li>
-                        @if(Auth::user()->level == 1)
-	                        <li>
-	                            <a href="#uiIcons" class="has-arrow"><i class="icon-speedometer"></i><span>Giao diện</span></a>
-	                            <ul>
-	                                <li><a href="#"> Banner</a></li>
-	                            </ul>
-	                        </li>
-
-	                        <li>
-	                            <a href="#uiIcons" class="has-arrow"><i class="icon-user"></i><span>Member</span></a>
-	                            <ul>
-	                                <li><a href="#"> Quyền</a></li>
-	                                <li><a href="#">Danh sách thành viên</a></li>
-	                            </ul>
-	                        </li>
-                        @endif
-                        
-                        <li>
-                            <a href="#Tables" class="has-arrow"><i class="icon-layers"></i><span>Danh sách</span></a>
-                            <ul>
-                                <li><a href="{{Route('ctg.list')}}" >Danh mục</a></li>
-                                <li><a href="{{Route('s.ctg.list')}}" >Thể loại</a></li>
-                                <li><a href="{{Route('auth.list')}}" >Tác giả</a></li>
-                                <li><a href="{{Route('pbh.list')}}" >Nhà xuất bản</a></li>
-                                <li><a href="{{Route('cby.list')}}" >Nhà phân phối</a></li>
-                                <li><a href="{{Route('b.list')}}" >Sách</a></li>
-
-                                
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#charts" class="has-arrow"><i class="icon-pie-chart"></i><span>Thống kê</span></a>
-                            <ul>
-                                <li><a href="chart-apex.html" >Apex Charts</a></li>
-                                <li><a href="chart-c3.html" >C3 Charts</a></li>
-                                <li><a href="chart-chartjs.html" >ChartJS</a></li>
-                                <li><a href="chart-morris.html" >Morris Charts</a></li>
-                                <li><a href="chart-flot.html" >Flot Charts</a></li>                            
-                                <li><a href="chart-sparkline.html">Sparkline Chart</a></li>
-                                <li><a href="chart-jquery-knob.html" >Jquery Knob</a></li>
-                            </ul>
-                        </li>
-                        
-                    </ul>
-                </nav>     
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- / Mega menu -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <i class="search-icon text-muted i-Magnifi-Glass1"></i>
+        </div>
+    </div>
+    <div style="margin: auto"></div>
+    <div class="header-part-right">
+        <!-- Full screen toggle -->
+        <i class="i-Full-Screen header-icon d-none d-sm-inline-block" data-fullscreen></i>
+        <!-- Grid menu Dropdown -->
+        <div class="dropdown">
+            <i class="i-Safe-Box text-muted header-icon" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="menu-icon-grid">
+                    <a href="#"><i class="i-Shop-4"></i> Home</a>
+                    <a href="#"><i class="i-Library"></i> UI Kits</a>
+                    <a href="#"><i class="i-Drop"></i> Apps</a>
+                    <a href="#"><i class="i-File-Clipboard-File--Text"></i> Forms</a>
+                    <a href="#"><i class="i-Checked-User"></i> Sessions</a>
+                    <a href="#"><i class="i-Ambulance"></i> Support</a>
+                </div>
+            </div>
+        </div>
+        <!-- Notificaiton -->
+        <div class="dropdown">
+            <div class="badge-top-container" role="button" id="dropdownNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="badge badge-primary">3</span>
+                <i class="i-Bell text-muted header-icon"></i>
+            </div>
+            <!-- Notification dropdown -->
+            <div class="dropdown-menu dropdown-menu-right notification-dropdown rtl-ps-none" aria-labelledby="dropdownNotification" data-perfect-scrollbar data-suppress-scroll-x="true">
+                <div class="dropdown-item d-flex">
+                    <div class="notification-icon">
+                        <i class="i-Speach-Bubble-6 text-primary mr-1"></i>
+                    </div>
+                    <div class="notification-details flex-grow-1">
+                        <p class="m-0 d-flex align-items-center">
+                            <span>New message</span>
+                            <span class="badge badge-pill badge-primary ml-1 mr-1">new</span>
+                            <span class="flex-grow-1"></span>
+                            <span class="text-small text-muted ml-auto">10 sec ago</span>
+                        </p>
+                        <p class="text-small text-muted m-0">James: Hey! are you busy?</p>
+                    </div>
+                </div>
+                <div class="dropdown-item d-flex">
+                    <div class="notification-icon">
+                        <i class="i-Receipt-3 text-success mr-1"></i>
+                    </div>
+                    <div class="notification-details flex-grow-1">
+                        <p class="m-0 d-flex align-items-center">
+                            <span>New order received</span>
+                            <span class="badge badge-pill badge-success ml-1 mr-1">new</span>
+                            <span class="flex-grow-1"></span>
+                            <span class="text-small text-muted ml-auto">2 hours ago</span>
+                        </p>
+                        <p class="text-small text-muted m-0">1 Headphone, 3 iPhone x</p>
+                    </div>
+                </div>
+                <div class="dropdown-item d-flex">
+                    <div class="notification-icon">
+                        <i class="i-Empty-Box text-danger mr-1"></i>
+                    </div>
+                    <div class="notification-details flex-grow-1">
+                        <p class="m-0 d-flex align-items-center">
+                            <span>Product out of stock</span>
+                            <span class="badge badge-pill badge-danger ml-1 mr-1">3</span>
+                            <span class="flex-grow-1"></span>
+                            <span class="text-small text-muted ml-auto">10 hours ago</span>
+                        </p>
+                        <p class="text-small text-muted m-0">Headphone E67, R98, XL90, Q77</p>
+                    </div>
+                </div>
+                <div class="dropdown-item d-flex">
+                    <div class="notification-icon">
+                        <i class="i-Data-Power text-success mr-1"></i>
+                    </div>
+                    <div class="notification-details flex-grow-1">
+                        <p class="m-0 d-flex align-items-center">
+                            <span>Server Up!</span>
+                            <span class="badge badge-pill badge-success ml-1 mr-1">3</span>
+                            <span class="flex-grow-1"></span>
+                            <span class="text-small text-muted ml-auto">14 hours ago</span>
+                        </p>
+                        <p class="text-small text-muted m-0">Server rebooted successfully</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Notificaiton End -->
+        <!-- User avatar dropdown -->
+        <div class="dropdown">
+            <div class="user col align-self-end">
+                <img src="{{asset('public/admin/img/faces/1.jpg')}}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <div class="dropdown-header">
+                        <i class="i-Lock-User mr-1"></i> Timothy Carlson
+                    </div>
+                    <a class="dropdown-item">Account settings</a>
+                    <a class="dropdown-item">Billing history</a>
+                    <a class="dropdown-item" href="signin.html">Sign out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="side-content-wrap">
+    <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
+        <ul class="navigation-left">
+            <li class="nav-item" data-item="dashboard"><a class="nav-item-hold" href="#"><i class="nav-icon i-Bar-Chart"></i><span class="nav-text">Dashboard</span></a>
+                <div class="triangle"></div>
+            </li>
+            <li class="nav-item" data-item="uikits"><a class="nav-item-hold" href="#"><i class="nav-icon i-Library"></i><span class="nav-text">UI kits</span></a>
+                <div class="triangle"></div>
+            </li>
+            <li class="nav-item" data-item="extrakits"><a class="nav-item-hold" href="#"><i class="nav-icon i-Suitcase"></i><span class="nav-text">Extra kits</span></a>
+                <div class="triangle"></div>
+            </li>
+            <li class="nav-item" data-item="apps"><a class="nav-item-hold" href="#"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">Apps</span></a>
+                <div class="triangle"></div>
+            </li>
+            <li class="nav-item" data-item="widgets"><a class="nav-item-hold" href="#"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">Widgets</span></a>
+                <div class="triangle"></div>
+            </li>
+            <li class="nav-item" data-item="charts"><a class="nav-item-hold" href="#"><i class="nav-icon i-File-Clipboard-File--Text"></i><span class="nav-text">Charts</span></a>
+                <div class="triangle"></div>
+            </li>
+            <li class="nav-item" data-item="forms"><a class="nav-item-hold" href="#"><i class="nav-icon i-File-Clipboard-File--Text"></i><span class="nav-text">Forms</span></a>
+                <div class="triangle"></div>
+            </li>
+            <li class="nav-item"><a class="nav-item-hold" href="datatables.html"><i class="nav-icon i-File-Horizontal-Text"></i><span class="nav-text">Datatables</span></a>
+                <div class="triangle"></div>
+            </li>
+            <li class="nav-item" data-item="sessions"><a class="nav-item-hold" href="#"><i class="nav-icon i-Administrator"></i><span class="nav-text">Sessions</span></a>
+                <div class="triangle"></div>
+            </li>
+            <li class="nav-item active" data-item="others"><a class="nav-item-hold" href="#"><i class="nav-icon i-Double-Tap"></i><span class="nav-text">Others</span></a>
+                <div class="triangle"></div>
+            </li>
+            <li class="nav-item"><a class="nav-item-hold" href="http://demos.ui-lib.com/gull-html-doc/" target="_blank"><i class="nav-icon i-Safe-Box1"></i><span class="nav-text">Doc</span></a>
+                <div class="triangle"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
+        <!-- Submenu Dashboards-->
+        <ul class="childNav" data-parent="dashboard">
+            <li class="nav-item"><a href="dashboard1.html"><i class="nav-icon i-Clock-3"></i><span class="item-name">Version 1</span></a></li>
+            <li class="nav-item"><a href="dashboard2.html"><i class="nav-icon i-Clock-4"></i><span class="item-name">Version 2</span></a></li>
+            <li class="nav-item"><a href="dashboard3.html"><i class="nav-icon i-Over-Time"></i><span class="item-name">Version 3</span></a></li>
+            <li class="nav-item"><a href="dashboard4.html"><i class="nav-icon i-Clock"></i><span class="item-name">Version 4</span></a></li>
+        </ul>
+        <ul class="childNav" data-parent="forms">
+            <li class="nav-item"><a href="form.basic.html"><i class="nav-icon i-File-Clipboard-Text--Image"></i><span class="item-name">Basic Elements</span></a></li>
+            <li class="nav-item"><a href="form.layouts.html"><i class="nav-icon i-Split-Vertical"></i><span class="item-name">Form Layouts</span></a></li>
+            <li class="nav-item"><a href="form.input.group.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">Input Groups</span></a></li>
+            <li class="nav-item"><a href="form.validation.html"><i class="nav-icon i-Close-Window"></i><span class="item-name">Form Validation</span></a></li>
+            <li class="nav-item"><a href="smart.wizard.html"><i class="nav-icon i-Width-Window"></i><span class="item-name">Smart Wizard</span></a></li>
+            <li class="nav-item"><a href="tag.input.html"><i class="nav-icon i-Tag-2"></i><span class="item-name">Tag Input</span></a></li>
+            <li class="nav-item"><a href="editor.html"><i class="nav-icon i-Pen-2"></i><span class="item-name">Rich Editor</span></a></li>
+        </ul>
+        <ul class="childNav" data-parent="apps">
+            <li class="nav-item"><a href="invoice.html"><i class="nav-icon i-Add-File"></i><span class="item-name">Invoice</span></a></li>
+            <li class="nav-item"><a href="inbox.html"><i class="nav-icon i-Email"></i><span class="item-name">Inbox</span></a></li>
+            <li class="nav-item"><a href="chat.html"><i class="nav-icon i-Speach-Bubble-3"></i><span class="item-name">Chat</span></a></li>
+        </ul>
+        <ul class="childNav" data-parent="widgets">
+            <li class="nav-item"><a href="widget-card.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">widget card</span></a></li>
+            <li class="nav-item"><a href="widget-statistics.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">widget statistics</span></a></li>
+            <li class="nav-item"><a href="widget-list.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">Widget List <span class="ml-2 badge badge-pill badge-danger">New</span></span></a></li>
+            <li class="nav-item"><a href="widget-app.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">Widget App <span class="ml-2 badge badge-pill badge-danger"> New</span></span></a></li>
+            <li class="nav-item"><a href="weather-card.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">Weather App <span class="ml-2 badge badge-pill badge-danger"> New</span></span></a></li>
+        </ul>
+        <!-- chartjs-->
+        <ul class="childNav" data-parent="charts">
+            <li class="nav-item"><a href="charts.echarts.html"><i class="nav-icon i-File-Clipboard-Text--Image"></i><span class="item-name">echarts</span></a></li>
+            <li class="nav-item"><a href="charts.chartsjs.html"><i class="nav-icon i-File-Clipboard-Text--Image"></i><span class="item-name">ChartJs</span></a></li>
+            <li class="nav-item dropdown-sidemenu"><a href=""><i class="nav-icon i-File-Clipboard-Text--Image"></i><span class="item-name">Apex Charts</span><i class="dd-arrow i-Arrow-Down"></i></a>
+                <ul class="submenu">
+                    <li><a href="charts.apexAreaCharts.html">Area Charts</a></li>
+                    <li><a href="charts.apexBarCharts.html">Bar Charts</a></li>
+                    <li><a href="charts.apexBubbleCharts.html">Bubble Charts</a></li>
+                    <li><a href="charts.apexColumnCharts.html">Column Charts</a></li>
+                    <li><a href="charts.apexCandleStickCharts.html">CandleStick Charts</a></li>
+                    <li><a href="charts.apexLineCharts.html">Line Charts</a></li>
+                    <li><a href="charts.apexMixCharts.html">Mix Charts</a></li>
+                    <li><a href="charts.apexPieDonutCharts.html">PieDonut Charts</a></li>
+                    <li><a href="charts.apexRadarCharts.html">Radar Charts</a></li>
+                    <li><a href="charts.apexRadialBarCharts.html">RadialBar Charts</a></li>
+                    <li><a href="charts.apexScatterCharts.html">Scatter Charts</a></li>
+                    <li><a href="charts.apexSparklineCharts.html">Sparkline Charts</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="childNav" data-parent="extrakits">
+            <li class="nav-item"><a href="image.cropper.html"><i class="nav-icon i-Crop-2"></i><span class="item-name">Image Cropper</span></a></li>
+            <li class="nav-item"><a href="loaders.html"><i class="nav-icon i-Loading-3"></i><span class="item-name">Loaders</span></a></li>
+            <li class="nav-item"><a href="ladda.button.html"><i class="nav-icon i-Loading-2"></i><span class="item-name">Ladda Buttons</span></a></li>
+            <li class="nav-item"><a href="toastr.html"><i class="nav-icon i-Bell"></i><span class="item-name">Toastr</span></a></li>
+            <li class="nav-item"><a href="sweet.alerts.html"><i class="nav-icon i-Approved-Window"></i><span class="item-name">Sweet Alerts</span></a></li>
+            <li class="nav-item"><a href="tour.html"><i class="nav-icon i-Plane"></i><span class="item-name">User Tour</span></a></li>
+            <li class="nav-item"><a href="upload.html"><i class="nav-icon i-Data-Upload"></i><span class="item-name">Upload</span></a></li>
+        </ul>
+        <ul class="childNav" data-parent="uikits">
+            <li class="nav-item"><a href="alerts.html"><i class="nav-icon i-Bell1"></i><span class="item-name">Alerts</span></a></li>
+            <li class="nav-item"><a href="accordion.html"><i class="nav-icon i-Split-Horizontal-2-Window"></i><span class="item-name">Accordion</span></a></li>
+            <li class="nav-item"><a href="badges.html"><i class="nav-icon i-Medal-2"></i><span class="item-name">Badges</span></a></li>
+            <li class="nav-item"><a href="buttons.html"><i class="nav-icon i-Cursor-Click"></i><span class="item-name">Buttons</span></a></li>
+            <li class="nav-item"><a href="cards.html"><i class="nav-icon i-Line-Chart-2"></i><span class="item-name">Cards</span></a></li>
+            <li class="nav-item"><a href="card.metrics.html"><i class="nav-icon i-ID-Card"></i><span class="item-name">Card Metrics</span></a></li>
+            <li class="nav-item"><a href="carousel.html"><i class="nav-icon i-Video-Photographer"></i><span class="item-name">Carousels</span></a></li>
+            <li class="nav-item"><a href="lists.html"><i class="nav-icon i-Belt-3"></i><span class="item-name">Lists</span></a></li>
+            <li class="nav-item"><a href="pagination.html"><i class="nav-icon i-Arrow-Next"></i><span class="item-name">Paginations</span></a></li>
+            <li class="nav-item"><a href="popover.html"><i class="nav-icon i-Speach-Bubble-2"></i><span class="item-name">Popover</span></a></li>
+            <li class="nav-item"><a href="progressbar.html"><i class="nav-icon i-Loading"></i><span class="item-name">Progressbar</span></a></li>
+            <li class="nav-item"><a href="tables.html"><i class="nav-icon i-File-Horizontal-Text"></i><span class="item-name">Tables</span></a></li>
+            <li class="nav-item"><a href="tabs.html"><i class="nav-icon i-New-Tab"></i><span class="item-name">Tabs</span></a></li>
+            <li class="nav-item"><a href="tooltip.html"><i class="nav-icon i-Speach-Bubble-8"></i><span class="item-name">Tooltip</span></a></li>
+            <li class="nav-item"><a href="modals.html"><i class="nav-icon i-Duplicate-Window"></i><span class="item-name">Modals</span></a></li>
+            <li class="nav-item"><a href="nouislider.html"><i class="nav-icon i-Width-Window"></i><span class="item-name">Sliders</span></a></li>
+        </ul>
+        <ul class="childNav" data-parent="sessions">
+            <li class="nav-item"><a href="../sessions/signin.html"><i class="nav-icon i-Checked-User"></i><span class="item-name">Sign in</span></a></li>
+            <li class="nav-item"><a href="../sessions/signup.html"><i class="nav-icon i-Add-User"></i><span class="item-name">Sign up</span></a></li>
+            <li class="nav-item"><a href="../sessions/forgot.html"><i class="nav-icon i-Find-User"></i><span class="item-name">Forgot</span></a></li>
+        </ul>
+        <ul class="childNav" data-parent="others">
+            <li class="nav-item"><a href="../sessions/not-found.html"><i class="nav-icon i-Error-404-Window"></i><span class="item-name">Not Found</span></a></li>
+            <li class="nav-item"><a href="user.profile.html"><i class="nav-icon i-Male"></i><span class="item-name">User Profile</span></a></li>
+            <li class="nav-item"><a class="open" href="blank.html"><i class="nav-icon i-File-Horizontal"></i><span class="item-name">Blank Page</span></a></li>
+        </ul>
+    </div>
+    <div class="sidebar-overlay"></div>
+</div>
+
+<!-- =============== Left side End ================-->

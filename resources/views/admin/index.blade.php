@@ -1,469 +1,229 @@
-@extends('admin.layout')
-@section('title','Dashboard')
-@section('admin_content')
-    
-            {{-- ///////////////////////////////// Admin ////////////////////////////// --}}
-
-    @if(Auth::user()->level == 1)
-
-        <div id="main-content">
-            <div class="container-fluid">
-                <div class="block-header">
-                    <div class="row clearfix">
-                        <div class="col-md-6 col-sm-12">
-                            <h1>Dashboard</h1>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                                    {{-- <li class="breadcrumb-item active" aria-current="page">Finance Performance</li> --}}
-                                </ol>
-                            </nav>
-                        </div>            
-                        <div class="col-md-6 col-sm-12 text-right hidden-xs">
-                            <a href="javascript:void(0);" class="btn btn-sm btn-primary" title="">Create Campaign</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row clearfix">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="body">
-                                <div>Tổng tiền</div>
-                                <div class="py-4 m-0 text-center h1 text-success">{{ number_format($tongtien,0,',','.') }} đ</div>
-                                <div class="d-flex">
-                                    <small class="text-muted">Tháng trước</small>
-                                    <div class="ml-auto"><i class="fa fa-caret-up text-success"></i>4.00%</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="body">
-                                <div>Tổng tiền tháng này</div>
-                                <div class="py-4 m-0 text-center h1 text-info">$12,258</div>
-                                <div class="d-flex">
-                                    <small class="text-muted">Tháng trước</small>
-                                    <div class="ml-auto">0.67%</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>   
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="body">
-                                <div>Gross Profit Margin</div>
-                                <div class="mt-4 text-center">
-                                    <input type="text" class="knob" value="34" data-width="147" data-height="147" data-thickness="0.07" data-bgColor="#383b40" data-fgColor="#9367B4">
-                                </div>
-                                <h3 class="mb-0 mt-3 font300">24,301 <span class="text-green font-15">+3.7%</span></h3>
-                                <small>Lorem Ipsum is simply dummy text <br> <a href="#">Read more</a> </small>
-                                <div class="mt-4 text-center">
-                                    <span class="chart_3">2,5,8,3,6,9,4,5,6,3</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12">
-                        <div class="row clearfix">
-                            <div class="col-lg-6 col-md-6">
-
-                                <div class="card">
-                                    <div class="body" style="padding-bottom: 65px;">
-                                        <div class="card-value float-right text-blue">+15%</div>
-                                        <h4 class="mb-1">$5,021.00</h4>
-                                        <div class="text-muted">Số dư</div>
-                                    </div>
-                                   
-                                </div>
-
-                                <div class="card">
-                                    <div class="body top_counter">
-                                        <div class="icon bg-success text-white"><i class="icon-book-open"></i> </div>
-                                        <div class="content">
-                                            <span>Sách bán ra</span>
-                                            <h5 class="number mb-0">{{$book}} cuốn</h5>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="body top_counter">
-                                        <div class="icon bg-warning text-white"><i class="icon-user"></i> </div>
-                                        <div class="content">
-                                            <span>Member</span>
-                                            <h5 class="number mb-0">{{$user}} người</h5>
-                                        </div>
-                                    </div>                        
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="card">
-                                    <div class="body">
-                                        <div class="media">
-                                            <img class="rounded mr-3" src="{{asset('public/admin/img/avatar7.jpg')}}"  alt="">
-                                            <div class="media-body">
-                                                <h5 class="m-0">{{Auth::user()->info->info_name}} {{Auth::user()->info->info_lastname}}</h5>
-                                                @if(Auth::user()->level == 1)
-
-                                                    <p  style="color: #ffc107;">
-                                                        <i class="fa fa-linux" style="padding-right: 10px;"></i> 
-                                                        {{Auth::user()->vaitro->role_name}}
-                                                    </p>
-
-                                                @else
-
-                                                    <p  style="color: #5CB65F;">
-                                                        <i class="icon-badge" style="padding-right: 10px;"></i> 
-                                                         {{Auth::user()->vaitro->role_name}}
-                                                    </p>
-
-                                                @endif
-
-                                            </div>
-                                        </div>
-                                        <small class="text-muted">Account Number:- </small>
-                                        <p>2154 - 1245 - 2185 - 5858</p>
-                                        <small class="text-muted">Number:- </small>
-                                        <p>+ 264-625-7262</p>
-                                        <small class="text-muted">Account:- </small>
-                                        <p>HDFC Bank</p>
-                                        <small class="text-muted">Address:- </small>
-                                        <p>Magnolia St. Orlando, FL 32806</p>                                    
-                                        <small class="text-muted">Account Type:- </small>
-                                        <p class="mb-0">Current</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row clearfix">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2>Sản phẩm đang bán</h2>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-custom spacing5">
-                                    <thead>
-                                        <tr>
-                                            <th width="10%;">Mã đơn hàng</th>
-                                            <th>Tổng tiền</th>
-                                            <th>Trạng thái</th>
-                                            <th>Người mua</th>
-                                            <th>Người bán</th>
-                                            <th>Ngày đặt hàng</th>
-                                            <th>Ngày hoàn thành</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($bill as $dsbill)
-
-                                        <tr>
-                                            <td>{{$dsbill->bill_code}}</td>
-                                            <td>{{ number_format($dsbill->bill_total,0,',','.') }} đ</td>
-
-                                            <td>
-                                                @if($dsbill->id_status == 8)
-
-                                                    <span style="color: #dc3545">
-                                                        {{$dsbill->status->status_name}}
-                                                    </span>
-
-                                                @elseif($dsbill->id_status == 7)
-
-                                                    <span style="color: #28a745;">
-                                                        {{$dsbill->status->status_name}}
-                                                    </span>
-
-                                                @elseif($dsbill->id_status == 6)
-
-                                                    <span style="color: #17a2b8;">
-                                                        {{$dsbill->status->status_name}}
-                                                    </span>
-
-                                                @elseif($dsbill->id_status == 5)
-
-                                                    <span style="color: #007bff;">
-                                                        {{$dsbill->status->status_name}}
-                                                    </span>
-
-                                                @elseif($dsbill->id_status == 4)
-
-                                                    <span style="color: #fd7e14;">
-                                                        {{$dsbill->status->status_name}}
-                                                    </span>
-
-                                                @else
-
-                                                    <span >{{$dsbill->status->status_name}}</span>
-                                                    
-                                                @endif
-                                            </td>
-
-                                            <td>
-                                                <a href="#" style="color: #fafafa">
-                                                    {{$dsbill->userbill->link}}
-                                                </a> 
-                                            </td>
-
-                                            <td>
-                                                @foreach($dsbill->detailbill as $nguoiban )
-                                                    <a href="#" style="color: #ffc107">
-                                                        {{$nguoiban->detailbill2->user->link}}
-                                                    </a> 
-
-                                                    <br>
-                                                @endforeach
-                                            </td>
-
-
-                                            <td>{{$dsbill->created_at}}</td>
-                                            <td>{{$dsbill->updated_at}}</td>
-                                            
-                                        </tr>
-                                        
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+@extends('admin.master')
+@section('tieude','Admin')
+@section('content')
+    <!-- ============ Body content start ============= -->
+    <div class="main-content">
+        <div class="breadcrumb">
+            <h1 class="mr-2">Version 2</h1>
+            <ul>
+                <li><a href="">Dashboard</a></li>
+                <li>Version 2</li>
+            </ul>
         </div>
-
-            {{-- ///////////////////////////////// Khách hàng ////////////////////////////// --}}
-    @else
-
-        <div id="main-content">
-            <div class="container-fluid">
-                <div class="block-header">
-                    <div class="row clearfix">
-                        <div class="col-md-6 col-sm-12">
-                            <h1>Dashboard</h1>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                                    {{-- <li class="breadcrumb-item active" aria-current="page">Finance Performance</li> --}}
-                                </ol>
-                            </nav>
-                        </div>            
-                        <div class="col-md-6 col-sm-12 text-right hidden-xs">
-                            <a href="javascript:void(0);" class="btn btn-sm btn-primary" title="">Create Campaign</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row clearfix">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="body">
-                                <div>Tổng tiền</div>
-                                <div class="py-4 m-0 text-center h1 text-success">$9,452</div>
-                                <div class="d-flex">
-                                    <small class="text-muted">Tháng trước</small>
-                                    <div class="ml-auto"><i class="fa fa-caret-up text-success"></i>4.00%</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="body">
-                                <div>Tổng số sách bán ra</div>
-                                <div class="py-4 m-0 text-center h1 text-info">$12,258</div>
-                                <div class="d-flex">
-                                    <small class="text-muted">Tháng trước</small>
-                                    <div class="ml-auto">0.67%</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>   
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="body">
-                                <div>Gross Profit Margin</div>
-                                <div class="mt-4 text-center">
-                                    <input type="text" class="knob" value="34" data-width="147" data-height="147" data-thickness="0.07" data-bgColor="#383b40" data-fgColor="#9367B4">
-                                </div>
-                                <h3 class="mb-0 mt-3 font300">24,301 <span class="text-green font-15">+3.7%</span></h3>
-                                <small>Lorem Ipsum is simply dummy text <br> <a href="#">Read more</a> </small>
-                                <div class="mt-4 text-center">
-                                    <span class="chart_3">2,5,8,3,6,9,4,5,6,3</span>
-                                </div>
+        <div class="separator-breadcrumb border-top"></div>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <!-- CARD ICON-->
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card card-icon mb-4">
+                            <div class="card-body text-center"><i class="i-Data-Upload"></i>
+                                <p class="text-muted mt-2 mb-2">Today&apos;s Upload</p>
+                                <p class="text-primary text-24 line-height-1 m-0">21</p>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-6 col-md-12">
-                        <div class="row clearfix">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="card">
-                                    <div class="body">
-                                        <div class="card-value float-right text-blue">+15%</div>
-                                        <h4 class="mb-1">$5,021.00</h4>
-                                        <div class="text-muted">Số dư</div>
-                                    </div>
-                                    <div class="card-chart-bg">
-                                        <span id="linecustom">6,7,5,9,7,8,4,7,6,9,11,16,10,8,9,12</span>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="body top_counter">
-                                        <div class="icon bg-success text-white"><i class="fa fa-area-chart"></i> </div>
-                                        <div class="content">
-                                            <span>Tăng trưởng</span>
-                                            <h5 class="number mb-0">62%</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="body top_counter">
-                                        <div class="icon bg-warning text-white"><i class="fa fa-building"></i> </div>
-                                        <div class="content">
-                                            <span>Member</span>
-                                            <h5 class="number mb-0">53,251</h5>
-                                        </div>
-                                    </div>                        
-                                </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card card-icon mb-4">
+                            <div class="card-body text-center"><i class="i-Add-User"></i>
+                                <p class="text-muted mt-2 mb-2">New Users</p>
+                                <p class="text-primary text-24 line-height-1 m-0">21</p>
                             </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="card">
-                                    <div class="body">
-                                        <div class="media">
-                                            <img class="rounded mr-3" src="{{asset('public/admin/img/avatar7.jpg')}}"  alt="">
-                                            <div class="media-body">
-                                                <h5 class="m-0">{{Auth::user()->info->info_name}} {{Auth::user()->info->info_lastname}}</h5>
-                                                @if(Auth::user()->level == 1)
-
-                                                    <p  style="color: #ffc107;">
-                                                        <i class="fa fa-linux" style="padding-right: 10px;"></i> 
-                                                        {{Auth::user()->vaitro->role_name}}
-                                                    </p>
-
-                                                @else
-
-                                                    <p  style="color: #5CB65F;">
-                                                        <i class="icon-badge" style="padding-right: 10px;"></i> 
-                                                         {{Auth::user()->vaitro->role_name}}
-                                                    </p>
-
-                                                @endif
-
-                                            </div>
-                                        </div>
-                                        <small class="text-muted">Account Number:- </small>
-                                        <p>2154 - 1245 - 2185 - 5858</p>
-                                        <small class="text-muted">Number:- </small>
-                                        <p>+ 264-625-7262</p>
-                                        <small class="text-muted">Account:- </small>
-                                        <p>HDFC Bank</p>
-                                        <small class="text-muted">Address:- </small>
-                                        <p>Magnolia St. Orlando, FL 32806</p>                                    
-                                        <small class="text-muted">Account Type:- </small>
-                                        <p class="mb-0">Current</p>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card card-icon mb-4">
+                            <div class="card-body text-center"><i class="i-Money-2"></i>
+                                <p class="text-muted mt-2 mb-2">Total sales</p>
+                                <p class="text-primary text-24 line-height-1 m-0">4021</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card card-icon-big mb-4">
+                            <div class="card-body text-center"><i class="i-Money-2"></i>
+                                <p class="line-height-1 text-title text-18 mt-2 mb-0">4021</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card card-icon-big mb-4">
+                            <div class="card-body text-center"><i class="i-Gear"></i>
+                                <p class="line-height-1 text-title text-18 mt-2 mb-0">4021</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card card-icon-big mb-4">
+                            <div class="card-body text-center"><i class="i-Bell"></i>
+                                <p class="line-height-1 text-title text-18 mt-2 mb-0">4021</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="row clearfix">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2>Sản phẩm đang bán</h2>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-custom spacing5">
-                                    <thead>
-                                        <tr>
-                                            <th>&nbsp;</th>
-                                            <th>Actual Cost</th>
-                                            <th>Forecast Cost</th>
-                                            <th>Revenue</th>
-                                            <th class="w100">% Margin</th>
-                                            <th>Actual</th>
-                                            <th class="w100">Forecast</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Building</td>
-                                            <td>11,243</td>
-                                            <td>399,21</td>
-                                            <td>40,234</td>
-                                            <td><span class="text-green">8.1%</span></td>
-                                            <td>2,93,098</td>
-                                            <td>1,02,243</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Digital</td>
-                                            <td>1,22,877</td>
-                                            <td>5,00,215</td>
-                                            <td>40,159</td>
-                                            <td><span class="text-red">6.4%</span></td>
-                                            <td>2,93,091</td>
-                                            <td>9,32,456</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Health</td>
-                                            <td>32,375</td>
-                                            <td>99,852</td>
-                                            <td>20,194</td>
-                                            <td><span class="text-green">12.9%</span></td>
-                                            <td>18,654</td>
-                                            <td>29,201</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Power</td>
-                                            <td>76,877</td>
-                                            <td>98,565</td>
-                                            <td>123,022</td>
-                                            <td><span class="text-red">17.0%</span></td>
-                                            <td>10,800</td>
-                                            <td>22,232</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Transport</td>
-                                            <td>2,232</td>
-                                            <td>3,099</td>
-                                            <td>400</td>
-                                            <td><span class="text-green">1.2%</span></td>
-                                            <td>13,255</td>
-                                            <td>14,765</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total</td>
-                                            <td>3,33,985</td>
-                                            <td>4,68,444</td>
-                                            <td>99,400</td>
-                                            <td><span class="text-green">34.2%</span></td>
-                                            <td>28,643,091</td>
-                                            <td>42,31,765</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+            {{--  Thông tin  --}}
+            <div class="col-lg-6 col-md-12">
+                <div class="card mb-4">
+                    <div class="card-body p-0" style="margin-left: 20px; padding-bottom: 10px !important;">
+                        <div class="row">
+                            <h5 class="card-title m-0 p-3">Thông tin</h5>
+                            <a href="#" class="card-title m-0 p-3" style="margin-left: 60% !important;">Câp nhật</a>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-6" style="margin-top: 15px;">
+                                <div class="mb-5">
+                                    <p class="text-primary mb-1"><i class="i-Calendar text-20 mr-1"></i> Birth Date</p><span>1 Jan, 1994</span>
+                                </div>
+                                <div class="mb-5">
+                                    <p class="text-primary mb-1"><i class="i-Edit-Map text-20 mr-1"></i> Birth Place</p><span>Dhaka, DB</span>
+                                </div>
+                                <div class="mb-1">
+                                    <p class="text-primary mb-1"><i class="i-Globe text-20 mr-1"></i> Lives In</p><span>Dhaka, DB</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6" style="margin-top: 15px;">
+                                <div class="mb-5">
+                                    <p class="text-primary mb-1"><i class="i-MaleFemale text-20 mr-1"></i> Gender</p><span>1 Jan, 1994</span>
+                                </div>
+                                <div class="mb-5">
+                                    <p class="text-primary mb-1"><i class="i-MaleFemale text-20 mr-1"></i> Email</p><span>example@ui-lib.com</span>
+                                </div>
+                                <div class="mb-1">
+                                    <p class="text-primary mb-1"><i class="i-Cloud-Weather text-20 mr-1"></i> Website</p><span>www.ui-lib.com</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6" style="margin-top: 15px;">
+                                <div class="mb-5">
+                                    <p class="text-primary mb-1"><i class="i-Face-Style-4 text-20 mr-1"></i> Profession</p><span>Digital Marketer</span>
+                                </div>
+                                <div class="mb-5">
+                                    <p class="text-primary mb-1"><i class="i-Professor text-20 mr-1"></i> Experience</p><span>8 Years</span>
+                                </div>
+                                <div class="mb-1">
+                                    <p class="text-primary mb-1"><i class="i-Home1 text-20 mr-1"></i> School</p><span>School of Digital Marketing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{--  End Thông tin  --}}
         </div>
-
-    @endif
-
-    <script src="{{asset('public/admin/toastr/jquery.min.js')}}"></script>
-
-    <script src="{{asset('public/admin/toastr/toastr.min.js')}}" ></script>
-        
-           
-   {!! Toastr::message() !!}
+        <!-- end of row-->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card o-hidden mb-4">
+                    <div class="card-header d-flex align-items-center">
+                        <h3 class="w-50 float-left card-title m-0">New Users</h3>
+                        <div class="dropdown dropleft text-right w-50 float-right">
+                            <button class="btn bg-gray-100" id="dropdownMenuButton_table1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="nav-icon i-Gear-2"></i></button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_table1"><a class="dropdown-item" href="#">Add new user</a><a class="dropdown-item" href="#">View All users</a><a class="dropdown-item" href="#">Something else here</a></div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table dataTable-collapse text-center" id="user_table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Avatar</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Smith</td>
+                                        <td><img class="rounded-circle m-0 avatar-sm-table" src="{{asset('public/admin/img/faces/1.jpg')}}" alt="" /></td>
+                                        <td>Smith@gmail.com</td>
+                                        <td><span class="badge badge-success">Active</span></td>
+                                        <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jhon Doe</td>
+                                        <td><img class="rounded-circle m-0 avatar-sm-table" src="{{asset('public/admin/img/faces/1.jpg')}}" alt="" /></td>
+                                        <td>Jhon@gmail.com</td>
+                                        <td><span class="badge badge-info">Pending</span></td>
+                                        <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Alex</td>
+                                        <td><img class="rounded-circle m-0 avatar-sm-table" src="{{asset('public/admin/img/faces/1.jpg')}}" alt="" /></td>
+                                        <td>Otto@gmail.com</td>
+                                        <td><span class="badge badge-warning">Not Active</span></td>
+                                        <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of col-->
+            <div class="col-md-6">
+                <div class="card o-hidden mb-4">
+                    <div class="card-header d-flex align-items-center">
+                        <h3 class="w-50 float-left card-title m-0">Total Sales</h3>
+                        <div class="dropdown dropleft text-right w-50 float-right">
+                            <button class="btn bg-gray-100" id="dropdownMenuButton_table2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="nav-icon i-Gear-2"></i></button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_table2"><a class="dropdown-item" href="#">Add new user</a><a class="dropdown-item" href="#">View All users</a><a class="dropdown-item" href="#">Something else here</a></div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table dataTable-collapse text-center" id="sales_table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Product</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Watch</td>
+                                        <td>12-10-2019</td>
+                                        <td>$30</td>
+                                        <td><span class="badge badge-success">Delivered</span></td>
+                                        <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Iphone</td>
+                                        <td>23-10-2019</td>
+                                        <td>$300</td>
+                                        <td><span class="badge badge-info">Pending</span></td>
+                                        <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Watch</td>
+                                        <td>12-10-2019</td>
+                                        <td>$30</td>
+                                        <td><span class="badge badge-warning">Not Delivered</span></td>
+                                        <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of col-->
+            
+        </div>
+        <!-- end of row-->
+        <!-- end of main-content -->
+    </div>
 
 @endsection

@@ -15,6 +15,7 @@ class KhachHang extends Migration
     {
         Schema::create('khach_hang', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('kh_ma');
             $table->string('kh_hoten');
             $table->string('kh_diachi');
             $table->integer('kh_cmnd');
