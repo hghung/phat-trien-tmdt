@@ -18,6 +18,11 @@ Route::group(['prefix'=>'SPS'],function(){
 	Route::get('/','AdminController@home')->name('admin.home');
 	Route::get('/master','AdminController@master')->name('admin.lyout');
 
+	Route::group(['prefix'=>'loai-nha'],function(){
+		Route::get('/','LoainhaController@list')->name('loainha.list');
+
+	});
+
 });
 
 

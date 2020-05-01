@@ -14,8 +14,22 @@ class ChiTietTaiSan extends Migration
     public function up()
     {
         Schema::create('chi_tiet_tai_san', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->increments('id');
+            $table->integer('so_luong');
+
+            $table->integer('id_taisan')->unsigned();
+            $table->foreign('id_taisan')
+                    ->references('id')
+                    ->on('tai_san')
+                    ->onDelete('cascade');
+
+            $table->integer('id_nha')->unsigned();
+            $table->foreign('id_nha')
+                    ->references('id')
+                    ->on('nha')
+                    ->onDelete('cascade');
+
+
         });
     }
 

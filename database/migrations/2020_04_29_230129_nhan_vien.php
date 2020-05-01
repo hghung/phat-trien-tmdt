@@ -20,6 +20,12 @@ class NhanVien extends Migration
             $table->stirng('nv_cmnd');
             $table->stirng('nv_diachi');
 
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')
+                    ->references('id')
+                    ->on('tai_khoan')
+                    ->onDelete('cascade');
+
 
         });
     }

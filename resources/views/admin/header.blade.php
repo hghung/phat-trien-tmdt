@@ -1,6 +1,8 @@
 <div class="main-header">
     <div class="logo">
-        <img src="{{asset('public/admin/img/logo.png')}}" alt="">
+        <a href="{{ route('admin.home') }}">
+            <img src="{{asset('public/admin/img/logo.png')}}" alt="">
+        </a>
     </div>
     <div class="menu-toggle">
         <div></div>
@@ -162,18 +164,31 @@
 <div class="side-content-wrap">
     <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
         <ul class="navigation-left">
-            <li class="nav-item" data-item="dashboard"><a class="nav-item-hold" href="#"><i class="nav-icon i-Bar-Chart"></i><span class="nav-text">Dashboard</span></a>
+            <li class="nav-item" data-item="dashboard">
+                <a class="nav-item-hold" href="#">
+                    <i class="nav-icon i-Bar-Chart"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
                 <div class="triangle"></div>
             </li>
+
+            <li class="nav-item" data-item="apps">
+                <a class="nav-item-hold" href="#">
+                    <i class="nav-icon i-File-Horizontal-Text"></i>
+                    <span class="nav-text">Dữ liệu</span>
+                </a>
+                <div class="triangle"></div>
+            </li>
+
+
+
             <li class="nav-item" data-item="uikits"><a class="nav-item-hold" href="#"><i class="nav-icon i-Library"></i><span class="nav-text">UI kits</span></a>
                 <div class="triangle"></div>
             </li>
             <li class="nav-item" data-item="extrakits"><a class="nav-item-hold" href="#"><i class="nav-icon i-Suitcase"></i><span class="nav-text">Extra kits</span></a>
                 <div class="triangle"></div>
             </li>
-            <li class="nav-item" data-item="apps"><a class="nav-item-hold" href="#"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">Apps</span></a>
-                <div class="triangle"></div>
-            </li>
+            
             <li class="nav-item" data-item="widgets"><a class="nav-item-hold" href="#"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">Widgets</span></a>
                 <div class="triangle"></div>
             </li>
@@ -183,7 +198,6 @@
             <li class="nav-item" data-item="forms"><a class="nav-item-hold" href="#"><i class="nav-icon i-File-Clipboard-File--Text"></i><span class="nav-text">Forms</span></a>
                 <div class="triangle"></div>
             </li>
-            <li class="nav-item"><a class="nav-item-hold" href="datatables.html"><i class="nav-icon i-File-Horizontal-Text"></i><span class="nav-text">Datatables</span></a>
                 <div class="triangle"></div>
             </li>
             <li class="nav-item" data-item="sessions"><a class="nav-item-hold" href="#"><i class="nav-icon i-Administrator"></i><span class="nav-text">Sessions</span></a>
@@ -200,11 +214,30 @@
     <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
         <!-- Submenu Dashboards-->
         <ul class="childNav" data-parent="dashboard">
-            <li class="nav-item"><a href="dashboard1.html"><i class="nav-icon i-Clock-3"></i><span class="item-name">Version 1</span></a></li>
-            <li class="nav-item"><a href="dashboard2.html"><i class="nav-icon i-Clock-4"></i><span class="item-name">Version 2</span></a></li>
+            <li class="nav-item"><a href="dashboard1.html"><i class="nav-icon i-Clock-3"></i><span class="item-name">Danh sách User </span></a></li>
+            <li class="nav-item"><a href="dashboard2.html"><i class="nav-icon i-Clock-4"></i><span class="item-name">Banner</span></a></li>
             <li class="nav-item"><a href="dashboard3.html"><i class="nav-icon i-Over-Time"></i><span class="item-name">Version 3</span></a></li>
             <li class="nav-item"><a href="dashboard4.html"><i class="nav-icon i-Clock"></i><span class="item-name">Version 4</span></a></li>
         </ul>
+
+        {{--  start dữ liệu  --}}
+
+        <ul class="childNav" data-parent="apps">
+            {{--  1  --}}
+            <li class="nav-item">
+                <a href="{{ route('loainha.list') }}">
+                    <i class="nav-icon i-Receipt-4"></i>
+                    <span class="item-name">Loại nhà</span>
+                </a>
+            </li>
+
+            {{--  2  --}}
+
+            
+        </ul>
+
+        {{--  end dữ liệu  --}}
+
         <ul class="childNav" data-parent="forms">
             <li class="nav-item"><a href="form.basic.html"><i class="nav-icon i-File-Clipboard-Text--Image"></i><span class="item-name">Basic Elements</span></a></li>
             <li class="nav-item"><a href="form.layouts.html"><i class="nav-icon i-Split-Vertical"></i><span class="item-name">Form Layouts</span></a></li>
@@ -214,11 +247,7 @@
             <li class="nav-item"><a href="tag.input.html"><i class="nav-icon i-Tag-2"></i><span class="item-name">Tag Input</span></a></li>
             <li class="nav-item"><a href="editor.html"><i class="nav-icon i-Pen-2"></i><span class="item-name">Rich Editor</span></a></li>
         </ul>
-        <ul class="childNav" data-parent="apps">
-            <li class="nav-item"><a href="invoice.html"><i class="nav-icon i-Add-File"></i><span class="item-name">Invoice</span></a></li>
-            <li class="nav-item"><a href="inbox.html"><i class="nav-icon i-Email"></i><span class="item-name">Inbox</span></a></li>
-            <li class="nav-item"><a href="chat.html"><i class="nav-icon i-Speach-Bubble-3"></i><span class="item-name">Chat</span></a></li>
-        </ul>
+        
         <ul class="childNav" data-parent="widgets">
             <li class="nav-item"><a href="widget-card.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">widget card</span></a></li>
             <li class="nav-item"><a href="widget-statistics.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">widget statistics</span></a></li>

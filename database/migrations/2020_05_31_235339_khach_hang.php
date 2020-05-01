@@ -24,7 +24,7 @@ class KhachHang extends Migration
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')
                     ->references('id')
-                    ->on('Role')
+                    ->on('tai_khoan')
                     ->onDelete('cascade');
 
         });

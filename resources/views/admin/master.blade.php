@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>SPS | @yield('tieude')</title>
+    <link rel="icon" href="{{asset('public/admin/logo1_1.ico')}}" type="image/x-icon">
+
 
     <!-- ============ css ============= -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet" />
