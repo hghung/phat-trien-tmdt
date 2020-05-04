@@ -13,15 +13,16 @@ class HopDongthue extends Migration
      */
     public function up()
     {
-        Schema::create('hop_dongthue', function (Blueprint $table) {
+        Schema::create('hop_dong', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('ma_hopdong');
             $table->string('ten_hopdong');
             $table->dateTime('time_start');
             $table->dateTime('time_end');
 
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

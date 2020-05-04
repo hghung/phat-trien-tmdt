@@ -14,6 +14,12 @@ use App\User;
 
 use Carbon\Carbon; // lấy ngày hiên tại
 
+Route::get('/','PageController@home');
+Route::get('/trang-chu','PageController@home')->name('page.home');
+
+Route::get('/danh-sach','PageController@list')->name('page.list');
+
+
 Route::group(['prefix'=>'SPS'],function(){
 	Route::get('/','AdminController@home')->name('admin.home');
 	Route::get('/master','AdminController@master')->name('admin.lyout');

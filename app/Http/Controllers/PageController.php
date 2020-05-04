@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class PageController extends Controller
+{
+    public function home()
+    {
+        
+        
+    	return view('house.index');
+    }
+
+
+    public function list()
+    {
+        
+        
+    	return view('house.list');
+    }
+}
