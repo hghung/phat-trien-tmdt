@@ -30,6 +30,6 @@ class HopDongthue extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hop_dongthue');
+        Schema::dropIfExists('hop_dong');
     }
 }

@@ -13,7 +13,7 @@ class Nha extends Migration
      */
     public function up()
     {
-        Schema::create('=nha', function (Blueprint $table) {
+        Schema::create('nha', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ma_nha');
             $table->integer('dien_tich');
@@ -38,6 +38,6 @@ class Nha extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('=nha');
+        Schema::dropIfExists('nha');
     }
 }

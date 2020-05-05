@@ -20,4 +20,15 @@ class PageController extends Controller
         
     	return view('house.list');
     }
+
+    public function list_2()
+    {
+        
+        
+    	return view('house.list_2');
+    }
+
+    
+
+   
 }

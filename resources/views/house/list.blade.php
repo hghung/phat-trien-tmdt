@@ -6,6 +6,22 @@
 <div class="rle_banner_wrapper style_4">
 	<div class="rle_header_wrapper style_4">
 @endsection
+<div class="rle_pagetitle_wrapper rle_toppadder40 rle_bottompadder40">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="page_title">
+					<h2>Danh sách</h2>
+				</div>
+				<ul class="breadcrumb">
+					<li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> home</a></li>
+					<li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+					<li><a href="property_list_fullwidth.html" >Danh sách</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 <!-- Property Wrapper start -->
 <div class="rle_property_wrapper rle_bottompadder70">
 	<div class="container">
@@ -37,9 +53,8 @@
 						<div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
 							<ul class="rle_view_type">
 								<span>View</span>
-								<li><a href="property_gird_sidebar.html"><i class="fa fa-th-large" aria-hidden="true"></i></a></li>
-								<li><a href="property_list_sidebar.html"><i class="fa fa-list-ul" aria-hidden="true"></i></a></li>
-								<li><a href="property_map.html"><i class="fa fa-map" aria-hidden="true"></i></a></li>
+								<li><a href="{{ route('page.list2') }}"><i class="fa fa-th-large" aria-hidden="true"></i></a></li>
+								<li><a href="{{ route('page.list') }}"><i class="fa fa-list-ul" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>

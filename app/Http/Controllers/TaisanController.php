@@ -3,27 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Models\loainha;
+use App\Models\taisan;
 use Toastr;
 
 
-class LoainhaController extends Controller
+class TaisanController extends Controller
 {
     public function list()
     {
-        $loainha = loainha::all();
-    	return view('admin.loai-nha.list',['loainha' =>$loainha]);
+        $taisan = taisan::all();
+    	return view('admin.tai-san.list',['taisan' =>$taisan]);
     }
 
-    public function post_add(Request $loainha2)
+    public function post_add(Request $taisan2)
     {
             // info
-            $loainha = new loainha;
-            $loainha->ten_loai = $loainha2->name;
+            $taisan = new taisan;
+            $taisan->ten_ts = $taisan2->name;
             
             // echo $user; die;   
-            $loainha->save();
+            $taisan->save();
 
         Toastr::success('Them thanh cong', 'Thông báo', ["positionClass" => "toast-top-right"]);
         return redirect()->back();

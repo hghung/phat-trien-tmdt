@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class BangtinThuenha extends Migration
+class HinhAnh extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class BangtinThuenha extends Migration
      */
     public function up()
     {
-        Schema::create('bangtin_thuenha', function (Blueprint $table) {
+        Schema::create('hinh_anh', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ten_bangtin');
-            $table->inther('gia_thue');
-            $table->date('thoi_han');
-            $table->date('thoigian_dangtin');
+            $table->string('hinh_anh');
 
+            $table->integer('id_nha')->unsigned();
+            $table->foreign('id_nha')
+                    ->references('id')
+                    ->on('nha')
+                    ->onDelete('cascade');
 
         });
     }
@@ -31,6 +33,6 @@ class BangtinThuenha extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bangtin_thuenha');
+        Schema::dropIfExists('hinh_anh');
     }
 }

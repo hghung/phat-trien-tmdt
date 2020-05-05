@@ -4,7 +4,7 @@
        
     <div class="main-content">
         <div class="breadcrumb">
-            <h1>Tài sản</h1>
+            <h1>Loại nhà</h1>
         </div>
         <div class="separator-breadcrumb border-top"></div>
         <!-- content goes here-->
@@ -28,9 +28,10 @@
                                             <div class="ul-contact-list">
                                                 <div class="contact-close-mobile-icon float-right mb-2"><i class="i-Close-Window text-15 font-weight-600"></i></div>
                                                 <!-- modal-->
-                                                <button class="btn btn-outline-secondary btn-block mb-4" type="button" data-toggle="modal" data-target="#exampleModal">Thêm</button>
+                                                <a class="btn btn-outline-secondary btn-block mb-4" href="{{ route('bangtin.add') }}" >Thêm</a>
                                                 <!-- end:modal-->
                                                 @include('admin.category_list')
+
                                             </div>
                                         </div>
                                     </div>
@@ -44,7 +45,7 @@
                                                 <h5 class="modal-title" id="exampleModalLabel">New loại nhà</h5>
                                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             </div>
-                                            <form    method="POST"  action="{{Route('taisan.post.add')}}" enctype="multipart/form-data"> {{ csrf_field() }}
+                                            <form    method="POST"  action="{{Route('loainha.post.add')}}" enctype="multipart/form-data"> {{ csrf_field() }}
 
                                                 <div class="modal-body">
 
@@ -85,10 +86,10 @@
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    @foreach($taisan as $taisan2)
+                                                                    @foreach($bangtin as $bangtin2)
                                                                     <tr>
-                                                                        <td>{{$taisan2->id}}</td>
-                                                                        <td>{{$taisan2->ten_ts}}</td>
+                                                                        <td>{{$bangtin2->id}}</td>
+                                                                        <td>{{$bangtin2->ten_loai}}</td>
                                                                         <td>
                                                                             <button class="btn bg-transparent _r_btn border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="_dot _r_block-dot bg-dark"></span><span class="_dot _r_block-dot bg-dark"></span><span class="_dot _r_block-dot bg-dark"></span></button>
                                                                             <div class="dropdown-menu" x-placement="bottom-start"><a class="dropdown-item" href="#"><i class="nav-icon i-Pen-2 text-success font-weight-bold mr-2"></i>Edit Contact</a><a class="dropdown-item" href="#"><i class="nav-icon i-Close-Window text-danger font-weight-bold mr-2"></i>Delete Contact</a></div>

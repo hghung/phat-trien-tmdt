@@ -233,6 +233,13 @@
 
             {{--  2  --}}
 
+            <li class="nav-item">
+                <a href="{{ route('taisan.list') }}">
+                    <i class="nav-icon i-Receipt-4"></i>
+                    <span class="item-name">Tài sản</span>
+                </a>
+            </li>
+
             
         </ul>
 

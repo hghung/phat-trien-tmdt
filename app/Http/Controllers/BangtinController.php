@@ -3,18 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\bangtin;
+use App\Models\nha;
+use App\Models\tai_san;
+use App\Models\hinhanh;
 
-use App\Models\loainha;
 use Toastr;
 
-
-class LoainhaController extends Controller
+class BangtinController extends Controller
 {
     public function list()
     {
-        $loainha = loainha::all();
-    	return view('admin.loai-nha.list',['loainha' =>$loainha]);
+        $bangtin = bangtin::all();
+    	return view('admin.bang-tin.list',['bangtin' =>$bangtin]);
     }
+
+
+    public function add()
+    {
+    	return view('admin.bang-tin.add');
+    }
+
+
 
     public function post_add(Request $loainha2)
     {

@@ -16,7 +16,6 @@ class TaiSan extends Migration
         Schema::create('tai_san', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten_ts');
-            $table->string('soluong');
 
         });
     }

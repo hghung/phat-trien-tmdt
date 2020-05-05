@@ -17,8 +17,8 @@ class NhanVien extends Migration
             $table->increments('id');
             $table->string('nv_ma');
             $table->string('nv_hoten');
-            $table->stirng('nv_cmnd');
-            $table->stirng('nv_diachi');
+            $table->string('nv_cmnd');
+            $table->string('nv_diachi');
 
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')

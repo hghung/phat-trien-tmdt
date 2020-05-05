@@ -17,7 +17,11 @@ use Carbon\Carbon; // lấy ngày hiên tại
 Route::get('/','PageController@home');
 Route::get('/trang-chu','PageController@home')->name('page.home');
 
-Route::get('/danh-sach','PageController@list')->name('page.list');
+Route::get('/danh-sach-1','PageController@list')->name('page.list');
+Route::get('/danh-sach-2','PageController@list_2')->name('page.list2');
+
+
+
 
 
 Route::group(['prefix'=>'SPS'],function(){
@@ -26,6 +30,24 @@ Route::group(['prefix'=>'SPS'],function(){
 
 	Route::group(['prefix'=>'loai-nha'],function(){
 		Route::get('/','LoainhaController@list')->name('loainha.list');
+		Route::post('/add','LoainhaController@post_add')->name('loainha.post.add');
+
+
+	});
+
+	Route::group(['prefix'=>'tai-san'],function(){
+		Route::get('/','TaisanController@list')->name('taisan.list');
+		Route::post('/add','TaisanController@post_add')->name('taisan.post.add');
+
+
+	});
+
+	Route::group(['prefix'=>'bang-tin'],function(){
+		Route::get('/','BangtinController@list')->name('bangtin.list');
+		Route::get('/add','BangtinController@add')->name('bangtin.add');
+		Route::post('/post-add','BangtinController@post_add')->name('taisan.post.add');
+
+
 
 	});
 
