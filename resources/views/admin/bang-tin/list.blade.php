@@ -4,7 +4,7 @@
        
     <div class="main-content">
         <div class="breadcrumb">
-            <h1>Loại nhà</h1>
+            <h1>Đăng tin</h1>
         </div>
         <div class="separator-breadcrumb border-top"></div>
         <!-- content goes here-->

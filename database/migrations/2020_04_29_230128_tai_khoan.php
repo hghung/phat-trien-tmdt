@@ -18,6 +18,7 @@ class TaiKhoan extends Migration
             $table->string('username');
             $table->string('password');
             $table->integer('vai_tro');
+            $table->integer('status');
             $table->timestamps();
 
 

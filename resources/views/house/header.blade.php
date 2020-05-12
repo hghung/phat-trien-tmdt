@@ -8,6 +8,16 @@
 						<a href="{{ route('page.home') }} "><img src="{{asset('public/house/img/logo3.png')}}"  alt="Logo" title="Logo"></a>
 					</div>
 				</div>
+
+				@if(count($errors) > 0)
+				<div class="alert alert-danger">
+					@foreach($errors->all() as $err)
+						{{$err}}<br>
+					@endforeach
+				</div>
+			@endif
+
+
 				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 					<button class="rle_menu_btn"><i class="fa fa-bars" aria-hidden="true"></i></button>
 					<div class="rle_main_menu_wrapper">
@@ -43,25 +53,41 @@
 							</ul>
 						</div>
 					</div>
+					@if(!Auth::check())
 					<div class="rle_signin">
 						<a href="#" class="rle_btn" id="login_button">sign in</a>
 						<div id="login_one" class="rle_login_form">
-							<p>Don’t have an account? <a href="#">Sign up</a></p>
-							<form class="form">
-								<input type="text" placeholder="Username">
-								<input type="password" placeholder="Password">
+							<p>Bạn chưa có tài khoản? <a href="{{ route('page.reg') }}">Đăng ký</a></p>
+							<form class="form"  method="POST"  action="{{Route('page.login.post')}}" enctype="multipart/form-data" > {{ csrf_field() }}
+
+								<input type="text" name="username" placeholder="Username">
+								<input type="password" name="password" placeholder="Password">
+
 								<div class="rle_checkbox">
 									<input type="checkbox" id="remember_me" checked />
 									<label for="remember_me">Remember me</label>
 								</div>
 								<a href="#" class="forgot_pswd">forgot password?</a>
-								<button type="submit" class="rle_btn">sign in</button>
+								<button type="submit" class="rle_btn">Đăng nhập</button>
 								<span>or</span>
 								<a href="#" class="share_btn fcbk_clr_1"><i class="fa fa-facebook" aria-hidden="true"></i>login with facebook</a>
 								<a href="#" class="share_btn ggl_clr_2"><i class="fa fa-google-plus" aria-hidden="true"></i>login with google plus</a>
 							</form>
 						</div>
 					</div>
+					@else
+					<div class="rle_signin">
+						<a href="#" class="rle_btn" id="login_button">{{ Auth::user()->username }}</a>
+						<div id="login_one" class="rle_login_form">
+							<div class="form"   > 
+								<a href="{{ route('admin.home') }}" class="share_btn fcbk_clr_1"><i class="fa fa-facebook" aria-hidden="true"></i>Trang quản trị</a>
+								<a href="{{ route('page.logout') }}" class="share_btn ggl_clr_2"><i class="fa fa-google-plus" aria-hidden="true"></i>Đăng xuất</a>
+								<a href="{{ route('page.logout') }}" class="share_btn ggl_clr_2"><i class="fa fa-google-plus" aria-hidden="true"></i>Đăng xuất</a>
+
+							</div>
+						</div>
+					</div>
+					@endif
 				</div>
 			</div>
 		</div>

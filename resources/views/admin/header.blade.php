@@ -147,7 +147,7 @@
         <!-- User avatar dropdown -->
         <div class="dropdown">
             <div class="user col align-self-end">
-                <img src="{{asset('public/admin/img/faces/1.jpg')}}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="{{asset('public/admin/img/1.jpg')}}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <div class="dropdown-header">
                         <i class="i-Lock-User mr-1"></i> Timothy Carlson
@@ -237,6 +237,15 @@
                 <a href="{{ route('taisan.list') }}">
                     <i class="nav-icon i-Receipt-4"></i>
                     <span class="item-name">Tài sản</span>
+                </a>
+            </li>
+
+            {{--  3  --}}
+
+            <li class="nav-item">
+                <a href="{{ route('bangtin.list') }}">
+                    <i class="nav-icon i-Receipt-4"></i>
+                    <span class="item-name">Đăng tin</span>
                 </a>
             </li>
 

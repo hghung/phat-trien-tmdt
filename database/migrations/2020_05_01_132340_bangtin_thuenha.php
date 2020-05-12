@@ -16,21 +16,23 @@ class BangtinThuenha extends Migration
         Schema::create('bang_tin', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten_bangtin');
+            $table->text('mo_ta');
             $table->integer('gia_thue');
-            $table->date('thoi_han');
-            $table->date('thoigian_dangtin');
-
-            $table->integer('id_nhanvien')->unsigned();
-            $table->foreign('id_nhanvien')
-                    ->references('id')
-                    ->on('nhan_vien')
-                    ->onDelete('cascade');
             
             $table->integer('id_khachhang')->unsigned();
             $table->foreign('id_khachhang')
                     ->references('id')
                     ->on('khach_hang')
                     ->onDelete('cascade');
+            
+            $table->integer('id_nha')->unsigned();
+            $table->foreign('id_nha')
+                    ->references('id')
+                    ->on('nha')
+                    ->onDelete('cascade');
+
+            $table->timestamps();
+            
 
 
 

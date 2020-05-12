@@ -67,42 +67,102 @@
                 <div class="card mb-4">
                     <div class="card-body p-0" style="margin-left: 20px; padding-bottom: 10px !important;">
                         <div class="row">
-                            <h5 class="card-title m-0 p-3">Thông tin</h5>
-                            <a href="#" class="card-title m-0 p-3" style="margin-left: 60% !important;">Câp nhật</a>
+                            <h5 class="card-title m-0 p-3">
+                                Thông tin:
+                                <span style="color: blue">{{ Auth::user()->member->kh_ma }}</span>
+                            </h5>
+                            <a href="#" class="card-title m-0 p-3 " style="margin-left: 50% !important;">Câp nhật</a>
                         </div>
                         <div class="row">
                             <div class="col-md-4 col-6" style="margin-top: 15px;">
+
                                 <div class="mb-5">
-                                    <p class="text-primary mb-1"><i class="i-Calendar text-20 mr-1"></i> Birth Date</p><span>1 Jan, 1994</span>
+                                    <p class="text-primary mb-1"><i class="i-Edit-Map text-20 mr-1"></i> Họ tên </p>
+                                    <span>
+                                        {{ Auth::user()->member->kh_ho }} {{ Auth::user()->member->kh_ten }}
+                                        
+                                    </span>
                                 </div>
+
                                 <div class="mb-5">
-                                    <p class="text-primary mb-1"><i class="i-Edit-Map text-20 mr-1"></i> Birth Place</p><span>Dhaka, DB</span>
+                                    <p class="text-primary mb-1"><i class="i-Mail-2 text-20 mr-1"></i> Email</p>
+                                    <span>
+                                        {{ Auth::user()->member->kh_email }}
+                                    </span>
                                 </div>
+
+
                                 <div class="mb-1">
-                                    <p class="text-primary mb-1"><i class="i-Globe text-20 mr-1"></i> Lives In</p><span>Dhaka, DB</span>
+                                    <p class="text-primary mb-1"><i class="i-Money-2 text-20 mr-1"></i> Tổng tiền bán</p>
+                                    <span>
+                                        200.000 VND
+                                    </span>
                                 </div>
+
                             </div>
+
+                            {{--  2  --}}
                             <div class="col-md-4 col-6" style="margin-top: 15px;">
                                 <div class="mb-5">
-                                    <p class="text-primary mb-1"><i class="i-MaleFemale text-20 mr-1"></i> Gender</p><span>1 Jan, 1994</span>
+                                    <p class="text-primary mb-1"><i class="i-MaleFemale text-20 mr-1"></i>Căn cước / Giới tính</p>
+
+                                    <span>
+                                        {{ Auth::user()->member->kh_cmnd }}
+
+                                    </span>
+
+                                    /
+
+                                    <span>
+                                        @if(Auth::user()->member->kh_gioitinh == 1)
+                                            Nam  
+                                        @elseif(Auth::user()->member->kh_gioitinh == 2)
+                                            Nữ 
+                                        @endif
+                                    </span>
+                                    
                                 </div>
+                                
                                 <div class="mb-5">
-                                    <p class="text-primary mb-1"><i class="i-MaleFemale text-20 mr-1"></i> Email</p><span>example@ui-lib.com</span>
+                                    <p class="text-primary mb-1"><i class="i-ID-Card text-20 mr-1"></i> Số điện thoại</p>
+                                    <span>
+                                        {{ Auth::user()->member->kh_phone }}
+                                    </span>
                                 </div>
+                               
+
                                 <div class="mb-1">
-                                    <p class="text-primary mb-1"><i class="i-Cloud-Weather text-20 mr-1"></i> Website</p><span>www.ui-lib.com</span>
+                                    <p class="text-primary mb-1"><i class="i-Financial text-20 mr-1"></i> Đã bán</p><span>8 sản phẩm</span>
                                 </div>
+
                             </div>
+
+                            {{--  3  --}}
                             <div class="col-md-4 col-6" style="margin-top: 15px;">
+                                
+
                                 <div class="mb-5">
-                                    <p class="text-primary mb-1"><i class="i-Face-Style-4 text-20 mr-1"></i> Profession</p><span>Digital Marketer</span>
+                                    <p class="text-primary mb-1"><i class="i-Calendar text-20 mr-1"></i> Birth Date</p>
+                                    <span>
+                                        {{ date("d-m-Y ",strtotime(Auth::user()->member->kh_birthday )) }}
+                                    </span>
                                 </div>
+
                                 <div class="mb-5">
-                                    <p class="text-primary mb-1"><i class="i-Professor text-20 mr-1"></i> Experience</p><span>8 Years</span>
+                                    <p class="text-primary mb-1"><i class="i-Home1 text-20 mr-1"></i> Đỉa chỉ</p>
+                                    <span>
+                                        {{ Auth::user()->member->kh_diachi }}
+                                    </span>
                                 </div>
+
+
+                                
+
                                 <div class="mb-1">
-                                    <p class="text-primary mb-1"><i class="i-Home1 text-20 mr-1"></i> School</p><span>School of Digital Marketing</span>
+                                    <p class="text-primary mb-1"><i class="i-Cash-Register text-20 mr-1"></i> Đã mua</p><span>3 sản phẩm</span>
                                 </div>
+
+                                
                             </div>
                         </div>
                     </div>
@@ -138,7 +198,7 @@
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>Smith</td>
-                                        <td><img class="rounded-circle m-0 avatar-sm-table" src="{{asset('public/admin/img/faces/1.jpg')}}" alt="" /></td>
+                                        <td><img class="rounded-circle m-0 avatar-sm-table" src="{{asset('public/admin/img/1.jpg')}}" alt="" /></td>
                                         <td>Smith@gmail.com</td>
                                         <td><span class="badge badge-success">Active</span></td>
                                         <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
@@ -146,7 +206,7 @@
                                     <tr>
                                         <th scope="row">2</th>
                                         <td>Jhon Doe</td>
-                                        <td><img class="rounded-circle m-0 avatar-sm-table" src="{{asset('public/admin/img/faces/1.jpg')}}" alt="" /></td>
+                                        <td><img class="rounded-circle m-0 avatar-sm-table" src="{{asset('public/admin/img/1.jpg')}}" alt="" /></td>
                                         <td>Jhon@gmail.com</td>
                                         <td><span class="badge badge-info">Pending</span></td>
                                         <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
@@ -154,7 +214,7 @@
                                     <tr>
                                         <th scope="row">3</th>
                                         <td>Alex</td>
-                                        <td><img class="rounded-circle m-0 avatar-sm-table" src="{{asset('public/admin/img/faces/1.jpg')}}" alt="" /></td>
+                                        <td><img class="rounded-circle m-0 avatar-sm-table" src="{{asset('public/admin/img/1.jpg')}}" alt="" /></td>
                                         <td>Otto@gmail.com</td>
                                         <td><span class="badge badge-warning">Not Active</span></td>
                                         <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>

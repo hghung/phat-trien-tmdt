@@ -41,7 +41,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">New loại nhà</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">New tài sản</h5>
                                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             </div>
                                             <form    method="POST"  action="{{Route('taisan.post.add')}}" enctype="multipart/form-data"> {{ csrf_field() }}

@@ -13,6 +13,13 @@ class PageController extends Controller
     	return view('house.index');
     }
 
+    public function dangky()
+    {
+        
+        
+    	return view('house.reg');
+    }
+
 
     public function list()
     {
@@ -26,6 +33,13 @@ class PageController extends Controller
         
         
     	return view('house.list_2');
+    }
+
+    public function single()
+    {
+        
+        
+    	return view('house.single');
     }
 
     

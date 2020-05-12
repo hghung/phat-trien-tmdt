@@ -15,17 +15,19 @@ class Nha extends Migration
     {
         Schema::create('nha', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ma_nha');
+            $table->string('ma_nha')->nullable();
             $table->integer('dien_tich');
             $table->string('dia_chi');
             $table->integer('tinh_trang');
-            $table->string('hinh_anh');
+            $table->string('hinh_anh')->nullable();
 
             $table->integer('id_loainha')->unsigned();
             $table->foreign('id_loainha')
                     ->references('id')
                     ->on('loai_nha')
                     ->onDelete('cascade');
+
+            
 
 
         });

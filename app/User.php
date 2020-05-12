@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    protected $table='Account';
+    protected $table='tai_khoan';
 
     public function vaitro() // phải viêt liền ko được cách ra hoặc _
     {
@@ -19,9 +19,9 @@ class User extends Authenticatable
         // (tên đường dẫn, 'khoa ngoại', khóa chính)
     }
 
-    public function info() // phải viêt liền ko được cách ra hoặc _
+    public function member() // phải viêt liền ko được cách ra hoặc _
     {
-        return $this->hasOne('App\Models\Info','id_account','id'); 
+        return $this->hasOne('App\Models\khach_hang','id_user','id'); 
         // từ sản phẩm cha ra con xài hasone
         // (tên đường dẫn, 'khoa ngoại', khóa chính)
     }

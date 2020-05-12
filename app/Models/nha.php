@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class nha extends Model
 {
-    //
+    protected $table='nha';
+    public $timestamps = false;
 }

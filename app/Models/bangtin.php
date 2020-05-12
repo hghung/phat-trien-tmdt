@@ -7,5 +7,4 @@ use Illuminate\Database\Eloquent\Model;
 class bangtin extends Model
 {
     protected $table='bang_tin';
-    public $timestamps = false;
 }

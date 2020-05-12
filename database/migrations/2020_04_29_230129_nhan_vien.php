@@ -25,6 +25,9 @@ class NhanVien extends Migration
                     ->references('id')
                     ->on('tai_khoan')
                     ->onDelete('cascade');
+            
+            $table->timestamps();
+
 
 
         });

@@ -10,11 +10,17 @@
 
 
     <!-- ============ css ============= -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet" />
+    <link href="{{asset('public/admin/css/css-family=Nunito-300,400,400i,600,700,800,900.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.css" />
+
     <link href="{{asset('public/admin/css/lite-purple.css')}}" rel="stylesheet" />
     <link href="{{asset('public/admin/css/perfect-scrollbar.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('public/admin/css/fontawesome-5.css')}}" />
     <link href="{{asset('public/admin/css/metisMenu.min.css')}}" rel="stylesheet" />
+
+
+
+
 </head>
 
 <body class="text-left">
@@ -41,12 +47,12 @@
     <script src="{{asset('public/admin/js/feather.min.js')}}"></script>
     <script src="{{asset('public/admin/js/metisMenu.min.js')}}"></script>
     <script src="{{asset('public/admin/js/layout-sidebar-vertical.min.js')}}"></script>
-
-    <script src="{{asset('public/admin/js/echarts.min.js')}}"></script>
-    <script src="{{asset('public/admin/js/echart.options.min.js')}}"></script>
+    
 
 
-    <script src="{{asset('public/admin/js/dashboard.v1.script.min.js')}}"></script>
+
+
+    
 </body>
 
 </html>

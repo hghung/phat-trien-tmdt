@@ -12,14 +12,10 @@
         Tài sản
     </a>
     {{--  3  --}}
-    <a class="list-group-item list-group-item-action border-0 "  href="#list-home" role="tab" aria-controls="home">
+    <a class="list-group-item list-group-item-action border-0 "  href="{{ route('bangtin.list') }}" role="tab" aria-controls="home">
         <i class="nav-icon i-Arrow-Next"></i> 
-        Loại nhà
+        Đăng tin
     </a>
-    {{--  4  --}}
-    <a class="list-group-item list-group-item-action border-0 "  href="#list-home" role="tab" aria-controls="home">
-        <i class="nav-icon i-Arrow-Next"></i> 
-        Loại nhà
-    </a>
+   
     
 </div>

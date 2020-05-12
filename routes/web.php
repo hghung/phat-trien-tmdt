@@ -15,10 +15,26 @@ use App\User;
 use Carbon\Carbon; // lấy ngày hiên tại
 
 Route::get('/','PageController@home');
+
 Route::get('/trang-chu','PageController@home')->name('page.home');
+
+Route::get('/dang-ky','PageController@dangky')->name('page.reg');
+
+Route::post('/dang-ky','TaikhoanController@post_reg')->name('page.reg.post');
+
+Route::post('/dang-nhap','TaikhoanController@post_lg')->name('page.login.post');
+
+Route::get('/dang-xuat','TaikhoanController@logout')->name('page.logout');
+
+
+
+
 
 Route::get('/danh-sach-1','PageController@list')->name('page.list');
 Route::get('/danh-sach-2','PageController@list_2')->name('page.list2');
+
+Route::get('/san-pham-{id}','PageController@single')->name('page.single');
+
 
 
 
@@ -45,7 +61,7 @@ Route::group(['prefix'=>'SPS'],function(){
 	Route::group(['prefix'=>'bang-tin'],function(){
 		Route::get('/','BangtinController@list')->name('bangtin.list');
 		Route::get('/add','BangtinController@add')->name('bangtin.add');
-		Route::post('/post-add','BangtinController@post_add')->name('taisan.post.add');
+		Route::post('/post-add','BangtinController@post_add')->name('bangtin.post.add');
 
 
 

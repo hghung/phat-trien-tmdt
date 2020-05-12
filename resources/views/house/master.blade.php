@@ -24,6 +24,8 @@ Version: 1.0.0
 	<link rel="stylesheet" type="text/css" href="{{asset('public/house/css/owl.theme.default.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('public/house/css/jquery-ui.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('public/house/css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('public/house/css/swiper.min.css')}}" >
+
 	<!-- favicon links -->
 	<link rel="shortcut icon" type="image/png" href="{{asset('public/house/img/favico.ico')}}">
 </head>
@@ -35,10 +37,16 @@ Version: 1.0.0
 
 <!--main js file start--> 
 <script type="text/javascript" src="{{asset('public/house/js/jquery.js')}}"></script> 
+<script type="text/javascript" src="{{asset('public/house/js/jquery-ui.js')}}"></script> 
+
 <script type="text/javascript" src="{{asset('public/house/js/bootstrap.js')}}"></script> 
 <script type="text/javascript" src="{{asset('public/house/js/owl.carousel.js')}}"></script>
-<script type="text/javascript" src="{{asset('public/house/js/jquery-ui.js')}}"></script> 
 <script type="text/javascript" src="{{asset('public/house/js/custom.js')}}"></script> 
+
+<script type="text/javascript" src="{{asset('public/house/js/Chart.min.js')}}" ></script>
+<script type="text/javascript" src="{{asset('public/house/js/swiper.min.js')}}" ></script>
+<script type="text/javascript" src="{{asset('public/house/js/canva.js')}}" ></script> 
+
 <!--main js file end-->
 </body>
 </html>
