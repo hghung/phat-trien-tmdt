@@ -1,98 +1,113 @@
-@yield('hiden')
-@yield('hiden2')
-
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<div class="rle_logo">
-						<a href="{{ route('page.home') }} "><img src="{{asset('public/house/img/logo3.png')}}"  alt="Logo" title="Logo"></a>
-					</div>
-				</div>
-
-				@if(count($errors) > 0)
-				<div class="alert alert-danger">
-					@foreach($errors->all() as $err)
-						{{$err}}<br>
-					@endforeach
-				</div>
-			@endif
-
-
-				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-					<button class="rle_menu_btn"><i class="fa fa-bars" aria-hidden="true"></i></button>
-					<div class="rle_main_menu_wrapper">
-						<div class="rle_main_menu">
-							<ul>
-								<li><a href="#">home</a>
-									<ul class="sub-menu">
-										<li><a href="index.html" >home 1</a></li>
-										<li><a href="index2.html" >home 2</a></li>
-										
-									</ul>
-								</li>
-								<li><a href="about.html" >about us</a></li>
-								<li><a href="#">property</a>
-									<ul class="sub-menu">
-										<li><a href="property_gird_fullwidth.html" >gird fullwidth</a></li>
-										
-									</ul>
-								</li>
-								<li><a href="#">agents</a>
-									<ul class="sub-menu">
-										<li><a href="agent.html" >agent</a></li>
-										<li><a href="agent_single.html" >agent single</a></li>
-									</ul>
-								</li>
-								<li><a href="#">pages</a>
-									<ul class="sub-menu">
-										<li><a href="blog.html" >blog</a></li>
-										
-									</ul>
-								</li>
-								<li><a href="javascript:if(confirm(%27http://themeforest.swanitinfotech.com/real_estate/demo/real_estate/contact.html  \n\nThis file was not retrieved by Teleport Ultra, because the server reports that the item is unavailable.  \n\nDo you want to open it from the server?%27))window.location=%27http://themeforest.swanitinfotech.com/real_estate/demo/real_estate/contact.html%27" tppabs="http://themeforest.swanitinfotech.com/real_estate/demo/real_estate/contact.html">contact</a></li>
-							</ul>
-						</div>
-					</div>
-					@if(!Auth::check())
-					<div class="rle_signin">
-						<a href="#" class="rle_btn" id="login_button">sign in</a>
-						<div id="login_one" class="rle_login_form">
-							<p>Bạn chưa có tài khoản? <a href="{{ route('page.reg') }}">Đăng ký</a></p>
-							<form class="form"  method="POST"  action="{{Route('page.login.post')}}" enctype="multipart/form-data" > {{ csrf_field() }}
-
-								<input type="text" name="username" placeholder="Username">
-								<input type="password" name="password" placeholder="Password">
-
-								<div class="rle_checkbox">
-									<input type="checkbox" id="remember_me" checked />
-									<label for="remember_me">Remember me</label>
-								</div>
-								<a href="#" class="forgot_pswd">forgot password?</a>
-								<button type="submit" class="rle_btn">Đăng nhập</button>
-								<span>or</span>
-								<a href="#" class="share_btn fcbk_clr_1"><i class="fa fa-facebook" aria-hidden="true"></i>login with facebook</a>
-								<a href="#" class="share_btn ggl_clr_2"><i class="fa fa-google-plus" aria-hidden="true"></i>login with google plus</a>
-							</form>
-						</div>
-					</div>
-					@else
-					<div class="rle_signin">
-						<a href="#" class="rle_btn" id="login_button">{{ Auth::user()->username }}</a>
-						<div id="login_one" class="rle_login_form">
-							<div class="form"   > 
-								<a href="{{ route('admin.home') }}" class="share_btn fcbk_clr_1"><i class="fa fa-facebook" aria-hidden="true"></i>Trang quản trị</a>
-								<a href="{{ route('page.logout') }}" class="share_btn ggl_clr_2"><i class="fa fa-google-plus" aria-hidden="true"></i>Đăng xuất</a>
-								<a href="{{ route('page.logout') }}" class="share_btn ggl_clr_2"><i class="fa fa-google-plus" aria-hidden="true"></i>Đăng xuất</a>
-
-							</div>
-						</div>
-					</div>
-					@endif
-				</div>
-			</div>
-		</div>
+<header id="header" class="w-100 bg_white nav-on-top"> 
+    <!-- Top Header Start -->
+    <div class="top_header_1 bg_secondary">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-5">
+            <div class="top_left"> <a href="callto:+14357824312"><i class="fa fa-phone" aria-hidden="true"></i> Cần hỗ trợ ? +84 76 299 9994</a> </div>
+          </div>
+          <div class="col-md-6 col-sm-7">
+            <div class="top_right dropdown_1 d-flex float-right">
+              <form action="#" method="post">
+                <select class="selectpicker" data-width="fit">
+                  <option>VN</option>
+                  <option>ENG</option>
+                </select>
+              </form>
+              <ul class="registration">
+                <li><a href="{{ route('page.reg') }}" class="toogle_btn">Đăng ký</a></li>
+                <li><a href="{{ route('page.login') }}" class="toogle_btn">Đăng nhập</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    @yield('hiden3')
+    <!-- Top Header End --> 
     
-</div>
+    <!-- Nav Header Start -->
+    <div class="main_header_1">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <nav class="navbar navbar-expand-lg navbar-light w-100"> <a class="navbar-brand" href="index.html"><img class="nav-logo" src="{{asset('public/house/img\logo1.png')}}" alt="logo"></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item"> <a class="nav-link" href="{{ route('page.home') }}">Home</a> </li>
 
+                  <li class="nav-item"> <a class="nav-link" href="#">Giới thiệu</a> </li>
+
+                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="blog-grid-classic.php" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Agents</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="agents.html">Agents</a></li>
+                      <li><a class="dropdown-item" href="agent_profile_grid.html">Agent Profile Grid</a></li>
+                      <li><a class="dropdown-item" href="agent_profile_list.html">Agent Profile List</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown mega_menu_dropdown">
+                      <a class="nav-link dropdown-toggle" href="blog-grid-classic.php" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                      <ul class="dropdown-menu mega_menu">
+                          <li>
+                              <ul class="mega-dropdown">
+                                  <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                                  <li><a class="dropdown-item" href="mission.html">Our Mission</a></li>
+                                  <li><a class="dropdown-item" href="career.html">Careers</a></li>
+                                  <li><a class="dropdown-item" href="award.html">Awards</a></li>
+                                  <li><a class="dropdown-item" href="testimonial.html">Testimonials</a></li>
+                                  <li><a class="dropdown-item" href="timeline.html">Timeline</a></li>
+                              </ul>
+                          </li>
+                          <li>
+                              <ul class="mega-dropdown">
+                                  <li><a class="dropdown-item" href="my_profile.html">My Profile</a></li>
+                                  <li><a class="dropdown-item" href="profile_media.html">Social Media</a></li>
+                                  <li><a class="dropdown-item" href="my_properties.html">My Properties</a></li>
+                                  <li><a class="dropdown-item" href="my_favorite.html">Favorited Properties</a></li>
+                                  <li><a class="dropdown-item" href="submit_property.html">Submit New Property</a></li>
+                                  <li><a class="dropdown-item" href="shortcodes.html">Shortcodes</a></li>
+                              </ul>
+                          </li>
+                          <li>
+                              <ul class="mega-dropdown">
+                                  <li><a class="dropdown-item" href="comments.html">Feedback and Comments</a></li>
+                                  <li><a class="dropdown-item" href="invoices.html">Payments and Invoice</a></li>
+                                  <li><a class="dropdown-item" href="change_password.html">Change Password</a></li>
+                                  <li><a class="dropdown-item" href="terms_and_condition.html">Terms And Condition</a></li>
+                                  <li><a class="dropdown-item" href="pricing_table.html">Pricing Table</a></li>
+                                  <li><a class="dropdown-item" href="agency_profile.html">Agency Profile</a></li>
+                              </ul>
+                          </li>
+                          <li>
+                              <ul class="mega-dropdown">
+                                  <li><a class="dropdown-item" href="our_service.html">Our Services</a></li>
+                                  <li><a class="dropdown-item" href="submit_property.html">Submit Property</a></li>
+                                  <li><a class="dropdown-item" href="invoice_details.html">Invoice Details</a></li>
+                                  <li><a class="dropdown-item" href="message_view.html">Message</a></li>
+                                  <li><a class="dropdown-item" href="error.html">Error Page</a></li>
+                                  <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="blog-grid-classic.php" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="blog_grid.html">Blog Grid</a></li>
+                      <li><a class="dropdown-item" href="blog_list.html">Blog List</a></li>
+                      <li><a class="dropdown-item" href="blog_detail.html">Blog Detail</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item"> <a class="nav-link" href="contact.php">Liên hệ</a> </li>
+                </ul>
+                
+                @if(Auth::check())
+                <div class="submit_property ml-2"><a class="btn btn_primary_bg" href="submit_property.html">Đăng bài</a></div>
+                @endif
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Nav Header End --> 
+  </header>

@@ -85,7 +85,7 @@
                             <div class="col-md-6 " style="margin-bottom: 20px;">  
                                 <label for="lastName1">Danh sách hình ảnh</label>
                                 <div class="fallback" >
-                                    <input type="file" class="dropzone"  style="width: 90%;"  name="hinhanh2" multiple  />
+                                    <input type="file" class="dropzone"  style="width: 90%;"  name="hinhanh2[]" multiple  />
                                 </div>
                             </div>  
                             
@@ -137,25 +137,13 @@
             var i=1;  
             $('#add').click(function(){  
                 i++;  
-                $('#dynamic_field').append('<tr id="row'+i+'"><td><select class="form-control" name="taisan[]">@foreach($taisan as $taisan2)<option value="{{ $taisan2->id }}"> {{ $taisan2->ten_ts }}</option>@endforeach</select></td><td><input type="text" name="name[]" placeholder="Số lượng" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+                $('#dynamic_field').append('<tr id="row'+i+'"><td><select class="form-control" name="taisan[]">@foreach($taisan as $taisan2)<option value="{{ $taisan2->id }}"> {{ $taisan2->ten_ts }}</option>@endforeach</select></td><td><input type="text" name="soluong[]" placeholder="Số lượng" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
             });  
             $(document).on('click', '.btn_remove', function(){      
                 var button_id = $(this).attr("id");   
                 $('#row'+button_id+'').remove();  
             });
-
-            $('#submit').click(function(){            
-                $.ajax({  
-                        url:"name.php",  
-                        method:"POST",  
-                        data:$('#add_name').serialize(),  
-                        success:function(data)  
-                        {  
-                            alert(data);  
-                            $('#add_name')[0].reset();  
-                        }  
-                });  
-            });  
+             
         });  
     </script>
 

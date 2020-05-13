@@ -21,13 +21,14 @@ class KhachHang extends Migration
             $table->string('kh_email');
             $table->string('kh_gioitinh');
             $table->date('kh_birthday');
-
-
-
-
-            $table->string('kh_diachi');
             $table->integer('kh_cmnd');
             $table->string('kh_phone');
+
+            $table->string('kh_province');
+            $table->string('kh_district');
+            $table->string('kh_ward');
+            $table->string('kh_address');
+
 
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')

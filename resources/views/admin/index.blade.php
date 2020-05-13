@@ -151,7 +151,7 @@
                                 <div class="mb-5">
                                     <p class="text-primary mb-1"><i class="i-Home1 text-20 mr-1"></i> Đỉa chỉ</p>
                                     <span>
-                                        {{ Auth::user()->member->kh_diachi }}
+                                        {{Auth::user()->member->kh_address}}, {{Auth::user()->member->ward->ward_prefix}} {{Auth::user()->member->ward->ward_name}}, {{Auth::user()->member->district->district_prefix}} {{Auth::user()->member->district->district_name}}, {{Auth::user()->member->province->province_name}}
                                     </span>
                                 </div>
 

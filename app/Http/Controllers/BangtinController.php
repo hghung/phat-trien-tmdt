@@ -8,6 +8,8 @@ use App\Models\nha;
 use App\Models\loainha;
 use App\Models\taisan;
 use App\Models\hinhanh;
+use App\Models\ct_taisan;
+
 
 Use Illuminate\Support\Facades\Auth;
 
@@ -36,8 +38,9 @@ class BangtinController extends Controller
 
     public function post_add(Request $bangtin2)
     {
-            // info
+            // Nha
             $nha = new nha;
+            // dd($nha);
             $nha->dien_tich = $bangtin2->dientich;
             $nha->dia_chi = $bangtin2->address;
             $nha->tinh_trang = $bangtin2->status;
@@ -92,17 +95,21 @@ class BangtinController extends Controller
             $nha->ma_nha = "HOUSE-000".$nha->id;
             $nha->save();
             
-            // /////////////////////
+            // ////// Dang tin ////////
             $bangtin = new bangtin;
             $bangtin->ten_bangtin = $bangtin2->name;
             $bangtin->mo_ta = $bangtin2->mota;
             $bangtin->gia_thue = $bangtin2->price;
+            $bangtin->trang_thai = "1";
+
 
             $bangtin->id_nha = $nha->id ;
             $bangtin->id_khachhang = Auth::user()->id ;
             // echo $bangtin;die;
-            
             // echo $user; die;   
+            $bangtin->save();
+
+            $bangtin->code_bangtin = "POST-000".$bangtin->id;
             $bangtin->save();
 
 
@@ -112,16 +119,15 @@ class BangtinController extends Controller
             {
                 // $banhbao22 = $bangtin2->hasFile('hinhanh2');
                 // echo $banhbao22;die;
-
                 foreach ($bangtin2->file('hinhanh2') as $file2)
                 {
-                    $dshinhanh = new hinh_anh;
+                    $dshinhanh = new hinhanh;
 
                     if(isset($file2))
                     {
                         $dshinhanh->id_nha = $nha->id;
 
-                        echo $file2;die;
+                        // echo $file2;die;
                         // kiểm tra  size
                         $size = $file2->getsize();
                         if($size > 1024*1024)
@@ -155,7 +161,7 @@ class BangtinController extends Controller
                         $file2->move('public/upload/',$hinh_anh);
                         $dshinhanh->hinh_anh = $hinh_anh;
 
-                        echo "banhbao2";die;
+                        // echo "banhbao2";die;
 
                         $dshinhanh->save();
                     }
@@ -168,8 +174,26 @@ class BangtinController extends Controller
                 $dshinhanh->hinh_anh = "";
             }
 
+            // tai san so luong ///////////////////////////////////////////////////////////////////
+            $data = array();
+            foreach($bangtin2->taisan as $key => $value) {
+                $data [] =  [
+                    'idtaisan' => $bangtin2->taisan[$key],
+                    'idnha' => $nha->id,
+                    'soluong' => $bangtin2->soluong[$key],
+                ];
+            }
+            // dd($data);
+            foreach($data as $key => $value)
+            {
+                $data2 = new ct_taisan;
+                $data2->id_nha = $value['idnha'];
+                $data2->id_taisan = $value['idtaisan'];
+                $data2->so_luong = $value['soluong'];
+                $data2->save();
+            }
 
         Toastr::success('Them thanh cong', 'Thông báo', ["positionClass" => "toast-top-right"]);
-        return redirect()->back();
+        return redirect(''.route('bangtin.list').'');
     }
 }

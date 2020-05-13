@@ -25,7 +25,7 @@ class TaikhoanController extends Controller
     {
         if(!Auth::check())
         {
-            return view('page.login.login-reg');
+            return view('page.home');
         }
         else
         {
@@ -103,11 +103,15 @@ class TaikhoanController extends Controller
             $user->kh_birthday = $reg->birthday;
 
 
-            $user->kh_diachi = $reg->diachi;
             $user->kh_cmnd = $reg->cmnd;
             $user->kh_phone = $reg->phone;
             $user->id_user = $account->id;
-
+            // dia chi
+            $user->kh_province = $reg->tinhthanh;
+            $user->kh_district = $reg->quanhuyen;
+            $user->kh_ward = $reg->phuongxa;
+            $user->kh_address = $reg->diachi;
+            // 
             // 
             $user->id_user = $account->id;
             // echo $user; die;   
@@ -155,7 +159,7 @@ class TaikhoanController extends Controller
                     Toastr::success('Hi '.Auth::user()->member->kh_ten.'', 'Welcome', ["positionClass" => "toast-top-right"]);
 
                     // echo "Thanh Cong";die;
-                    return redirect()->back();
+                    return redirect(''.route('page.home').'');
 
                
             }

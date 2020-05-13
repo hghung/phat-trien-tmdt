@@ -1,52 +1,137 @@
-<!DOCTYPE html>
-<!-- 
-Template Name: Real Estate
-Version: 1.0.0
--->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
+<!doctype html>
 <html lang="en">
-<!--<![endif]-->
 <head>
-	<meta charset="utf-8">
-	<title>Real Estate Responsive HTML Template</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta name="description" content="Real Estate">
-	<meta name="keywords" content="Real Estate, Property template, Real Estate template, rent, sale, buy">
-	<meta name="author" content="">
-	<meta name="MobileOptimized" content="320">
-	<!--srart theme style -->
-	<link rel="stylesheet" type="text/css" href="{{asset('public/house/css/bootstrap.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('public/house/css/font-awesome.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('public/house/css/fonts.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('public/house/css/owl.carousel.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('public/house/css/owl.theme.default.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('public/house/css/jquery-ui.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('public/house/css/style.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('public/house/css/swiper.min.css')}}" >
+<!-- Meta Tag -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Uniland - Real Estate HTML5 Template">
+<meta name="keywords" content="real estate, property, property search, agent, apartments, booking, business, idx, housing, real estate agency, rental">
+<meta name="author" content="unicoder">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>@yield('tieude')</title>
+<!-- Favicon -->
+<link rel="shortcut icon" href="{{asset('public/house/img\favicon.ico')}}">
 
-	<!-- favicon links -->
-	<link rel="shortcut icon" type="image/png" href="{{asset('public/house/img/favico.ico')}}">
+<!-- Required style of the theme -->
+
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('public/house/css/bootstrap-4.1.3.min.css')}}">
+<link rel="stylesheet" href="{{asset('public/house/css/bootstrap-select.min.css')}}">
+
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('public/house/css/fontawesome-all-5.5.0.min.css')}}">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('public/house/webfonts\flaticon\flaticon.css')}}">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('public/house/css/style.css')}}">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('public/house/css/layerslider.css')}}">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('public/house/css/color.css')}}" id="color-change')}}">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('public/house/css/jslider.css')}}">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('public/house/css/responsive.css')}}">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('public/house/css/loader.css')}}">
+
+<link rel="stylesheet" href="{{asset('public/house/skins/outline/skin.css')}}">
+
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('public/house/css/settings.css')}}"> 
+<!--===============================================================================================-->
+
+
 </head>
-<body>
-@include('house.header')
+<body class="page-load">
+<div class="preloader">
+	<div class="loading-page">
+		<div class="sk-circle">
+		  <div class="sk-circle1 sk-child"></div>
+		  <div class="sk-circle2 sk-child"></div>
+		  <div class="sk-circle3 sk-child"></div>
+		  <div class="sk-circle4 sk-child"></div>
+		  <div class="sk-circle5 sk-child"></div>
+		  <div class="sk-circle6 sk-child"></div>
+		  <div class="sk-circle7 sk-child"></div>
+		  <div class="sk-circle8 sk-child"></div>
+		  <div class="sk-circle9 sk-child"></div>
+		  <div class="sk-circle10 sk-child"></div>
+		  <div class="sk-circle11 sk-child"></div>
+		  <div class="sk-circle12 sk-child"></div>
+		</div>
+	</div>
+</div>
 
-@yield('content')
-@include('house.footer')
 
-<!--main js file start--> 
-<script type="text/javascript" src="{{asset('public/house/js/jquery.js')}}"></script> 
-<script type="text/javascript" src="{{asset('public/house/js/jquery-ui.js')}}"></script> 
 
-<script type="text/javascript" src="{{asset('public/house/js/bootstrap.js')}}"></script> 
-<script type="text/javascript" src="{{asset('public/house/js/owl.carousel.js')}}"></script>
-<script type="text/javascript" src="{{asset('public/house/js/custom.js')}}"></script> 
+<!-- Wrapper Start -->
+<div id="page_wrapper" class="container-fluid">
+	<div class="row">
+		@include('house.header')
+        
+        @yield('house_content')
 
-<script type="text/javascript" src="{{asset('public/house/js/Chart.min.js')}}" ></script>
-<script type="text/javascript" src="{{asset('public/house/js/swiper.min.js')}}" ></script>
-<script type="text/javascript" src="{{asset('public/house/js/canva.js')}}" ></script> 
+        @include('house.footer')
 
-<!--main js file end-->
+        <!-- Find Part Satrt --> 
+        <a href="#" id="scroll"><i class="fas fa-arrow-up"></i></a> 
+        <!-- Find Part Satrt -->
+	</div>
+</div>
+<!-- Wrapper End -->
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS --> 
+<!--===============================================================================================--> 
+<script src="{{asset('public/house/js/jquery-3.3.1.min.js')}}"></script> 
+<script src="{{asset('public/house/js/greensock.js')}}"></script>
+<!-- LayerSlider script files -->
+<script src="{{asset('public/house/js/layerslider.transitions.js')}}"></script>
+<script src="{{asset('public/house/js/layerslider.kreaturamedia.jquery.js')}}"></script>
+<!--===============================================================================================--> 
+<script src="{{asset('public/house/js/popper-1.14.3.min.js')}}"></script> 
+<script src="{{asset('public/house/js/bootstrap-4.1.3.min.js')}}"></script> 
+<script src="{{asset('public/house/js/bootstrap-select.min.js')}}"></script> 
+<!--===============================================================================================--> 
+<!--===============================================================================================--> 
+<script src="{{asset('public/house/js/jquery.fancybox.pack.js')}}"></script> 
+<script src="{{asset('public/house/js/jquery.fancybox-media.js')}}"></script> 
+<!--===============================================================================================--> 
+<!-- Owl Carousel slide need--> 
+<script src="{{asset('public/house/js/owl.js')}}"></script> 
+<!--===============================================================================================--> 
+<!-- Achievement Counting need--> 
+<script src="{{asset('public/house/js/nsc.js')}}"></script> 
+<!--===============================================================================================--> 
+<!--tab gallery section--> 
+<script src="{{asset('public/house/js/mixitup.js')}}"></script> 
+<!--===============================================================================================-->
+<script src="{{asset('public/house/js/wow.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{asset('public/house/js/jquery.cookie.js')}}"></script>
+<script src="{{asset('public/house/js/settings.js')}}"></script>
+<!--===============================================================================================--> 
+<script src="{{asset('public/house/js/jshashtable-2.1_src.js')}}"></script> 
+<!--===============================================================================================--> 
+<script src="{{asset('public/house/js/jquery.numberformatter-1.2.3.js')}}"></script> 
+<!--===============================================================================================--> 
+<script src="{{asset('public/house/js/tmpl.js')}}"></script> 
+
+
+<!--===============================================================================================--> 
+<script src="{{asset('public/house/js/jquery.dependClass-0.1.js')}}"></script> 
+<!--===============================================================================================--> 
+<script src="{{asset('public/house/js/draggable-0.1.js')}}"></script> 
+<!--===============================================================================================--> 
+<script src="{{asset('public/house/js/jquery.slider.js')}}"></script> 
+<!--===============================================================================================-->
+
+
+<!--===============================================================================================--> 
+<script src="{{asset('public/house/js/jquery.barrating.js')}}"></script> 
+<!--===============================================================================================--> 
+<script src="{{asset('public/house/js/custom.js')}}"></script> 
+
 </body>
 </html>

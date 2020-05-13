@@ -15,9 +15,14 @@ class BangtinThuenha extends Migration
     {
         Schema::create('bang_tin', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('code_bangtin')->nullable();
+
             $table->string('ten_bangtin');
             $table->text('mo_ta');
             $table->integer('gia_thue');
+            $table->integer('trang_thai');
+
+
             
             $table->integer('id_khachhang')->unsigned();
             $table->foreign('id_khachhang')

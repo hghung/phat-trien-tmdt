@@ -16,11 +16,20 @@ use Carbon\Carbon; // lấy ngày hiên tại
 
 Route::get('/','PageController@home');
 
+
+
+Route::get('/quan-huyen/{id_province}','PageController@ajax_district');
+Route::get('/phuong-xa/{id_ward}','PageController@ajax_ward');
+	 
+
 Route::get('/trang-chu','PageController@home')->name('page.home');
 
 Route::get('/dang-ky','PageController@dangky')->name('page.reg');
 
 Route::post('/dang-ky','TaikhoanController@post_reg')->name('page.reg.post');
+
+
+Route::get('/dang-nhap','PageController@login')->name('page.login');
 
 Route::post('/dang-nhap','TaikhoanController@post_lg')->name('page.login.post');
 
@@ -30,10 +39,9 @@ Route::get('/dang-xuat','TaikhoanController@logout')->name('page.logout');
 
 
 
-Route::get('/danh-sach-1','PageController@list')->name('page.list');
-Route::get('/danh-sach-2','PageController@list_2')->name('page.list2');
+Route::get('/danh-sach-bang-tin','PageController@list')->name('page.list');
 
-Route::get('/san-pham-{id}','PageController@single')->name('page.single');
+Route::get('/san-pham-{id}','PageController@single')->name('deatil.bangtin');
 
 
 

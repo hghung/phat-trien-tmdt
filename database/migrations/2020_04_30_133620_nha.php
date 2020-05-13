@@ -16,7 +16,7 @@ class Nha extends Migration
         Schema::create('nha', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ma_nha')->nullable();
-            $table->integer('dien_tich');
+            $table->string('dien_tich');
             $table->string('dia_chi');
             $table->integer('tinh_trang');
             $table->string('hinh_anh')->nullable();
