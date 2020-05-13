@@ -22,7 +22,7 @@ class nha extends Model
         //     'App\Models\nha', 'App\Models\taisan',
         //     'id_nha', 'id_taisan','id'
         // );
-        return $this->belongsToMany('App\Models\ct_taisan','id_nha','id'); 
+        return $this->hasMany('App\Models\ct_taisan','id_nha','id'); 
 
         // từ sản phẩm cha ra con xài hasone
         // (tên đường dẫn, 'khoa ngoại', khóa chính)

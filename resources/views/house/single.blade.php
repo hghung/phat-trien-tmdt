@@ -66,15 +66,14 @@
 					<div class="col-md-12">
 						<div class="single_property_detail">
 							<div class="head">
-								<h4 class="title mt-5">Luxury Condos Infront of the street of Green Park</h4>
+								<h4 class="title mt-5">{{ $bangtin->ten_bangtin }}</h4>
 								<span class=""><i class="fas fa-map-marker-alt"></i> 402 Henry Ford Avenue Sand Springs, LA 74063 </span>
 							</div>
-							<p>Dis at habitasse viverra nisl. Arcu nec id imperdiet venenatis, lacus sollicitudin in et libero senectus ullamcorper conubia velit metus lacinia duis fermentum dictumst ut phasellus aptent tempor lectus.</p>
-							<p>Feugiat rhoncus Rhoncus mi, eros consectetuer pretium vivamus potenti sem. Vestibulum quisque neque libero molestie. Arcu ac. Amet dis pulvinar nostra leo posuere per dapibus metus, taciti rutrum tristique nullam suspe. Fringilla vitae Parturient risus pretium iaculis blandit condimentum proin nisl risus.</p>
-							<p>Pellentesque volutpat mollis dignissim molestie Sed placerat hac, elementum senectus parturient vivamus. Odi Egestas justo ridiculus erat diam. Lobortis id mollis conubia et varius, justo, velit Ultricies tempus tincidunt viver feugiat mi. Felis lacus pellentesque amet habitasse vehicula porttitor nisl ullamcorper Porta metus netus. Cura a torquent condimentum amet Elementum. Rhoncus porttitor scelerisque quam suscipit sapien vitae maecena. Venenatis taciti cum felis enim sem mattis sagittis venenatis nec magnis consequat parturient massa rhoncus lorem tristique est taciti conubia semper sodales ultricies integer A placerat etiam lacinia hendrerit ante proin congue erat habitant habitasse curabitur pretium nonummy interdum bibendum.</p>
-							<p>Dapibus. Sagittis. Quisque cras tellus pede. Sollicitudin. Ridiculus nec. Mus cras quam. Nonummy. Vulputate sit interdum at, iaculis convallis nullam faucibus ad tempor. Ad aliquet rhoncus urna phasellus parturient pellente sque. Erat porta conubia habitant dolor erat praesent felis orci hymenaeos semper tellus imperdiet rutrum Ut magnis mattis nascetur.</p>
+							
+							<p> {!! $bangtin->mo_ta !!}</p>
+
 							<div class="more_information my-5 d-inline-block">
-								<h4 class="inner-title mb-4">More Information</h4>
+								<h4 class="inner-title mb-4">Nhiều thông tin</h4>
 								<ul>
 									<li><span>Age :</span> 10 Years</li>
 									<li><span>Type :</span> Appartment</li>
@@ -92,11 +91,9 @@
 									<li><span>Heating System :</span> Floor Heating</li>
 								</ul>
 							</div>
-							<video poster="video\poster.png')}}" controls="">
-								<source src="video\real_estate.mp4" type="video/mp4">
-							</video>
+							
 							<div class="single_feature mb-5">
-								<h4 class="inner-title mb-4">Features</h4>
+								<h4 class="inner-title mb-4">Đặc trưng</h4>
 								<ul class="icon_list_1">
 									<li>Fitness Lab and Room</li>
 									<li>Swiming Pools</li>
@@ -112,11 +109,11 @@
 								</ul>
 							</div>
 							<div class="single_map mb-5">
-								<h4 class="inner-title mb-4">Location</h4>
+								<h4 class="inner-title mb-4">Bản đồ</h4>
 								<div id="map" class="map-canvas"> </div>
 							</div>
 							<div class="mb-5 star_rating">
-								<h4 class="inner-title mb-4">Give a Review</h4>
+								<h4 class="inner-title mb-4">Đánh giá</h4>
 								<form action="#" method="post">
 									<div class="row">
 										<div class="col-md-12">
@@ -133,17 +130,17 @@
 										</div>
 										<div class="col-md-6 col-sm-12">
 											<div class="form-group">
-												<input class="form-control" type="text" name="yourname" placeholder="Your Name">
+												<input class="form-control" type="text" value="{{ Auth::user()->member->kh_ho }} {{ Auth::user()->member->kh_ten }}" name="hoten" readonly="">
 											</div>
 										</div>
 										<div class="col-md-6 col-sm-12">
 											<div class="form-group">
-												<input class="form-control" type="text" name="youremail" placeholder="Your Email">
+												<input class="form-control" type="text" value="{{ Auth::user()->member->kh_email }}" name="hoten" readonly="">
 											</div>
 										</div>
 										<div class="col-md-12 col-sm-12">
 											<div class="form-group">
-												<textarea rows="5" class="form-control resize_none" name="ratingcomments" placeholder="Your Comments"></textarea>
+												<textarea rows="5" class="form-control resize_none" name="ratingcomments" placeholder="Nội dung đánh giá"></textarea>
 											</div>
 										</div>
 										<div class="col-md-12 col-sm-12">
@@ -257,10 +254,13 @@
                             <li><span>Diện tích :</span> 6500 sqft</li>
                             
                             <li>
-                                <span>Phòng ngủ :</span>
-                                 {{--  @if($bangtin->house->taisan->taisan2->ten_ts == 'Phòng ngủ')
-                                    {{ $bangtin->house->taisan->so_luong }}
-                                 @endif  --}}
+								<span>Phòng ngủ :</span>
+								{{--  lấy ra có bảng trung gian hasMany xong tới belongsTo --}}
+								@foreach($bangtin->house->taisan as $bangtin2)
+									@if($bangtin2->taisan2->ten_ts == 'Phòng ngủ')
+										{{ $bangtin2->so_luong }}
+									@endif
+								@endforeach
                             </li>
                             
                             <li><span>Phòng tắm :</span> 4</li>
