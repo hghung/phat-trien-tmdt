@@ -17,9 +17,16 @@ class Nha extends Migration
             $table->increments('id');
             $table->string('ma_nha')->nullable();
             $table->string('dien_tich');
+            // ban đồ
             $table->string('dia_chi');
+            $table->string('province');
+            $table->double('lat');
+            $table->double('lng');
+            // 
             $table->integer('tinh_trang');
             $table->string('hinh_anh')->nullable();
+
+            
 
             $table->integer('id_loainha')->unsigned();
             $table->foreign('id_loainha')

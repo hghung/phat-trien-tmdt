@@ -44,14 +44,19 @@
 								<button type="submit" name="signin" class="btn btn_primary_bg">Sign In</button>
 							</div>
 						</form>
-					<div class="password_recovery">Lost your password? <a href="#">Click Here</a></div>
+					<div class="password_recovery">Quên mật khẩu? <a href="#">Click Here</a></div>
 					</div>
-					<div class="footer">Click and read our terms and condition<a href="#">Terms and Condition</a></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- Modal -->
 </section>
+
+<script src="{{asset('public/admin/toastr/jquery.min.js')}}"></script>
+
+<script src="{{asset('public/admin/toastr/toastr.min.js')}}" ></script>
+	   
+{!! Toastr::message() !!}
 
 @endsection

@@ -73,22 +73,38 @@
 							<p> {!! $bangtin->mo_ta !!}</p>
 
 							<div class="more_information my-5 d-inline-block">
-								<h4 class="inner-title mb-4">Nhiều thông tin</h4>
+								<h4 class="inner-title mb-4">Thông tin</h4>
 								<ul>
-									<li><span>Age :</span> 10 Years</li>
-									<li><span>Type :</span> Appartment</li>
-									<li><span>Installment Facility :</span> Yes</li>
-									<li><span>Insurance :</span> Yes</li>
-									<li><span>3rd Party :</span> No</li>
-									<li><span>Swiming Pool :</span> Yes</li>
-									<li><span>Garden & Field :</span> 2400sqft</li>
-									<li><span>Total Floor :</span> 3 Floor</li>
-									<li><span>Security :</span> 3 Step Security</li>
-									<li><span>Alivator :</span> 2 Large</li>
-									<li><span>Dining Capacity :</span> 20 People</li>
-									<li><span>Exit :</span> 3 Exit Gate</li>
-									<li><span>Fire Place :</span> Yes</li>
-									<li><span>Heating System :</span> Floor Heating</li>
+									<li>
+										<span>Age :</span> 10 Years
+									</li>
+									<li>
+										<span>Type :</span> {{ $bangtin->house->loainha->ten_loai }}
+									</li>
+									<li>
+										Diện tích :</span> {{ $bangtin->house->dien_tich }}
+									</li>
+
+									@foreach($taisan as $taisan2)
+
+									<li>
+										<span>
+											{{ $taisan2->ten_ts }} 
+											:
+											
+											
+											
+											
+									
+										</span> 
+									</li>
+									@endforeach
+									
+									
+
+
+									
+									
 								</ul>
 							</div>
 							
@@ -108,10 +124,15 @@
 									<li>Marble Floor</li>
 								</ul>
 							</div>
-							<div class="single_map mb-5">
-								<h4 class="inner-title mb-4">Bản đồ</h4>
-								<div id="map" class="map-canvas"> </div>
+							{{--  Bản đồ--}}
+							<div class="mb-5">
+								<h4 class="inner-title mb-4">Vị trí</h4>
+								<div id="map" style="height: 400px; width: 700px;"> </div>
 							</div>
+
+							{{-- <div id="map" > </div> --}}
+
+							{{--  --}}
 							<div class="mb-5 star_rating">
 								<h4 class="inner-title mb-4">Đánh giá</h4>
 								<form action="#" method="post">
@@ -130,12 +151,12 @@
 										</div>
 										<div class="col-md-6 col-sm-12">
 											<div class="form-group">
-												<input class="form-control" type="text" value="{{ Auth::user()->member->kh_ho }} {{ Auth::user()->member->kh_ten }}" name="hoten" readonly="">
+												<input class="form-control" type="text" value="{{ $bangtin->user->member->kh_ho }} {{ $bangtin->user->member->kh_ten }}" name="hoten" readonly="">
 											</div>
 										</div>
 										<div class="col-md-6 col-sm-12">
 											<div class="form-group">
-												<input class="form-control" type="text" value="{{ Auth::user()->member->kh_email }}" name="hoten" readonly="">
+												<input class="form-control" type="text" value="{{ $bangtin->user->member->kh_email }}" name="hoten" readonly="">
 											</div>
 										</div>
 										<div class="col-md-12 col-sm-12">
@@ -674,5 +695,40 @@
 	</div>
 </section>
 <!-- Featured Section End --> 
+
+
+
+	<script async defer 
+		src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&&amp;libraries=places%2Cgeometry&amp;callback=initMap&amp;ver=1">
+	</script>
+		
+
+
+	<script>
+		var lat = {{ $bangtin->house->lat }};
+		var lng = {{ $bangtin->house->lng }};
+
+		function initMap() {
+			var map = new google.maps.Map(document.getElementById('map'), {
+				center: {   
+					lat: lat, 
+					lng: lng
+					},
+				zoom: 15
+			});
+
+			var marker = new google.maps.Marker({
+				position:{
+					lat: lat, 
+					lng: lng
+				},
+				map : map,
+			});
+
+			
+		}
+	</script>
+
+
 
 @endsection

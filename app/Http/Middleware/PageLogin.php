@@ -20,14 +20,17 @@ class PageLogin
        if(Auth::check())
         {
             $user = Auth::user();
-            if($user->level == 2)
+            if($user->vai_tro == 1 || $user->vai_tro == 2 )
                 return $next($request);
             else
-                return redirect(''.Route('logout').'')->with('thongbao','Tài khoản và mật khẩu không chính xác');
+                return redirect()->route('page.logout')->with('thongbao','Tài khoản và mật khẩu không chính xác');
             
         }       
-        else 
-                return redirect(''.Route('logout').'')->with('thongbao','Tài khoản và mật khẩu không chính xác');
+        else
+        {
+            return redirect(''.Route('page.logout').'')->with('thongbao','Tài khoản và mật khẩu không chính xác');
+
+        }
                 
             
     }

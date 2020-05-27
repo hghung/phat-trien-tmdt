@@ -41,10 +41,20 @@ class BangtinController extends Controller
             // Nha
             $nha = new nha;
             // dd($nha);
-            $nha->dien_tich = $bangtin2->dientich;
-            $nha->dia_chi = $bangtin2->address;
             $nha->tinh_trang = $bangtin2->status;
             $nha->id_loainha = $bangtin2->idloainha;
+            $nha->dien_tich = $bangtin2->dientich;
+            $nha->rooms = $bangtin2->sophong;
+
+
+
+            $nha->dia_chi = $bangtin2->diachi;
+            $nha->province = $bangtin2->tinhthanh;
+            $nha->lat = $bangtin2->lat;
+            $nha->lng = $bangtin2->lng;
+
+
+
 
             if($bangtin2->hasFile('hinhanh'))
             {
@@ -92,12 +102,15 @@ class BangtinController extends Controller
             }
 
             $nha->save();
+
+            // dd($nha);
+
             $nha->ma_nha = "HOUSE-000".$nha->id;
             $nha->save();
             
             // ////// Dang tin ////////
             $bangtin = new bangtin;
-            $bangtin->ten_bangtin = $bangtin2->name;
+            $bangtin->ten_bangtin = $bangtin2->tieude;
             $bangtin->mo_ta = $bangtin2->mota;
             $bangtin->gia_thue = $bangtin2->price;
             $bangtin->trang_thai = "1";

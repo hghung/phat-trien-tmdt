@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- Meta Tag -->
@@ -40,8 +40,12 @@
 
 <!--===============================================================================================-->
 <link rel="stylesheet" href="{{asset('public/house/css/settings.css')}}"> 
-<!--===============================================================================================-->
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css"> 
+
+<!--=========================================Hiện thông báo============================================-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 
 </head>
 <body class="page-load">
@@ -132,6 +136,10 @@
 <script src="{{asset('public/house/js/jquery.barrating.js')}}"></script> 
 <!--===============================================================================================--> 
 <script src="{{asset('public/house/js/custom.js')}}"></script> 
+
+<!--===============================Hiện thông báo JS=============================================--> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" type="text/javascript"></script>
+
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 @extends('house.master')
-@section('tieude','Admin')
+@section('tieude','Trang chủ')
 @section('house_content')
 <!-- Slider HTML markup -->
 <div class="full_row">

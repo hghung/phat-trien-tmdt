@@ -26,8 +26,11 @@ class AdLogin
                 return redirect(''.Route('p.logout').'')->with('thongbao','Tài khoản và mật khẩu không chính xác');
             
         }       
-        else 
-                return redirect(''.Route('p.logout').'')->with('thongbao','Tài khoản và mật khẩu không chính xác');
+        else
+        {
+            return redirect(''.Route('p.logout').'')->with('thongbao','Tài khoản và mật khẩu không chính xác');
+
+        }
                 
             
     }

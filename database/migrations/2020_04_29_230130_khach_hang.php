@@ -23,11 +23,14 @@ class KhachHang extends Migration
             $table->date('kh_birthday');
             $table->integer('kh_cmnd');
             $table->string('kh_phone');
-
+            // địa chỉ
             $table->string('kh_province');
             $table->string('kh_district');
             $table->string('kh_ward');
             $table->string('kh_address');
+
+            $table->string('kh_avatar')->nullable();
+
 
 
             $table->integer('id_user')->unsigned();

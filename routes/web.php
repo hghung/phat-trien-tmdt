@@ -16,24 +16,28 @@ use Carbon\Carbon; // lấy ngày hiên tại
 
 Route::get('/','PageController@home');
 
+Route::get('/gg','PageController@googlemap');
+Route::get('/gg1','PageController@gg1');
 
 
-Route::get('/quan-huyen/{id_province}','PageController@ajax_district');
-Route::get('/phuong-xa/{id_ward}','PageController@ajax_ward');
+// googlemap
+
+
+
 	 
 
 Route::get('/trang-chu','PageController@home')->name('page.home');
 
 Route::get('/dang-ky','PageController@dangky')->name('page.reg');
 
-Route::post('/dang-ky','TaikhoanController@post_reg')->name('page.reg.post');
+Route::post('/dang-ky','Login_RegController@post_reg')->name('page.reg.post');
 
 
 Route::get('/dang-nhap','PageController@login')->name('page.login');
 
-Route::post('/dang-nhap','TaikhoanController@post_lg')->name('page.login.post');
+Route::post('/dang-nhap','Login_RegController@post_lg')->name('page.login.post');
 
-Route::get('/dang-xuat','TaikhoanController@logout')->name('page.logout');
+Route::get('/dang-xuat','Login_RegController@logout')->name('page.logout');
 
 
 
@@ -43,11 +47,28 @@ Route::get('/danh-sach-bang-tin','PageController@list')->name('page.list');
 
 Route::get('/san-pham-{id}','PageController@single')->name('deatil.bangtin');
 
+// Taikhoan ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+Route::group(['prefix'=>'tai-khoan','middleware'=>'Page_login'],function(){
+
+	Route::get('/quan-huyen/{id_province}','PageController@ajax_district');
+	Route::get('/phuong-xa/{id_ward}','PageController@ajax_ward');
+	Route::get('/dashboard','TaikhoanController@dashboard')->name('taikhoan.dashboard');
+
+	Route::get('/dang-tin','TaikhoanController@dangtin')->name('taikhoan.dangtin');
+	Route::post('/dang-tin','BangtinController@post_add')->name('bangtin.post.add');
 
 
 
+	Route::get('/thong-tin-tai-khoan','TaikhoanController@profile')->name('taikhoan.profile');
+	Route::post('/update-profile-{id}','TaikhoanController@update_profile')->name('taikhoan.update.profile');
+
+	Route::get('/update-password','TaikhoanController@password')->name('taikhoan.password');
+	Route::post('/update-passsword-{id}','TaikhoanController@update_password')->name('taikhoan.update.password');
+
+});
 
 
+// admin ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 Route::group(['prefix'=>'SPS'],function(){
 	Route::get('/','AdminController@home')->name('admin.home');
 	Route::get('/master','AdminController@master')->name('admin.lyout');
@@ -66,14 +87,14 @@ Route::group(['prefix'=>'SPS'],function(){
 
 	});
 
-	Route::group(['prefix'=>'bang-tin'],function(){
-		Route::get('/','BangtinController@list')->name('bangtin.list');
-		Route::get('/add','BangtinController@add')->name('bangtin.add');
-		Route::post('/post-add','BangtinController@post_add')->name('bangtin.post.add');
+	// Route::group(['prefix'=>'bang-tin'],function(){
+	// 	Route::get('/','BangtinController@list')->name('bangtin.list');
+	// 	Route::get('/add','BangtinController@add')->name('bangtin.add');
+	// 	Route::post('/post-add','BangtinController@post_add')->name('bangtin.post.add');
 
 
 
-	});
+	// });
 
 });
 
