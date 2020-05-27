@@ -19,6 +19,7 @@ class Nha extends Migration
             $table->string('dien_tich');
             // ban đồ
             $table->string('dia_chi');
+            $table->integer('rooms');
             $table->string('province');
             $table->double('lat');
             $table->double('lng');

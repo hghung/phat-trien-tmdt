@@ -154,11 +154,29 @@
 							</div>
 							<div class="col-md-4">
 								<div class="prifile_picture">
-									<div class="avata_form">
-										<img height="243px" width="255px" src="{{asset('public/upload /avatar/')}}/{{ Auth::user()->member->kh_avatar }}" alt="">
-										<input type="file" name="avatar" id="avata-upload">
-										<label for="avata-upload"><i class="flaticon-tool-1"></i></label>
-									</div>
+									@if(Auth::user()->member->hinh_anh)
+										<div class="avata_form">
+											<img height="243px" width="255px" src="{{asset('public/upload/avatar/')}}/{{ Auth::user()->member->kh_avatar }}" alt="">
+											<input type="file" name="avatar" id="avata-upload">
+											<label for="avata-upload"><i class="flaticon-tool-1"></i></label>
+										</div>
+									@elseif(Auth::user()->member->kh_gioitinh == 1)
+
+										<div class="avata_form">
+											<img height="243px" width="255px" src="{{asset('public/house/man.png/')}}" alt="">
+											<input type="file" name="avatar" id="avata-upload">
+											<label for="avata-upload"><i class="flaticon-tool-1"></i></label>
+										</div>
+									
+									@elseif(Auth::user()->member->kh_gioitinh == 2)
+
+										<div class="avata_form">
+											<img height="243px" width="255px" src="{{asset('public/house/woman.png')}}" alt="">
+											<input type="file" name="avatar" id="avata-upload">
+											<label for="avata-upload"><i class="flaticon-tool-1"></i></label>
+										</div>
+
+									@endif
 									<ul>
 										<li><span>Tên:</span> {{ Auth::user()->member->kh_ho}} {{ Auth::user()->member->kh_ten}}</li>
 										<li><span>Phone:</span> {{ Auth::user()->member->kh_phone}}</li>

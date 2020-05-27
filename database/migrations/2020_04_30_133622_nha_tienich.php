@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class BangtinThuenha extends Migration
+class NhaTienich extends Migration
 {
     /**
      * Run the migrations.
@@ -13,34 +13,21 @@ class BangtinThuenha extends Migration
      */
     public function up()
     {
-        Schema::create('bang_tin', function (Blueprint $table) {
+        Schema::create('nha_tienich', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code_bangtin')->nullable();
+            $table->integer('check');
 
-            $table->string('ten_bangtin');
-            $table->text('mo_ta');
-            $table->integer('gia_thue');
-            $table->integer('trang_thai');
-
-
-            
-            $table->integer('id_thanhvien')->unsigned();
-            $table->foreign('id_thanhvien')
+            $table->integer('id_tienich')->unsigned();
+            $table->foreign('id_tienich')
                     ->references('id')
-                    ->on('thanh_vien')
+                    ->on('tien_ich')
                     ->onDelete('cascade');
-            
+
             $table->integer('id_nha')->unsigned();
             $table->foreign('id_nha')
                     ->references('id')
                     ->on('nha')
                     ->onDelete('cascade');
-
-            $table->timestamps();
-            
-
-
-
         });
     }
 
@@ -51,6 +38,6 @@ class BangtinThuenha extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bang_tin');
+        Schema::dropIfExists('nha_tienich');
     }
 }

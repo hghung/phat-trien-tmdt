@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
-use App\Models\khach_hang;
+use App\Models\thanhvien;
 
 Use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -14,6 +14,10 @@ use Carbon\Carbon;
 use Toastr;
 use App\Models\loainha;
 use App\Models\taisan;
+use App\Models\bangtin;
+use App\Models\tienich;
+
+
 
 
 use App\Models\District;
@@ -34,9 +38,10 @@ class TaikhoanController extends Controller
         $loainha = loainha::all();
         $taisan = taisan::all();
         $province = Province::all();
-        $district = District::all();
-        $ward = Ward::all();
-        return view('house.account.dangtin',['loainha' => $loainha, 'taisan' =>$taisan,'province' => $province, 'district' => $district, 'ward' => $ward]);
+        $tienich = tienich::all();
+
+       
+        return view('house.account.dangtin',['loainha' => $loainha, 'taisan' =>$taisan,'tienich' =>$tienich,'province' =>$province]);
     }
 
     public function profile()
@@ -46,6 +51,21 @@ class TaikhoanController extends Controller
         $ward = Ward::all();
         return view('house.account.profile',['province' => $province, 'district' => $district, 'ward' => $ward]);
     }
+
+    public function ds_bangtin()
+    {
+        $dsbangtin = bangtin::where('id_thanhvien','=', Auth::user()->id)->get();
+        
+        return view('house.account.ds_bangtin',['dsbangtin' => $dsbangtin]);
+    }
+
+    public function ds_yeutich()
+    {
+        $dsyeutich = bangtin::where('id_thanhvien','=', Auth::user()->id);
+        
+        return view('house.account.dsbangtin',['dsbangtin' => $dsbangtin]);
+    }
+
 
     public function update_profile($id, Request $update)
     {
@@ -68,9 +88,14 @@ class TaikhoanController extends Controller
         //     'hoten.min' => 'Tên tối thiểu 2 ký tự trở lên !',
         //     'hoten.max' => 'Tên không được vượt hơn 32 ký tự !',
 
-        // ]);
+            $id = Auth::user()->id;
 
-            $user = khach_hang::find($id);
+
+            $user = thanhvien::find($id);
+
+            
+
+
             $user->kh_ho = $update->ho;
             $user->kh_ten = $update->ten;
             $user->kh_email = $update->email;
@@ -140,9 +165,8 @@ class TaikhoanController extends Controller
 
             // dd($user);
              
-
              $user->save();
-             return redirect()->bacK()->with('tintucxoa','Bạn đã xóa thành công...!');
+             return redirect()->bacK();
     }
 
 

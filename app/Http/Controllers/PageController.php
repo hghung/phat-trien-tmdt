@@ -11,12 +11,18 @@ use App\Models\bangtin;
 use App\Models\taisan;
 use App\Models\nha;
 
+use App\Models\nha_tienich;
+
+
 use App\Models\ct_taisan;
 
 use DB;
 
 use Carbon\Carbon;
 Use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Arr;
+
 
 class PageController extends Controller
 {
@@ -56,10 +62,7 @@ class PageController extends Controller
     public function dangky()
     {
         
-        $province = Province::all();
-        $district = District::all();
-        $ward = Ward::all();
-    	return view('house.reg',['province' => $province, 'district' => $district, 'ward' => $ward]);
+    	return view('house.reg');
     }
 
     public function ajax_district($id_province)
@@ -101,6 +104,10 @@ class PageController extends Controller
         
         $bangtin = bangtin::find($id);
         $nha = nha::all();
+
+        $tienich = nha_tienich::where('id_nha', '=', $bangtin->id_nha )->get();
+
+
         $taisan = taisan::all();
 
         $taisan = $taisan->toArray();
@@ -110,28 +117,35 @@ class PageController extends Controller
         foreach($taisan as $key => $value)
         {
             $taisan[$key] = [
-                'ten_ts' => $value,
-                'so_luong' => 0
+                'ten_ts' => $value['ten_ts'],
+                'so_luong' => 'Không có',
+                'id' => $value['id']
             ];
+            // $taisan = Arr::add(['name' => 'Desk'], 'price', 100);
+        }
+        // dd($taisan);
+        
+        
+        foreach($taisan as $key => $value)
+        {
+            foreach($ct_taisan as $ts2)
+            {
+                if($value['id'] == $ts2->id_taisan)
+                {
+                    $taisan[$key] = [
+                        'ten_ts' => $value['ten_ts'],
+                        'so_luong' => $ts2->so_luong,
+                        'id' => $value['id']
+                    ];
+                }
+                
+            }
         }
 
-        // foreach($taisan as $key => $value)
-        // {
-            
-        //     foreach($ct_taisan as $ts2)
-        //     {
-        //         if($value['id'] == $ts2->id_taisan)
-        //         {
-        //             $taisan[$key] = [
-        //                 'so_luong' => $ts2->so_luong,
-        //             ];
-        //         }
-                
-        //     }
-        // }
         
-        dd($taisan);
-    	return view('house.single',['bangtin' => $bangtin, 'taisan' => $taisan, 'ct_taisan' => $ct_taisan]);
+
+        
+    	return view('house.single',['bangtin' => $bangtin, 'taisan' => $taisan, 'taisan' => $taisan, 'tienich' => $tienich]);
     }
 
     

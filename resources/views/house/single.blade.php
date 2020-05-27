@@ -85,12 +85,13 @@
 										Diện tích :</span> {{ $bangtin->house->dien_tich }}
 									</li>
 
-									@foreach($taisan as $taisan2)
+									@foreach($taisan as $key => $value )
 
 									<li>
 										<span>
-											{{ $taisan2->ten_ts }} 
+											{{ $value['ten_ts'] }} 
 											:
+											{{ $value['so_luong'] }}
 											
 											
 											
@@ -109,19 +110,12 @@
 							</div>
 							
 							<div class="single_feature mb-5">
-								<h4 class="inner-title mb-4">Đặc trưng</h4>
+								<h4 class="inner-title mb-4">Tiện ích</h4>
 								<ul class="icon_list_1">
-									<li>Fitness Lab and Room</li>
-									<li>Swiming Pools</li>
-									<li>Parking Facility</li>
-									<li>Green Park View</li>
-									<li>Playground Include</li>
-									<li>Garden</li>
-									<li>Kitchen Furniture</li>
-									<li>Fire Security</li>
-									<li>High Class Door</li>
-									<li>Store Room</li>
-									<li>Marble Floor</li>
+									@foreach($tienich as $tienich2)
+										<li >{{ $tienich2->tienich2->tien_ich }}</li>
+									@endforeach
+									
 								</ul>
 							</div>
 							{{--  Bản đồ--}}

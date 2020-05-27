@@ -12,6 +12,15 @@
  */
 use App\User;
 
+use App\Models\taisan;
+
+use App\Models\loainha;
+
+use App\Models\tienich;
+
+
+
+
 use Carbon\Carbon; // lấy ngày hiên tại
 
 Route::get('/','PageController@home');
@@ -54,6 +63,7 @@ Route::group(['prefix'=>'tai-khoan','middleware'=>'Page_login'],function(){
 	Route::get('/phuong-xa/{id_ward}','PageController@ajax_ward');
 	Route::get('/dashboard','TaikhoanController@dashboard')->name('taikhoan.dashboard');
 
+	Route::get('/bang-tin','TaikhoanController@ds_bangtin')->name('taikhoan.dsbangtin');
 	Route::get('/dang-tin','TaikhoanController@dangtin')->name('taikhoan.dangtin');
 	Route::post('/dang-tin','BangtinController@post_add')->name('bangtin.post.add');
 
@@ -101,107 +111,87 @@ Route::group(['prefix'=>'SPS'],function(){
 
 
 Route::get('/play',function(){
-	$user = new role;
-	$user->role_name = 'Admin';
-	$user->save();
 
-	$user = new role;
-	$user->role_name = 'Member';
-	$user->save();
+	$loainha = new loainha;
+	$loainha->ten_loai = 'Cấp 1';
+	$loainha->save();
 
-	$user = new status;
-	$user->Status_name = 'Hiện';
-	$user->Status_note = 'Sản phẩm còn hàng hoặc hiện đánh giá';
+	$loainha = new loainha;
+	$loainha->ten_loai = 'Cấp 2';
+	$loainha->save();
 
-	$user->save();
+	$loainha = new loainha;
+	$loainha->ten_loai = 'Cấp 3';
+	$loainha->save();
 
-	$user = new status;
-	$user->Status_name = 'Ẩn';
-	$user->Status_note = 'Sản phẩm hết hàng hoặc ẩn đánh giá';
-	$user->save();
+	$loainha = new loainha;
+	$loainha->ten_loai = 'Cấp 4';
+	$loainha->save();
 
-	$user = new status;
-	$user->Status_name = 'Đang xử lý';
-	$user->Status_note = 'Đơn hàng vừa được order';
-	$user->save();
+	$loainha = new loainha;
+	$loainha->ten_loai = 'Villa';
+	$loainha->save();
 
-	$user = new status;
-	$user->Status_name = 'Xác nhận đơn hàng';
-	$user->Status_note = 'Đơn hàng được xác nhận';
-	$user->save();
+	$loainha = new loainha;
+	$loainha->ten_loai = 'Biệt thự';
+	$loainha->save();
 
-	$user = new status;
-	$user->Status_name = 'Đang vận chuyển';
-	$user->Status_note = 'Đơn hàng được đang vận chuyển';
+	// 
+	$taisan = new taisan;
+	$taisan->ten_ts = 'TV';
+	$taisan->save();
 
-	$user->save();
+	$taisan = new taisan;
+	$taisan->ten_ts = 'Điều hòa';
+	$taisan->save();
 
-	$user = new status;
-	$user->Status_name = 'Giao hàng';
-	$user->Status_note = 'Đơn hàng đang được giao';
-	$user->save();
+	$taisan = new taisan;
+	$taisan->ten_ts = 'Tủ lạnh';
+	$taisan->save();
 
-	$user = new status;
-	$user->Status_name = 'Giao hàng thành công';
-	$user->Status_note = 'Đã giao hàng thành công';
-	$user->save();
+	$taisan = new taisan;
+	$taisan->ten_ts = 'Bàn ghế';
+	$taisan->save();
 
-	$user = new status;
-	$user->Status_name = 'Hủy đơn hàng';
-	$user->Status_note = 'Đơn hàng đã hủy';
-	$user->save();
+	$taisan = new taisan;
+	$taisan->ten_ts = 'Máy giặt';
+	$taisan->save();
+
+	//
+	$tienich = new tienich;
+	$tienich->tien_ich = 'Sân vườn';
+	$tienich->save();
+	
+	$tienich = new tienich;
+	$tienich->tien_ich = 'Hồ bơi';
+	$tienich->save();
+
+	$tienich = new tienich;
+	$tienich->tien_ich = 'Nhà xe';
+	$tienich->save();
+
+	$tienich = new tienich;
+	$tienich->tien_ich = 'Trung tâm';
+	$tienich->save();
 
 
-	$user = new payment;
-	$user->payment_name = 'Thanh toán khi nhận hàng';
-	$user->payment_note = 'Giao hàng nhận tiền';
-	$user->save();
+	$tienich = new tienich;
+	$tienich->tien_ich = 'Gần chợ';
+	$tienich->save();
 
-	$user = new payment;
-	$user->payment_name = 'Thanh toán khi Paypal';
-	$user->payment_note = 'Thanh toán bẳng thẻ';
-	$user->save();
+	$tienich = new tienich;
+	$tienich->tien_ich = 'Gần trường';
+	$tienich->save();
 
-	$user = new category;
-	$user->category_name = 'Danh muc 1';
-	$user->save();
+	$tienich = new tienich;
+	$tienich->tien_ich = 'Gần siêu thị';
+	$tienich->save();
 
-	$user = new category;
-	$user->category_name = 'Danh muc 2';
-	$user->save();
-
-	$user = new category;
-	$user->category_name = 'Danh muc 3';
-	$user->save();
-
-	$user = new category;
-	$user->category_name = 'Danh muc 4';
-	$user->save();
-
-	$user = new category;
-	$user->category_name = 'Danh muc 5';
-	$user->save();
+	$tienich = new tienich;
+	$tienich->tien_ich = 'Gần bệnh viện';
+	$tienich->save();
 
 	
-	$user = new category;
-	$user->category_name = 'Danh muc 6';
-	$user->save();
-
-	$user = new category;
-	$user->category_name = 'Danh muc 7';
-	$user->save();
-
-	$user = new category;
-	$user->category_name = 'Danh muc 8';
-	$user->save();
-
-	$user = new category;
-	$user->category_name = 'Danh muc 9';
-	$user->save();
-
-	$user = new category;
-	$user->category_name = 'Danh muc 10';
-	$user->save();
 
 	
 	

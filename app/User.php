@@ -21,7 +21,7 @@ class User extends Authenticatable
 
     public function member() // phải viêt liền ko được cách ra hoặc _
     {
-        return $this->hasOne('App\Models\khach_hang','id_user','id'); 
+        return $this->hasOne('App\Models\thanhvien','id_user','id'); 
         // từ sản phẩm cha ra con xài hasone
         // (tên đường dẫn, 'khoa ngoại', khóa chính)
     }

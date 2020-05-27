@@ -10,6 +10,9 @@ use Carbon\Carbon;
 use Toastr;
 use App\User;
 
+use App\Models\thanhvien;
+
+
 class Login_RegController extends Controller
 {   
     public function post_reg(Request $reg)
@@ -68,25 +71,18 @@ class Login_RegController extends Controller
         if($account)
         {
             // info
-            $user = new khach_hang;
+            $user = new thanhvien;
             $user->kh_ten = $reg->name;
             $user->kh_ho = $reg->lastname;
 
             $user->kh_email = $reg->email;
             $user->kh_gioitinh = $reg->gioi_tinh;
-            $user->kh_birthday = $reg->birthday;
 
 
             $user->kh_cmnd = $reg->cmnd;
             $user->kh_phone = $reg->phone;
             $user->id_user = $account->id;
-            // dia chi
-            $user->kh_province = $reg->tinhthanh;
-            $user->kh_district = $reg->quanhuyen;
-            $user->kh_ward = $reg->phuongxa;
-            $user->kh_address = $reg->diachi;
-            // 
-            // 
+
             $user->id_user = $account->id;
             // echo $user; die;   
             $user->save();
@@ -99,7 +95,7 @@ class Login_RegController extends Controller
 
             
         Toastr::success('Đăng ký thành công', 'Thông báo', ["positionClass" => "toast-top-right"]);
-        return redirect(''.route('page.home').'')->with('reg','Chúc mừng bạn đã đăng ký thành công');
+        return redirect(''.route('page.login').'')->with('reg','Chúc mừng bạn đã đăng ký thành công');
     }
 
     public function post_lg(Request $lg)

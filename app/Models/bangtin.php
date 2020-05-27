@@ -17,7 +17,7 @@ class bangtin extends Model
 
     public function user() // phải viêt liền ko được cách ra hoặc _
     {
-        return $this->belongsTo('App\User','id_khachhang','id'); 
+        return $this->belongsTo('App\User','id_thanhvien','id'); 
         // từ sản phẩm cha ra con xài hasone
         // (tên đường dẫn, 'khoa ngoại', khóa chính)
     }

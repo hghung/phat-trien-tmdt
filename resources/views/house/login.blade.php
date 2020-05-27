@@ -41,7 +41,7 @@
 								<input type="password" class="form-control" name="password" placeholder="Password">
 							</div>
 							<div class="form-group">
-								<button type="submit" name="signin" class="btn btn_primary_bg">Sign In</button>
+								<button type="submit" name="signin" class="btn btn_primary_bg">Đăng nhập</button>
 							</div>
 						</form>
 					<div class="password_recovery">Quên mật khẩu? <a href="#">Click Here</a></div>

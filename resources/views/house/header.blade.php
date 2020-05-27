@@ -16,8 +16,8 @@
               </form>
               @if(!Auth::check())
                 <ul class="registration">
-                  <li><a href="{{ route('page.reg') }}" class="toogle_btn">Đăng ký</a></li>
-                  <li><a href="{{ route('page.login') }}" class="toogle_btn">Đăng nhập</a></li>
+                  <li><a href="{{ route('page.reg') }}" class="toogle_btn"><i class="fa fa-key"></i> &nbsp Đăng ký</a></li>
+                  <li><a href="{{ route('page.login') }}" class="toogle_btn"><i class="fa fa-unlock-alt"></i> &nbsp Đăng nhập</a></li>
                 </ul>
               @else
               <ul class="navbar-nav ml-auto">

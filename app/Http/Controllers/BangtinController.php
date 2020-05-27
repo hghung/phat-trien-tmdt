@@ -9,6 +9,8 @@ use App\Models\loainha;
 use App\Models\taisan;
 use App\Models\hinhanh;
 use App\Models\ct_taisan;
+use App\Models\nha_tienich;
+
 
 
 Use Illuminate\Support\Facades\Auth;
@@ -37,7 +39,9 @@ class BangtinController extends Controller
 
 
     public function post_add(Request $bangtin2)
-    {
+    {   
+            
+
             // Nha
             $nha = new nha;
             // dd($nha);
@@ -117,7 +121,9 @@ class BangtinController extends Controller
 
 
             $bangtin->id_nha = $nha->id ;
-            $bangtin->id_khachhang = Auth::user()->id ;
+            $bangtin->id_thanhvien = Auth::user()->id ;
+
+            // echo $bangtin;die;
             // echo $bangtin;die;
             // echo $user; die;   
             $bangtin->save();
@@ -127,7 +133,7 @@ class BangtinController extends Controller
 
 
             // upload nhieu anh
-
+            
             if($bangtin2->hasFile('hinhanh2'))
             {
                 // $banhbao22 = $bangtin2->hasFile('hinhanh2');
@@ -188,6 +194,29 @@ class BangtinController extends Controller
             }
 
             // tai san so luong ///////////////////////////////////////////////////////////////////
+
+            $banhbao = array();
+            foreach($bangtin2->tienich as $key => $value ) {
+                $banhbao [] =  [
+                    'idtienich' => $bangtin2->tienich[$key],
+                    'idnha' => $nha->id,
+                    'check' => '1'
+
+                ];
+            }
+            // dd($data2);
+            foreach($banhbao as $key => $value)
+            {
+                $banhbao3 = new nha_tienich;
+                $banhbao3->id_nha = $value['idnha'];
+                $banhbao3->id_tienich = $value['idtienich'];
+                $banhbao3->check = $value['check'];
+                $banhbao3->save();
+            }
+
+
+
+            // //////////////////////////////////////////
             $data = array();
             foreach($bangtin2->taisan as $key => $value) {
                 $data [] =  [
@@ -205,7 +234,7 @@ class BangtinController extends Controller
                 $data2->so_luong = $value['soluong'];
                 $data2->save();
             }
-
+        // echo $bangtin;die;
         Toastr::success('Them thanh cong', 'Thông báo', ["positionClass" => "toast-top-right"]);
         return redirect(''.route('bangtin.list').'');
     }

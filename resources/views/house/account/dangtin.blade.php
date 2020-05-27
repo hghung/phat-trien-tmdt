@@ -107,8 +107,8 @@
 
                         <div class="description mt-5">
                             <h4 class="inner-title mb-4">Mô tả</h4>
-                            <div class="form-group">
-                                <textarea name="mota" placeholder="Type Description..." class="form-control" rows="5" required></textarea>
+                            <div class="form-group" >
+                                <textarea id="editor" type="text" name="mota"></textarea>
                             </div>
                             <div class="alert alert-warning">
                                 Cần có một mô tả thích hợp về bảng tin ngôi nhà. Vì vậy, khách hàng có thể dễ dàng hiểu về bảng tin ngôi nhà đó.
@@ -170,12 +170,40 @@
                             </div>
                         </div>
 
+                        {{--  Tiện ích  --}}
+                        <div class="check_feature mt-5">
+                            <h4 class="inner-title mb-4">Tiện ích</h4>
+                            <div class="row">
+                                <ul class="check_submit">
+
+                                    @php
+                                        
+                                    $i = 1;
+                                    $y = 1;
+                                    
+                                    @endphp
+                                    
+
+                                    @foreach($tienich as $tienich2)
+                                   
+                                    <li> 
+                                        <input id="feature_{{ $i++ }}" name="tienich[]" value="{{ $tienich2->id }}" class="hide" type="checkbox">
+                                        <label for="feature_{{ $y++ }}">{{ $tienich2->tien_ich }}</label>
+                                        
+                                    </li>
+                                    @endforeach
+                                    
+                                </ul>
+                            </div>
+                            <div class="alert alert-warning">Check the extra features and facility of the property, it will show with the property.</div>
+                        </div>
+                    
+
                         {{-- tai san --}}
                         <div class="check_feature mt-5">
                             <h4 class="inner-title mb-4">Tài sản</h4>
                             <table class="table table-bordered" id="dynamic_field">  
                                 <tr>  
-                                    
                                     <td style="width: 50%">
                                         <select class="form-control" name="taisan[]">
                                             @foreach($taisan as $taisan2)
@@ -191,6 +219,8 @@
                             </table>  
                             <div class="alert alert-warning">Check the extra features and facility of the property, it will show with the property.</div>
                         </div>
+
+                        
 
                         {{--  --}}
                         <div class="upload_media mt-5">
@@ -240,6 +270,20 @@
     <script src="{{asset('public/admin/toastr/toastr.min.js')}}" ></script>
        
     {!! Toastr::message() !!}
+    
+    <script src="https://cdn.ckeditor.com/ckeditor5/19.0.0/classic/ckeditor.js"></script>
+
+    <script>
+        ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .then( editor => {
+                        console.log( editor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+    </script>
+
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     
