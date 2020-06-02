@@ -7,16 +7,21 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="page_banner">
-					<h3 class="title text_white d-table float-left">Chi tiết bảng tin 
-                        <span style="color: #90c923">{{ $bangtin->code_bangtin }}</span>
+					<h3 class="title text_white d-table float-left">Bảng tin 
+                        <span style="color: #00aeef">{{ $bangtin->code_bangtin }}</span>
                     </h3>
 					<ul class="page_location float-right">
-						<li><a href="index_1.html">Home</a>
+						<li><a href="{{ route('page.home') }}">Home</a>
 						</li>
 						<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+						
+						<li><a href="{{ route('page.list') }}">Bảng tin</a>
 						</li>
-						<li><span>Chi tiết bảng tin
-                            <span style="color: #90c923">{{ $bangtin->code_bangtin }}</span>
+						<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+							
+						</li>
+						<li><span>Bảng tin
+                            <span style="color: #00aeef">{{ $bangtin->code_bangtin }}</span>
                         </span>
 						</li>
 					</ul>
@@ -71,7 +76,7 @@
 						<div class="single_property_detail">
 							<div class="head">
 								<h4 class="title mt-5">{{ $bangtin->ten_bangtin }}</h4>
-								<span class=""><i class="fas fa-map-marker-alt"></i> 402 Henry Ford Avenue Sand Springs, LA 74063 </span>
+								<span class=""><i class="fas fa-map-marker-alt"></i> {{ $bangtin->house->dia_chi }} </span>
 							</div>
 							
 							<p> {!! $bangtin->mo_ta !!}</p>
@@ -80,14 +85,24 @@
 								<h4 class="inner-title mb-4">Thông tin</h4>
 								<ul>
 									<li>
-										<span>Age :</span> 10 Years
+										<span>Tình trạng :</span> 
+										@if($bangtin->house->tinh_trang == 1)
+
+											Mới
+										
+										@elseif($bangtin->house->tinh_trang == 2)
+
+											Đã qua sử dụng
+
+										@endif
 									</li>
 									<li>
-										<span>Type :</span> {{ $bangtin->house->loainha->ten_loai }}
+										<span>Loại nhà :</span> {{ $bangtin->house->loainha->ten_loai }}
 									</li>
 									<li>
-										Diện tích :</span> {{ $bangtin->house->dien_tich }}
+										Diện tích :</span> {{ $bangtin->house->dien_tich }} m²
 									</li>
+
 
 									@foreach($taisan as $key => $value )
 
@@ -95,7 +110,7 @@
 										<span>
 											{{ $value['ten_ts'] }} 
 											:
-											{{ $value['so_luong'] }}
+											{{ $value['so_luong'] }} cái
 											
 											
 											
@@ -116,8 +131,10 @@
 							<div class="single_feature mb-5">
 								<h4 class="inner-title mb-4">Tiện ích</h4>
 								<ul class="icon_list_1">
+									<li style="padding-left: 30px;"> Wifi </li>
+
 									@foreach($tienich as $tienich2)
-										<li >{{ $tienich2->tienich2->tien_ich }}</li>
+										<li style="padding-left: 30px;">{{ $tienich2->tienich2->tien_ich }}</li>
 									@endforeach
 									
 								</ul>
@@ -128,9 +145,8 @@
 								<div id="map" style="height: 400px; width: 700px;"> </div>
 							</div>
 
-							{{-- <div id="map" > </div> --}}
 
-							{{--  --}}
+							{{-- Viết Đánh giá  --}}
 							<div class="mb-5 star_rating">
 								<h4 class="inner-title mb-4">Đánh giá</h4>
 								<form action="#" method="post">
@@ -171,122 +187,114 @@
 						</div>
 					</div>
 				</div>
-				<!-- Property Commsnts -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="people_rating">
-							<h4 class="inner-title mb-5">Review and Comments</h4>
-							<div class="comment_item">
-								<img src="{{ asset('public/house/img/blog_detail\comment-1.png')}}" alt="">
-								<div class="author_text">
-									<div class="author_info">
-										<h5 class="author_name">Rebecca D. Nagy </h5>
-										<span>27 February, 2017 at 3.27 pm</span>
-									</div>
-									<div class="user-rating">
-										<ul>
-											<li class="active"></li>
-											<li class="active"></li>
-											<li class="active"></li>
-											<li class="active"></li>
-											<li class="deactive"></li>
-										</ul>
-									</div>
-									<p>Fermentum mus porttitor tempor arcu posuere. Nibh consectetuer condimentum ultricies pulvinar eget pede litora interdum magna aenean ullamcorper nisi dis. Viverra. Vulputate. Quisque neque luctus quis rhoncus.</p>
-									<a href="#" class="btn btn_primary">Replay</a>
+
+				{{--  Bài đánh giá  --}}
+				
+				<div class="col-md-12">
+					<div class="people_rating">
+						<h4 class="inner-title mb-5">Review and Comments</h4>
+						<div class="comment_item">
+							<img src="{{ asset('public/house/img/blog_detail\comment-1.png')}}" alt="">
+							<div class="author_text">
+								<div class="author_info">
+									<h5 class="author_name">Rebecca D. Nagy </h5>
+									<span>27 February, 2017 at 3.27 pm</span>
 								</div>
+								<div class="user-rating">
+									<ul>
+										<li class="active"></li>
+										<li class="active"></li>
+										<li class="active"></li>
+										<li class="active"></li>
+										<li class="deactive"></li>
+									</ul>
+								</div>
+								<p>Fermentum mus porttitor tempor arcu posuere. Nibh consectetuer condimentum ultricies pulvinar eget pede litora interdum magna aenean ullamcorper nisi dis. Viverra. Vulputate. Quisque neque luctus quis rhoncus.</p>
+								<a href="#" class="btn btn_primary">Replay</a>
 							</div>
-							<div class="comment_item">
-								<img src="{{ asset('public/house/img/blog_detail\comment-2.png')}}" alt="">
-								<div class="author_text">
-									<div class="author_info">
-										<h5 class="author_name">Charles F. Bush </h5>
-										<span>12 February, 2017 at 10.32 pm</span>
-									</div>
-									<div class="user-rating">
-										<ul>
-											<li class="active"></li>
-											<li class="active"></li>
-											<li class="active"></li>
-											<li class="active"></li>
-											<li class="active"></li>
-										</ul>
-									</div>
-									<p>FUllamcorper parturient elit, mauris congue duis morbi lacus eget id pellentesque commodo porta bibendum ullamcorper mauris dui fusce dolor massa class ultricies.</p>
-									<a href="#" class="btn btn_primary">Replay</a>
+						</div>
+						<div class="comment_item">
+							<img src="{{ asset('public/house/img/blog_detail\comment-2.png')}}" alt="">
+							<div class="author_text">
+								<div class="author_info">
+									<h5 class="author_name">Charles F. Bush </h5>
+									<span>12 February, 2017 at 10.32 pm</span>
 								</div>
+								<div class="user-rating">
+									<ul>
+										<li class="active"></li>
+										<li class="active"></li>
+										<li class="active"></li>
+										<li class="active"></li>
+										<li class="active"></li>
+									</ul>
+								</div>
+								<p>FUllamcorper parturient elit, mauris congue duis morbi lacus eget id pellentesque commodo porta bibendum ullamcorper mauris dui fusce dolor massa class ultricies.</p>
+								<a href="#" class="btn btn_primary">Replay</a>
 							</div>
-							<div class="comment_item replay">
-								<img src="{{ asset('public/house/img/blog_detail\comment-3.png')}}" alt="">
-								<div class="author_text">
-									<div class="author_info">
-										<h5 class="author_name">Patty Hurd </h5>
-										<span>17 February, 2017 at 11.17 am</span>
-									</div>
-									<div class="user-rating">
-										<ul>
-											<li class="active"></li>
-											<li class="active"></li>
-											<li class="active"></li>
-											<li class="deactive"></li>
-											<li class="deactive"></li>
-										</ul>
-									</div>
-									<p>Pretium urna nonummy sodales, dictumst blandit, magna. Quis porttitor lobortis lectus fringilla nam at Sociis vel pharetra enim per praesent viverra consequat litora, pharetra turpis magna tincidunt curae; molestie non.</p>
-									<a href="#" class="btn btn_primary">Replay</a>
+						</div>
+						<div class="comment_item replay">
+							<img src="{{ asset('public/house/img/blog_detail\comment-3.png')}}" alt="">
+							<div class="author_text">
+								<div class="author_info">
+									<h5 class="author_name">Patty Hurd </h5>
+									<span>17 February, 2017 at 11.17 am</span>
 								</div>
+								<div class="user-rating">
+									<ul>
+										<li class="active"></li>
+										<li class="active"></li>
+										<li class="active"></li>
+										<li class="deactive"></li>
+										<li class="deactive"></li>
+									</ul>
+								</div>
+								<p>Pretium urna nonummy sodales, dictumst blandit, magna. Quis porttitor lobortis lectus fringilla nam at Sociis vel pharetra enim per praesent viverra consequat litora, pharetra turpis magna tincidunt curae; molestie non.</p>
+								<a href="#" class="btn btn_primary">Replay</a>
 							</div>
-							<div class="comment_item">
-								<img src="{{ asset('public/house/img/blog_detail\comment-4.png')}}" alt="">
-								<div class="author_text">
-									<div class="author_info">
-										<h5 class="author_name">Joseph Richard  </h5>
-										<span>30 January, 2017 at 10.32 pm</span>
-									</div>
-									<div class="user-rating">
-										<ul>
-											<li class="active"></li>
-											<li class="active"></li>
-											<li class="active"></li>
-											<li class="active"></li>
-											<li class="deactive"></li>
-										</ul>
-									</div>
-									<p>Hac placerat. Morbi. Parturient. Nulla porta duis. Donec fames vel. Quam sem. Purus odio ultrices augue. Diam ridiculus cras luctus.</p>
-									<a href="#" class="btn btn_primary">Replay</a>
+						</div>
+						<div class="comment_item">
+							<img src="{{ asset('public/house/img/blog_detail\comment-4.png')}}" alt="">
+							<div class="author_text">
+								<div class="author_info">
+									<h5 class="author_name">Joseph Richard  </h5>
+									<span>30 January, 2017 at 10.32 pm</span>
 								</div>
+								<div class="user-rating">
+									<ul>
+										<li class="active"></li>
+										<li class="active"></li>
+										<li class="active"></li>
+										<li class="active"></li>
+										<li class="deactive"></li>
+									</ul>
+								</div>
+								
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- End Property Comments -->
+				
+				
 			</div>
 			<div class="col-lg-4">
 				<div class="property_sidebar mt-5">
 					<div class="property_listing sidebar-widget">
-						<h4 class="widget-title mb-4">Tóm tắt bảng tin</h4>
+						
+							
+						<h4 class="widget-title mb-4 ">Tóm tắt bảng tin</h4>
+							
+						
 						<ul>
 							<li><span>Code :</span> {{ $bangtin->code_bangtin }}</li>
 							<li><span>Khuyến mãi :</span> For Sale</li>
-							<li><span>Loại nhà  :</span> Condos</li>
-							<li><span>Giá :</span> $375,000</li>
-                            <li><span>Diện tích :</span> 6500 sqft</li>
+
+							<li><span>Loại nhà  :</span>  {{ $bangtin->house->loainha->ten_loai }}</li>
+
+							<li><span>Giá :</span> {{ number_format($bangtin->gia_thue,0,',','.') }} đ / tháng</li>
+
+                            <li><span>Diện tích :</span>  {{ $bangtin->house->dien_tich }} m²</li>
                             
-                            <li>
-								<span>Phòng ngủ :</span>
-								{{--  lấy ra có bảng trung gian hasMany xong tới belongsTo --}}
-								@foreach($bangtin->house->taisan as $bangtin2)
-									@if($bangtin2->taisan2->ten_ts == 'Phòng ngủ')
-										{{ $bangtin2->so_luong }}
-									@endif
-								@endforeach
-                            </li>
-                            
-                            <li><span>Phòng tắm :</span> 4</li>
-                            
-							<li><span>Car Garage :</span> Yes ( 5 Capacity )</li>
-							<li><span>Swimming :</span> Yes ( 1 Large )</li>
-							<li><span>Garden :</span> Yes</li>
 							<li><span>Rating :</span>
 								<i class="fas fa-star"></i>
 								<i class="fas fa-star"></i>
@@ -295,38 +303,75 @@
 								<i class="far fa-star"></i> (12)
 							</li>
 						</ul>
-					</div>
-					<div class="contact_agent sidebar-widget">
-						<div class="author_img">
-							<img src="{{ asset('public/house/img/testimonial\2.png')}}" alt="">
-							<div class="agent_info">
-								<h5 class="author_name">Rebecca D. Nagy</h5>
-								<span>+( 81 ) 84 538 91231</span>
+						<div class="rle_property_details_box">
+						
+							<div class="user_info">
+	
+								@if($bangtin->user->member->kh_avatar)
+	
+								<img height="100px" width="100px" src="{{ asset('public/upload/avatar') }}/{{ $bangtin->user->member->kh_avatar }}">
+									
+								@elseif($bangtin->user->member->kh_gioitinh == 1)
+	
+									<img height="100px" width="100px" src="{{asset('public/house/man.png/')}}" alt="">
+										
+									</div>
+								
+								@elseif($bangtin->user->member->kh_gioitinh == 2)
+	
+									<img height="100px" width="100px" src="{{asset('public/house/woman.png')}}" alt="">
+										
+	
+								@endif
+	
+										
+								
+								<h4>{{ $bangtin->user->member->kh_ho }} {{ $bangtin->user->member->kh_ten }}</h4>
+								<p>
+									@if($bangtin->user->vai_tro == 1)
+	
+										<span style="color: #ffc107">Admin</span>
+										{{--  Admin  --}}
+	
+									@elseif($bangtin->user->vai_tro == 2)
+	
+										<span style="color: #90c923">Thành viên</span>
+										{{--  Thành viên  --}}
+										
+									@endif
+	
+								</p>
+								<ul>
+									<li><a href="#" class="clr_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#" class="clr_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#" class="clr_linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+	
+							<div class="user_info_share style_2">
+								<ul>
+									<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> 0{{  number_format($bangtin->user->member->kh_phone,0,' ',' ') }}</a></li>
+	
+									<li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> {{ $bangtin->user->member->kh_email }}</a></li>
+	
+									<li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> {{ date("d-m-Y",strtotime($bangtin->user->created_at))  }} (Ngày tham gia)</a></li>
+								</ul>
+							</div>
+	
+							
+	
+							
+							<div class="user_info_form">
+								<a  href="{{Route('addcart',['id' => $bangtin->id])}}" class="rle_btn" ><i class="fa fa-shopping-cart"></i> BOOK NOW </a> 
 							</div>
 						</div>
-						<form action="#" method="post">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<input type="text" class="form-control" name="name" placeholder="Your Name">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<input type="text" class="form-control" name="email" placeholder="Your Email">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<textarea class="form-control" name="message" placeholder="Message" rows="5"></textarea>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<button type="submit" class="btn btn_primary" name="submit">Send</button>
-								</div>
-							</div>
-						</form>
+
 					</div>
+
+					
+				</div>
+
+					{{--  Tìm kiếm  --}}
 					<div class="property_form sidebar-widget">
 						<form class="price-filter" action="#" method="post">
 							<div class="row">
@@ -429,145 +474,30 @@
 									</div>
 								</div>
 								<div class="col-lg-12">
-									<button name="search" class="btn btn_primary w-100" type="submit">search property</button>
+									<button name="search" class="btn btn_primary w-100" type="submit">Tìm kiếm </button>
 								</div>
 							</div>
 						</form>
 					</div>
-					<div class="featured_sidebar sidebar-widget">
-						<h4 class="widget-title mb-4">Featured Property</h4>
-						<div class="owl-carousel owl_carousel_5">
-							<div class="property_grid_1 property_item">
-								<div class="position-relative">
-									<div class="upper_1 bg_secondary text-white">Sale</div>
-									<a href="#"><img src="{{ asset('public/house/img/property_grid\property_grid-4.png')}}" alt="Image Not Found!"></a>
-									<div class="quantity">
-										<ul>
-											<li><span>Area</span>1600 Sqft</li>
-											<li><span>Rooms</span>7</li>
-											<li><span>Beds</span>4</li>
-											<li><span>Baths</span>3</li>
-											<li><span>Garage</span>1</li>
-										</ul>
-									</div>
-								</div>
-								<div class="property_text p-3">
-									<h5 class="title"><a href="#">New Developed Condos</a></h5>
-									<span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 4213 Duff Avenue South Burlington, VT 05403 </span>
-								</div>
-								<div class="bed_area d-table w-100">
-									<ul>
-										<li>$150,000</li>
-										<li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-										</li>
-										<li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="property_grid_1 property_item">
-								<div class="position-relative">
-									<div class="upper_1 bg_secondary text-white">Sale</div>
-									<a href="#"><img src="{{ asset('public/house/img/property_grid\property_grid-5.png')}}" alt="Image Not Found!"></a>
-									<div class="quantity">
-										<ul>
-											<li><span>Area</span>1600 Sqft</li>
-											<li><span>Rooms</span>7</li>
-											<li><span>Beds</span>4</li>
-											<li><span>Baths</span>3</li>
-											<li><span>Garage</span>1</li>
-										</ul>
-									</div>
-								</div>
-								<div class="property_text p-3">
-									<h5 class="title"><a href="#">New Developed Condos</a></h5>
-									<span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 4213 Duff Avenue South Burlington, VT 05403 </span>
-								</div>
-								<div class="bed_area d-table w-100">
-									<ul>
-										<li>$150,000</li>
-										<li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-										</li>
-										<li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="property_grid_1 property_item">
-								<div class="position-relative">
-									<div class="upper_1 bg_secondary text-white">Sale</div>
-									<a href="#"><img src="{{ asset('public/house/img/property_grid\property_grid-6.png')}}" alt="Image Not Found!"></a>
-									<div class="quantity">
-										<ul>
-											<li><span>Area</span>1600 Sqft</li>
-											<li><span>Rooms</span>7</li>
-											<li><span>Beds</span>4</li>
-											<li><span>Baths</span>3</li>
-											<li><span>Garage</span>1</li>
-										</ul>
-									</div>
-								</div>
-								<div class="property_text p-3">
-									<h5 class="title"><a href="#">New Developed Condos</a></h5>
-									<span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 4213 Duff Avenue South Burlington, VT 05403 </span>
-								</div>
-								<div class="bed_area d-table w-100">
-									<ul>
-										<li>$150,000</li>
-										<li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-										</li>
-										<li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="property_grid_1 property_item">
-								<div class="position-relative">
-									<div class="upper_1 bg_secondary text-white">Sale</div>
-									<a href="#"><img src="{{ asset('public/house/img/property_grid\property_grid-7.png')}}" alt="Image Not Found!"></a>
-									<div class="quantity">
-										<ul>
-											<li><span>Area</span>1600 Sqft</li>
-											<li><span>Rooms</span>7</li>
-											<li><span>Beds</span>4</li>
-											<li><span>Baths</span>3</li>
-											<li><span>Garage</span>1</li>
-										</ul>
-									</div>
-								</div>
-								<div class="property_text p-3">
-									<h5 class="title"><a href="#">New Developed Condos</a></h5>
-									<span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 4213 Duff Avenue South Burlington, VT 05403 </span>
-								</div>
-								<div class="bed_area d-table w-100">
-									<ul>
-										<li>$150,000</li>
-										<li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-										</li>
-										<li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- Featured Section Start -->
+{{--  nhà liên quan  --}}
 <section class="full_row py_80 bg_gray">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h4 class="d-table float-left mb_30">Related Properties</h4>
+				<h4 class="d-table float-left mb_30">Những nhà cùng loại</h4>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
 				<div class="owl-carousel owl_carousel_1">
+
 					<div class="property_grid_1 property_item bg-white mb_30">
 						<div class="zoom_effect_1">
 							<div class="upper_1 bg_secondary text-white">Rent</div>
@@ -598,101 +528,14 @@
 							</ul>
 						</div>
 					</div>
-					<div class="property_grid_1 property_item bg-white mb_30">
-						<div class="zoom_effect_1">
-							<div class="upper_1 bg_secondary text-white">Sale</div>
-							<div class="upper_2 bg_primary text-white">Featured</div>
-							<a href="#"><img src="{{ asset('public/house/img/property_grid\property_grid-1.png')}}" alt="Image Not Found!"></a>
-							<div class="upper_3 text_secondary">1 Month Ago</div>
-						</div>
-						<div class="property_text p-3">
-							<h5 class="title"><a href="#">Park Road Appartment Rent</a></h5>
-							<span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 3225 George Street Brooksville, FL 34610 </span>
-							<div class="quantity">
-								<ul>
-									<li><span>Area</span>2100 Sqft</li>
-									<li><span>Rooms</span>8</li>
-									<li><span>Beds</span>4</li>
-									<li><span>Baths</span>3</li>
-									<li><span>Garage</span>1</li>
-								</ul>
-							</div>
-						</div>
-						<div class="bed_area d-table w-100">
-							<ul>
-								<li>$1600/mo</li>
-								<li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-								</li>
-								<li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="property_grid_1 property_item bg-white mb_30">
-						<div class="zoom_effect_1">
-							<div class="upper_1 bg_secondary text-white">Rent</div>
-							<div class="upper_2 bg_primary text-white">Featured</div>
-							<a href="#"><img src="{{ asset('public/house/img/property_grid\property_grid-2.png')}}" alt="Image Not Found!"></a>
-							<div class="upper_3 text_secondary">5 Days Ago</div>
-						</div>
-						<div class="property_text p-3">
-							<h5 class="title"><a href="#">Park Road Appartment Rent</a></h5>
-							<span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 3494 Lyon Avenue Middleboro, MA 02346 </span>
-							<div class="quantity">
-								<ul>
-									<li><span>Area</span>1100 Sqft</li>
-									<li><span>Rooms</span>5</li>
-									<li><span>Beds</span>2</li>
-									<li><span>Baths</span>2</li>
-									<li><span>Garage</span>1</li>
-								</ul>
-							</div>
-						</div>
-						<div class="bed_area d-table w-100">
-							<ul>
-								<li>$1,410,000</li>
-								<li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-								</li>
-								<li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="property_grid_1 property_item bg-white mb_30">
-						<div class="zoom_effect_1">
-							<div class="upper_1 bg_secondary text-white">Rent</div>
-							<a href="#"><img src="{{ asset('public/house/img/property_grid\property_grid-4.png')}}" alt="Image Not Found!"></a>
-							<div class="upper_3 text_secondary">2 Hours Ago</div>
-						</div>
-						<div class="property_text p-3">
-							<h5 class="title"><a href="#">Lovelece Road Greenfield</a></h5>
-							<span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 4213 Duff Avenue South Burlington, VT 05403 </span>
-							<div class="quantity">
-								<ul>
-									<li><span>Area</span>1200 Sqft</li>
-									<li><span>Rooms</span>7</li>
-									<li><span>Beds</span>5</li>
-									<li><span>Baths</span>4</li>
-									<li><span>Garage</span>1</li>
-								</ul>
-							</div>
-						</div>
-						<div class="bed_area d-table w-100">
-							<ul>
-								<li>$850/mo</li>
-								<li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-								</li>
-								<li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-<!-- Featured Section End --> 
+
+
 
 
 	<script type="text/javascript" src="{{ asset('public/single/js/jquery.js')}}"></script> 

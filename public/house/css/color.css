@@ -64,20 +64,20 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, h1 a, h2 a, h3 a, h4 a, h5
 	color: #fff
 }
 .text_primary, .socail_media_1 li a:hover, .footer_widget.get_in_touch ul li i, .footer_widget.quick_link li a:hover, .icon_list_1 li::before, .property_listing.sidebar-widget li i, .property_listing_2 li i, .contact_agent.sidebar-widget .author_img .author_name, .single_property_detail .head span i, .br-widget > a.br-selected, .br-widget > a.br-active, .error-handel #success, .sidebar-widget.populer_comment .tab-pane li i, .check_submit li input[type="checkbox"]:checked + label::before, .fileupload_label:hover, .sign_in_up .password_recovery a, .sign_in_up .footer a, .fact_item i, .settings_links_2 li.active a, .settings_links_2 li a:hover, .settings_links_2 li a sup, .comment_item .author_text a.action:hover, .list_table tbody tr td a:hover, .my_property_list .text span i, .avata_form label, .my_property_list .rating i, .terms_sidebar li.active a, .terms_sidebar li a:hover, .article-list li a:hover {
-	color: #90c923
+	color: #00aeef
 }
 .top_header_1 .top_right li a:hover, .sidebar-widget.categories li a:hover, .sidebar-widget.recent-post li a:hover, .sidebar-widget.populer_comment li a:hover, .sidebar-widget.archives li a:hover, .recent-post li span i, .single_blog_detail .head .title:hover, .single_blog_detail .head .post-info a, .single_blog_detail .head .post-info .comment_text, blockquote, .offer_item_1 .title a:hover, .property_link:hover, .property_item .title a:hover, .property_item .property_text > span > i, .comment_item .user-rating li.active, .property_item .bed_area ul li.icon_medium:hover [class^="flaticon-"]::before, .property_item .bed_area ul li.icon_medium:hover [class^="flaticon-"]::after {
-	color: #90c923
+	color: #00aeef
 }
 #header .navbar-expand-lg .navbar-nav > li.dropdown li.dropdown:hover > a, #header .navbar-expand-lg .navbar-nav > li.dropdown:hover > a, .main_header_1 .navbar-expand-lg .navbar-nav .nav-link:hover, #header.fixed-top.header_style_2 .navbar-expand-lg .navbar-nav .nav-link:hover, .team_member_1:hover .name a, .news_item_1 .title a:hover, .sidebar-widget.settings_links li.active a, .sidebar-widget.settings_links li a:hover, .category_grid:hover .title a, .pricing_item_1.active .price {
-	color: #90c923
+	color: #00aeef
 }
 .bg_primary, .bootstrap_carousel_1 .carousel-indicators li.active, .bootstrap_carousel_1 .carousel-indicators li:hover, .jslider .jslider-bg .v, .slider-search-2 .title, .property_sorting ul li a.activ, 
 .property_sorting ul li a:hover, .sidebar_tesimonial.sidebar-widget .bootstrap_carousel_1 .carousel-indicators li.active, .pagination_style1 a:hover, .pagination_style1 li.active a, .according_title.active, .according.type_2 .according_title.active, .list_table thead, .my_property_list thead, .service_item_2 .service_circle, .service_item_1:hover::before, .offer_item_2:hover::before, .downling_center::after, .pricing_item_1.active .upper_1, .pricing_item_1.active .downling_center::after, .pagination_style1.type_2 li.active a, .timeline_item:hover .circle {
-	background-color: #90c923
+	background-color: #00aeef
 }
 .slider-search-2 .title::before, .sidebar-widget.populer_comment .nav li a.active::before {
-	border-top-color: #90c923
+	border-top-color: #00aeef
 }
 .bg_secondary, .pricing_item_1 .downling_center::after {
 	background-color: #1a1a1a
@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, h1 a, h2 a, h3 a, h4 a, h5
 	background-color: #fff
 }
 .message_item.new .new::before, .faq_item .faq_question:before, .timeline .date:before {
-	border-right-color: #90c923
+	border-right-color: #00aeef
 }
 .bg_black {
 	background-color: #000
@@ -111,7 +111,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, h1 a, h2 a, h3 a, h4 a, h5
 	color: #a1a1a1
 }
 .bootstrap-select .dropdown-item.active, .bootstrap-select .dropdown-item:active, .bootstrap-select .dropdown-item:hover, .sidebar-widget.populer_comment .nav li a.active, .sidebar-widget.populer_comment .nav li a:hover, .sidebar-widget.tag_area li a:hover, .radio_check input[type="checkbox"]:checked + label, .pagination_style1.type_2 li a:hover, .message_item.new .new, .filter-btns li:hover, .filter-btns li.active, #scroll {
-	background-color: #90c923;
+	background-color: #00aeef;
 	color: #fff !important
 }
 .dropdown_1 .bootstrap-select .dropdown-toggle {
@@ -142,9 +142,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, h1 a, h2 a, h3 a, h4 a, h5
 	color: #fff;
 }
 .btn_primary, .btn_primary_bg {
-	background-color: #90c923;
+	background-color: #00aeef;
 	color: #fff;
-	border: 2px solid #90c923;
+	border: 2px solid #00aeef;
 }
 .btn_primary_bg:hover {
 	background-color: #1a1a1a;
@@ -162,14 +162,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, h1 a, h2 a, h3 a, h4 a, h5
 }
 .btn_primary:hover, .btn_link:hover {
 	background-color: transparent;
-	color: #90c923
+	color: #00aeef
 }
 .jslider .jslider-bg i, .jslider .jslider-pointer {
 	background-color: #f1f1f1;
 }
 .jslider .jslider-pointer {
 	background-color: #f8f8f8;
-	border: 3px solid #90c923;
+	border: 3px solid #00aeef;
 }
 #scroll:hover {
 	background-color: #1a1a1a;
@@ -179,7 +179,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, h1 a, h2 a, h3 a, h4 a, h5
 	background-color: #1a1a1a !important
 }
 [class*="owl_carousel_"] .owl-nav button:hover i{
-	background-color: #90c923 !important
+	background-color: #00aeef !important
 }
 .nav-down #header.fixed-top {
 	background-color: transparent
@@ -188,11 +188,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, h1 a, h2 a, h3 a, h4 a, h5
 	color: #444;
 }
 #header .dropdown-item.active, #header .dropdown-item:active, #header .dropdown-item:focus, #header .dropdown-item:hover {
-	color: #90c923 !important;
+	color: #00aeef !important;
 	background-color: transparent
 }
 .offer_item_1 .icon::before {
-	border-color: transparent transparent transparent #90c923;
+	border-color: transparent transparent transparent #00aeef;
 }
 .property_item .upper_3 {
 	background-color: rgba(239, 239, 239, 0.85);

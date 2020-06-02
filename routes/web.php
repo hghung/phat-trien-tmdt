@@ -56,6 +56,19 @@ Route::get('/danh-sach-bang-tin','PageController@list')->name('page.list');
 
 Route::get('/san-pham-{id}','PageController@single')->name('deatil.bangtin');
 
+// checkout start
+Route::get('/checkout-1','CheckoutController@checkout_1')->name('checkout-1');
+Route::get('/checkout-2','CheckoutController@checkout_2')->name('checkout-2');
+Route::get('/checkout-3','CheckoutController@checkout_3')->name('checkout-3');
+
+
+Route::get('/them-bang-tin-{id}','CheckoutController@addCart')->name('addcart');
+Route::get('/cap-bang-tin-pham','CheckoutController@update')->name('updatecart');
+Route::get('/xoa-bang-tin-{id}','CheckoutController@delCart')->name('delcart');
+
+
+// end checkout
+
 // Taikhoan ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 Route::group(['prefix'=>'tai-khoan','middleware'=>'Page_login'],function(){
 

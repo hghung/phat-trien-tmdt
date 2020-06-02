@@ -154,7 +154,7 @@
 							</div>
 							<div class="col-md-4">
 								<div class="prifile_picture">
-									@if(Auth::user()->member->hinh_anh)
+									@if(Auth::user()->member->kh_avatar)
 										<div class="avata_form">
 											<img height="243px" width="255px" src="{{asset('public/upload/avatar/')}}/{{ Auth::user()->member->kh_avatar }}" alt="">
 											<input type="file" name="avatar" id="avata-upload">

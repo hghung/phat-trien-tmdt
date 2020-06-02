@@ -62,8 +62,8 @@
                 <img class="nav-logo" src="{{asset('public/house/img\logo1.png')}}" alt="logo">
               </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
+              <div  @yield('css_btn') class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto" >
                   <li class="nav-item"> <a class="nav-link" href="{{ route('page.home') }}">Home</a> </li>
 
                   <li class="nav-item"> <a class="nav-link" href="#">Giới thiệu</a> </li>
