@@ -28,22 +28,26 @@
 
 <!-- Single Property Start -->
 <section class="full_row pt_80 bg_gray">
-	<!--  -->
 	
-	<div id="slider" class="overflow_hidden" style="width:1200px; height:640px; margin:0 auto;margin-bottom: 0px;">
-        
-        @foreach($bangtin->house->hinhanh as $hinhanh)
-		<!-- Slide 1-->
-		<div class="ls-slide" data-ls="bgsize:cover; bgposition:50% 50%; duration:4000; transition2d:104; kenburnsscale:1.00;">
-			<img width="911" height="496" src="{{ asset('public/upload/') }}/{{ $hinhanh->hinh_anh }}" class="ls-bg" alt="">
-        </div>
-        @endforeach
-		
-		
-		
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/single/css/font-awesome.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/single/css/fonts.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/single/css/swiper.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/single/css/style.css')}}">
 
-		
+
+	<div class="swiper-container slider_v2">
+		<div class="swiper-wrapper">
+			@foreach($bangtin->house->hinhanh as $hinhanh)
+			<div style="width: 956px; height: 520px;" class="swiper-slide"><img src="{{ asset('public/upload/') }}/{{ $hinhanh->hinh_anh }}" alt=""></div>
+			@endforeach
+
+			
+		</div>
+		<div class="swiper-button-next swiper-button-white"></div>
+		<div class="swiper-button-prev swiper-button-white"></div>
 	</div>
+
+	
 	
 
 	<!--  -->
@@ -691,6 +695,11 @@
 <!-- Featured Section End --> 
 
 
+	<script type="text/javascript" src="{{ asset('public/single/js/jquery.js')}}"></script> 
+	<script type="text/javascript" src="{{ asset('public/single/js/jquery-ui.js')}}"></script> 
+	<script type="text/javascript" src="{{ asset('public/single/js/owl.carousel.js')}}"></script> 
+	<script type="text/javascript" src="{{ asset('public/single/js/swiper.min.js')}}"></script>
+	<script type="text/javascript" src="{{ asset('public/single/js/custom.js')}}"></script> 
 
 	<script async defer 
 		src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&&amp;libraries=places%2Cgeometry&amp;callback=initMap&amp;ver=1">
