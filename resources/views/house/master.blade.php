@@ -79,7 +79,9 @@
         
         @yield('house_content')
 
-        @include('house.footer')
+		@include('house.footer')
+		
+		@include('house.zalo')
 
         <!-- Find Part Satrt --> 
         <a href="#" id="scroll"><i class="fas fa-arrow-up"></i></a> 

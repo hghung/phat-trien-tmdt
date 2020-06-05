@@ -360,10 +360,37 @@
 	
 							
 	
-							
-							<div class="user_info_form">
-								<a  href="{{Route('addcart',['id' => $bangtin->id])}}" class="rle_btn" ><i class="fa fa-shopping-cart"></i> BOOK NOW </a> 
-							</div>
+							<form action="{{ Route('addcart',['id' => $bangtin->id]) }}" method="POST"  > {{ csrf_field() }}	
+								<div class="user_info_form">
+									<div> Ngày đến:</div>
+									<input name="ngayden" class="form-controll" type="date" required>
+
+									<div style="margin-bottom: 10px;">
+										<div> Thời gian thuê </div>
+										<select name="thoigiano" class="selectpicker form-control" style="width: 31% !important;">
+											<option value="#">Chọn thời gian thuê</option>
+											<option value="1">1 tháng</option>
+											<option value="2" >2 tháng</option>
+											<option value="3" >3 tháng</option>
+											<option value="4" >4 tháng</option>
+											<option value="5" >5 tháng</option>
+											<option value="6" >6 tháng</option>
+											<option value="7" >7 tháng</option>
+											<option value="8" >8 tháng</option>
+											<option value="9" >9 tháng</option>
+											<option value="10" >10 tháng</option>
+											<option value="11" >11 tháng</option>
+											<option value="12" >12 tháng</option>
+										</select>
+									</div>
+								
+									@if(Auth::check())
+									<button type="submit"  class="rle_btn" ><i class="fa fa-shopping-cart"></i> BOOK NOW </button>
+									@else
+									<a  href="{{Route('page.login')}}" class="btn btn-danger" > <i class="fa fa-unlock-alt"></i>&nbsp Đăng nhập </a> 
+									@endif
+								</div>
+							</form>
 						</div>
 
 					</div>
@@ -536,7 +563,11 @@
 </section>
 
 
+<script src="{{asset('public/admin/toastr/jquery.min.js')}}"></script>
 
+<script src="{{asset('public/admin/toastr/toastr.min.js')}}" ></script>
+	   
+{!! Toastr::message() !!}
 
 	<script type="text/javascript" src="{{ asset('public/single/js/jquery.js')}}"></script> 
 	<script type="text/javascript" src="{{ asset('public/single/js/jquery-ui.js')}}"></script> 

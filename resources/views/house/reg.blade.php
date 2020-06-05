@@ -79,6 +79,12 @@
                                 <div class="form-group">
                                     <input type="password" class="form-control" name="confirmpassword" placeholder="Nhập lại Password">
                                 </div>
+                                <div class="form-group">
+                                    <input type="checkbox" > 
+                                    <label style="display: inline !important" > &nbsp Tôi đã đọc và chấp nhận các <a style="color:#00aeef" href="#">điều khoản</a>, cũng như đọc và hiểu các điều khoản của chúng tôi về các điều khoản <a style="color:#00aeef" href="#">kinh doanh</a></label>
+                                    
+                                </div>
+
                                 <button type="submit" name="registration" class="btn btn_primary_bg">Đăng ký</button>
                             </form>
                         </div>

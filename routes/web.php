@@ -48,6 +48,12 @@ Route::post('/dang-nhap','Login_RegController@post_lg')->name('page.login.post')
 
 Route::get('/dang-xuat','Login_RegController@logout')->name('page.logout');
 
+//payment
+Route::post('/thanh-toan-vnpay','PaymentController@create')->name('vnpay');
+Route::get('/return-vnpay','PaymentController@return2')->name('vnpay2');
+Route::post('/config-vnpay','PaymentController@config')->name('vnpay.config');
+
+Route::get('/return-vnpay','PaymentController@return')->name('return.post.vnpay');
 
 
 
@@ -62,7 +68,7 @@ Route::get('/checkout-2','CheckoutController@checkout_2')->name('checkout-2');
 Route::get('/checkout-3','CheckoutController@checkout_3')->name('checkout-3');
 
 
-Route::get('/them-bang-tin-{id}','CheckoutController@addCart')->name('addcart');
+Route::post('/them-bang-tin-{id}','CheckoutController@addCart')->name('addcart');
 Route::get('/cap-bang-tin-pham','CheckoutController@update')->name('updatecart');
 Route::get('/xoa-bang-tin-{id}','CheckoutController@delCart')->name('delcart');
 

@@ -1,6 +1,8 @@
 @section('tieude','Danh sách bảng tin')
+{{--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">  --}}
 
 <link rel="stylesheet" media="all" href="{{ asset('public/checkout/css\bundle.min.css') }}">
+
 
 <br>
 <section class="page col-md-12">
@@ -18,7 +20,7 @@
         <div class="container">
             <div class="stepper">
                 <ul class="row">
-                    <li class="col-md-4 active">
+                    <li class="col-md-4 active" >
                         <a href="reservation-1.html"><span data-text="Chọn nhà "></span></a>
                     </li>
                     <li class="col-md-4">
@@ -72,18 +74,24 @@
                                     <a href="room-overview.html">{{ $checkout->name }}</a>
                                 </div>
                                 <p>
-                                    <strong>Arrival date</strong> <br> <a href="#">(September 22, 2017)</a>
+                                    <strong>Ngày đến</strong> <br> 
+                                    <a href="#">( {{ date("d-m-Y",strtotime($checkout->options->ngayden ))  }} )
+                                    </a>
+                                    
                                 </p>
                                 <p>
-                                    <strong>Guests</strong> <br>  2 Adults, 1 Child
+                                    <strong>Thời gian thuê</strong> <br>
+                                    <a href="#">( {{ $checkout->options->thoigiano    }} tháng )
+                                    </a>
                                 </p>
                                 <p>
-                                    <strong>Nights</strong> <br> 7
+                                    <strong>Địa chỉ</strong> <br> 
+                                    {{ $checkout->options->address    }}
                                 </p>
                             </div>
                             <div class="price">
-                                <span class="final h3">$ 1.998</span>
-                                <span class="discount">$ 2.666</span>
+                                <span class="final h4" style="width:230px;">{{ number_format($checkout->price,0,',','.') }} đ/tháng</span>
+                                {{--  <span class="discount">$ 2.666</span>  --}}
                             </div>
                             <!--delete-this-item-->
                             
@@ -103,26 +111,41 @@
                     <div class="clearfix">
                         <div class="cart-block cart-block-footer clearfix">
                             <div>
-                                <strong>Discount 15%</strong>
+                                <strong>Tiền thuê</strong>
                             </div>
                             <div>
-                                <span>$ 159,00</span>
+                                <span>{{ number_format($checkout->options->thoigiano * $checkout->price,0,',','.') }} đ</span>
                             </div>
                         </div>
 
                         <div class="cart-block cart-block-footer clearfix">
                             <div>
-                                <strong>TAX</strong>
+                                <strong>Giảm
+                                    <span style="color:blue"> 5% </span>
+
+                                </strong>
                             </div>
                             <div>
-                                <span>$ 59,00</span>
+                                <span>{{ number_format( $checkout->options->discount ,0,',','.') }} đ</span>
+                            </div>
+                        </div>
+
+                        {{--  thuế  --}}
+                        
+
+                        <div class="cart-block cart-block-footer clearfix">
+                            <div>
+                                <div class="h2 title">Tồng tiền</div>
+                            </div>
+                            <div>
+                                <div class="h2 title">{{ number_format($checkout->options->tongtien ,0,',','.') }} đ</div>
                             </div>
                         </div>
                     </div>
 
                     <!--cart final price -->
 
-                    <div class="clearfix">
+                    {{--  <div class="clearfix">
                         <div class="cart-block cart-block-footer cart-block-footer-price clearfix">
                             <div>
                                 <span class="checkbox">
@@ -135,7 +158,7 @@
                                 <div class="h2 title">$ 1259,00</div>
                             </div>
                         </div>
-                    </div>
+                    </div>  --}}
 
                     <!-- ========================  Cart navigation ======================== -->
 
@@ -145,7 +168,7 @@
                                 <a href="#" class="btn btn-clean-dark">Change</a>
                             </div>
                             <div>
-                                <a href="reservation-2.html" class="btn btn-main">Reservation <span class="icon icon-chevron-right"></span></a>
+                                <a href="{{ route('checkout-2') }}" class="btn btn-main">Tiếp theo <span class="icon icon-chevron-right"></span></a>
                             </div>
                         </div>
                     </div>
@@ -158,6 +181,12 @@
 
 </section>
 
+
+<script src="{{asset('public/admin/toastr/jquery.min.js')}}"></script>
+
+<script src="{{asset('public/admin/toastr/toastr.min.js')}}" ></script>
+	   
+{!! Toastr::message() !!}
 
 <script src="{{ asset('public/checkout/js/bundle.min.js') }}"></script>
 

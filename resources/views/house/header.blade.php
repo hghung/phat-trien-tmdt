@@ -20,28 +20,25 @@
                   <li><a href="{{ route('page.login') }}" class="toogle_btn"><i class="fa fa-unlock-alt"></i> &nbsp Đăng nhập</a></li>
                 </ul>
               @else
-              <ul class="navbar-nav ml-auto">
-               
-                <li class="nav-item dropdown"> 
-                  <a class="nav-link dropdown-toggle" href="{{ route('taikhoan.profile') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             
+
+              <ul class="registration">
+                <li>
+                  <a href="{{ route('taikhoan.profile') }}" class="toogle_btn">
                     <i class="fa fa-user"></i> 
-                    Hi !  {{ Auth::user()->member->kh_ten }} {{ Auth::user()->member->kh_ho }}
+                      &nbsp Hi !  {{ Auth::user()->member->kh_ten }} {{ Auth::user()->member->kh_ho }}
+                    
                   </a>
-                  {{--  đăng xuất  --}}
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ route('taikhoan.profile') }}" style="color:black">
-                      <i class="fa fa-power-off"></i> 
-                      Thông tin tài khoản</a>
-                    </li>
-                    {{--  dang xuat  --}}
-                    <li><a class="dropdown-item" href="{{ route('page.logout') }}" style="color:black">
-                      <i class="fa fa-power-off"></i> 
-                      Đăng xuất</a>
-                    </li>
-                  </ul>
                 </li>
-                
+
+                <li>
+                  <a href="{{ route('page.logout') }}" class="toogle_btn">
+                    <i class="fa fa-power-off"></i> 
+                    Đăng xuất
+                  </a>
+                </li>
               </ul>
+
                   
                   
               @endif
