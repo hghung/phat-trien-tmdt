@@ -10,6 +10,8 @@ use App\Models\bangtin;
 
 use App\Models\taisan;
 use App\Models\nha;
+use App\Models\loainha;
+
 
 use App\Models\nha_tienich;
 
@@ -43,7 +45,11 @@ class PageController extends Controller
 
     public function home()
     {
-    	return view('house.index');
+        
+
+        $house = nha::all();
+        $bangtin = bangtin::all();
+    	return view('house.index',['bangtin' => $bangtin]);
     }
 
     public function login()

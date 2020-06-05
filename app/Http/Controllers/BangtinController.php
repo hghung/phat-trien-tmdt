@@ -236,6 +236,6 @@ class BangtinController extends Controller
             }
         // echo $bangtin;die;
         Toastr::success('Them thanh cong', 'Thông báo', ["positionClass" => "toast-top-right"]);
-        return redirect(''.route('bangtin.list').'');
+        return redirect(''.route('taikhoan.dsbangtin').'');
     }
 }

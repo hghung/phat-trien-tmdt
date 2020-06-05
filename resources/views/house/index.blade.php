@@ -3,60 +3,58 @@
 @section('house_content')
 <!-- Slider HTML markup -->
 <div class="full_row">
-    <div id="slider" class="overflow_hidden" style="width:1200px; height:640px; margin:0 auto;margin-bottom: 0px;">
-        
-        <!-- Slide 1-->
-        <div class="ls-slide" data-ls="bgsize:cover; bgposition:50% 50%; duration:4000; transition2d:104; kenburnsscale:1.00;">
-            <img width="1920" height="800" src="{{asset('public/house/img\slider\1.png')}}" class="ls-bg" alt="">
-            
-            <div style="width:100%; height:100%; background:rgba(11, 15, 41, 0.49); top:50%; left:50%;" class="ls-l" data-ls="easingin:easeOutQuint; durationout:300; parallaxlevel:0; position:fixed;"></div>
-            
-            <p style="font-size:18px; font-weight:500; top:280px; left:40px; font-family: 'Montserrat', sans-serif;" class="ls-l text_white" data-ls="offsetyin:100%; offsetyout:-250; delayin:100; clipin:0 0 100% 0; durationout:400; parallaxlevel:0;">$1200 / Monthly</p>
-            
-            <p style="top:300px; left:40px; text-align:initial; font-weight:600; font-style:normal; font-family:Montserrat; text-decoration:none; font-size:30px; line-height:76px; width:600px; white-space:normal;" class="ls-l text_white" data-ls="offsetyin:0; offsetxin:-110w; delayin:300; easingin:easeOutQuint; offsetyout:-250; fadein:false; clipin:0 0 0 100%; durationout:400; parallax:false;">Lovelece Road Greenfield</p>
-                
-            <p style="font-weight:400; text-align:left; width:500px; font-family:Montserrat; font-size:15px; line-height:30px; top:370px; left:40px; white-space:normal;" class="ls-l text_white" data-ls="offsetyin:0; offsetxin:-110w; delayin:800; easingin:easeOutQuint; offsetyout:-250; fadein:false; clipin:0 0 0 100%; durationout:300; parallax:false;"><i class="fas fa-map-marker-alt"></i> 4213 Duff Avenue South Burlington, VT 05403</p>
-            
-            <a style="" class="ls-l" href="#" target="_self" data-ls="offsetyin:40; delayin:1200; easingin:easeOutQuint; offsetyout:-300; durationout:400; hover:true; hoverdurationin:300; hoveropacity:1; hoverbgcolor:#ffffff; hovercolor:#444444; parallax:false;">
-                <p style="font-weight:500; text-align:center; cursor:pointer; padding-right:30px; padding-left:30px; font-size:14px; line-height:30px; top:440px; left:40px; padding-top:10px; padding-bottom:10px; white-space:normal;" class="btn btn_primary">View Details</p>
-            </a>
+    <div  class="overflow_hidden" >
+        <style>
+            #map
+            {
+                width: 1600px;
+                height: 540px;
+            }
+        </style>
+
+        <div class="homepage-map">
+            <div id="map"></div>
         </div>
-        
-        
-        <!-- Slide 2-->
-        <div class="ls-slide" data-ls="bgsize:cover; bgposition:50% 50%; duration:4000; transition2d:104; kenburnsscale:1.2;">
-            <img width="1920" height="800" src="{{asset('public/house/img\slider\2.png')}}" class="ls-bg" alt="">
-            
-            <div style="width:100%; height:100%; background:rgba(11, 15, 41, 0.49); top:50%; left:50%;" class="ls-l" data-ls="easingin:easeOutQuint; durationout:300; parallaxlevel:0; position:fixed;"></div>
-            
-            <p style="font-size:18px; font-weight:500; top:280px; left:40px; font-family: 'Montserrat', sans-serif;" class="ls-l text_white" data-ls="offsetyin:100%; offsetyout:-250; delayin:100; clipin:0 0 100% 0; durationout:400; parallaxlevel:0;">$125,000 / Fixed</p>
-            
-            <p style="top:300px; left:40px; text-align:initial; font-weight:600; font-style:normal; font-family:Montserrat; text-decoration:none; font-size:30px; line-height:76px; width:600px; white-space:normal;" class="ls-l text_white" data-ls="offsetyin:0; offsetxin:-110w; delayin:300; easingin:easeOutQuint; offsetyout:-250; fadein:false; clipin:0 0 0 100%; durationout:400; parallax:false;">Luxury Condos Infront Of River</p>
-                
-            <p style="font-weight:400; text-align:left; width:500px; font-family:Montserrat; font-size:15px; line-height:30px; top:370px; left:40px; white-space:normal;" class="ls-l text_white" data-ls="offsetyin:0; offsetxin:-110w; delayin:800; easingin:easeOutQuint; offsetyout:-250; fadein:false; clipin:0 0 0 100%; durationout:300; parallax:false;"><i class="fas fa-map-marker-alt"></i> 2305 Tree Frog Lane Overlandpk, MO 66210</p>
-            
-            <a style="" class="ls-l" href="#" target="_self" data-ls="offsetyin:40; delayin:1200; easingin:easeOutQuint; offsetyout:-300; durationout:400; hover:true; hoverdurationin:300; hoveropacity:1; hoverbgcolor:#ffffff; hovercolor:#444444; parallax:false;">
-                <p style="font-weight:500; text-align:center; cursor:pointer; padding-right:30px; padding-left:30px; font-size:14px; line-height:30px; top:440px; left:40px; padding-top:10px; padding-bottom:10px; white-space:normal;" class="btn btn_primary">View Details</p>
-            </a>
+        <!-- Search Form On Map -->
+        <div id="find-location" class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="map-search">
+                        <div class="form-up-btn bg_secondary d-table">Tìm kiếm <span><i class="fa fa-angle-up" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="property_search_form bg_white p-4">
+                            <form action="#" method="post" class="property_filter_input">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-6">
+                                        <select class="selectpicker form-control">
+                                            <option>For Rent</option>
+                                            <option>For Sale</option>
+                                            <option>For Buy</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 col-sm-6">
+                                        <select class="selectpicker form-control">
+                                            <option>Loại nhà</option>
+                                            <option>Villa</option>
+                                            <option>Appartment</option>
+                                            <option>House</option>
+                                            <option>Room</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-5 col-sm-8">
+                                        <input class="form-control" type="text" placeholder="Enter address e.g. street, city and state or zip">
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4">
+                                        <input type="submit" name="search" value="Search" class="btn btn_primary">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        
-        <!-- Slide 3-->
-        <div class="ls-slide" data-ls="bgsize:cover; bgposition:50% 50%; duration:4000; transition2d:104; kenburnsscale:1.2;">
-            <img width="1920" height="800" src="{{asset('public/house/img\slider\3.png')}}" class="ls-bg" alt="">
-            
-            <div style="width:100%; height:100%; background:rgba(11, 15, 41, 0.49); top:50%; left:50%;" class="ls-l" data-ls="easingin:easeOutQuint; durationout:300; parallaxlevel:0; position:fixed;"></div>
-            
-            <p style="font-size:18px; font-weight:500; top:280px; left:40px; font-family: 'Montserrat', sans-serif;" class="ls-l text_white" data-ls="offsetyin:100%; offsetyout:-250; delayin:100; clipin:0 0 100% 0; durationout:400; parallaxlevel:0;">$335,000 / Fixed</p>
-            
-            <p style="top:300px; left:40px; text-align:initial; font-weight:600; font-style:normal; font-family:Montserrat; text-decoration:none; font-size:30px; line-height:76px; width:600px; white-space:normal;" class="ls-l text_white" data-ls="offsetyin:0; offsetxin:-110w; delayin:300; easingin:easeOutQuint; offsetyout:-250; fadein:false; clipin:0 0 0 100%; durationout:400; parallax:false;">Telico Villas House And Condos</p>
-                
-            <p style="font-weight:400; text-align:left; width:500px; font-family:Montserrat; font-size:15px; line-height:30px; top:370px; left:40px; white-space:normal;" class="ls-l text_white" data-ls="offsetyin:0; offsetxin:-110w; delayin:800; easingin:easeOutQuint; offsetyout:-250; fadein:false; clipin:0 0 0 100%; durationout:300; parallax:false;"><i class="fas fa-map-marker-alt"></i> 1751 Finwood Road Freehold, NJ 07728</p>
-            
-            <a style="" class="ls-l" href="#" target="_self" data-ls="offsetyin:40; delayin:1200; easingin:easeOutQuint; offsetyout:-300; durationout:400; hover:true; hoverdurationin:300; hoveropacity:1; hoverbgcolor:#ffffff; hovercolor:#444444; parallax:false;">
-                <p style="font-weight:500; text-align:center; cursor:pointer; padding-right:30px; padding-left:30px; font-size:14px; line-height:30px; top:440px; left:40px; padding-top:10px; padding-bottom:10px; white-space:normal;" class="btn btn_primary">View Details</p>
-            </a>
-        </div>
+
         
     </div>
 </div>
@@ -396,7 +394,8 @@
 <!-- Popular Category -->
 <section id="popular-category" class="full_row py_80 bg_white">
     <div class="container">
-        <div class="row">
+       
+            <div class="row" id="img" data="{{  asset('public/upload/') }}/"  > 
             <div class="col-md-12">
                 <div class="title_row text-center mb-5">
                 <h3 class="title mb-4">Popular <span class="text_primary">Locations</span></h3>
@@ -439,7 +438,7 @@
                     </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-6 col-md-6" >
                     <div class="category_grid mb_30 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1000ms">
                     <div class="category_img ctg_1"><img src="{{asset('public/house/img\category_grid\chicago.png')}}" alt=""></div>
                     <div class="upper_4">
@@ -463,70 +462,95 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counting_item_1 text-center mb_md_30">
                 <div class="h2 text_white downling_center"><span class="numscroller" data-min="1" data-max="1020" data-delay="35" data-increment="10">0</span></div>
-                <span class="text_white subject">Project Done</span> </div>
+                <span class="text_white subject">Ngôi nhà</span> </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counting_item_1 text-center mb_md_30">
                 <div class="h2 text_white downling_center"><span class="numscroller" data-min="1" data-max="960" data-delay="35" data-increment="10">0</span></div>
-                <span class="text_white subject">Satisfied Clients</span> </div>
+                <span class="text_white subject">Người dùng</span> </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counting_item_1 text-center mb_md_30">
                 <div class="h2 text_white downling_center"><span class="numscroller" data-min="1" data-max="420" data-delay="35" data-increment="10">0</span></div>
-                <span class="text_white subject">Awards Win</span> </div>
+                <span class="text_white subject">Yêu thích</span> </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counting_item_1 text-center mb_md_30">
                 <div class="h2 text_white downling_center"><span class="numscroller" data-min="1" data-max="860" data-delay="35" data-increment="10">0</span></div>
-                <span class="text_white subject">Years Experience</span> </div>
+                <span class="text_white subject">Bình luận</span> </div>
             </div>
         </div>
     </div>
 </div>
 <!--achivement Section End--> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script async defer 
+    src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize">
+    </script>
 
-<!-- Client Feedback Style2 Section Start -->
-<section class="full_row py_80 bg_gray">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="title_row text-center mb-5">
-                <h3 class="title mb-4">Clients <span class="text_primary">Feedback</span></h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="owl-carousel owl_carousel_4">
-                    <div class="feedback_item_2">
-                        <p>Posuere mus curabitur parturient scelerisque suspendisse elementum facilisis dignissim non purus torquent turpis interdum hendrerit ultrices pretium risus elementum. Magnis sit. Auctor quam. Mollis. Biben fames lacus. Fringilla aliquet mattis lacinia quam a montes maecenas part urn varius. Sollicitudin pede sapien taciti dui senectus sit diam curabitur.</p>
-                        <div class="testimonial_avata_1 mt-5"> <img src="{{asset('public/house/img\testimonial\1.png')}}" alt="Image Not Found!">
-                        <h5 class="name">Johan Swift</h5>
-                        <span>CEO Unicoder</span> </div>
-                    </div>
-                    <div class="feedback_item_2">
-                        <p>Posuere mus curabitur parturient scelerisque suspendisse elementum facilisis dignissim non purus torquent turpis interdum hendrerit ultrices pretium risus elementum. Magnis sit. Auctor quam. Mollis. Biben fames lacus. Fringilla aliquet mattis lacinia quam a montes maecenas part urn varius. Sollicitudin pede sapien taciti dui senectus sit diam curabitur.</p>
-                        <div class="testimonial_avata_1 mt-5"> <img src="{{asset('public/house/img\testimonial\2.png')}}" alt="Image Not Found!">
-                        <h5 class="name">Johan Swift</h5>
-                        <span>CEO Unicoder</span> </div>
-                    </div>
-                    <div class="feedback_item_2">
-                        <p>Posuere mus curabitur parturient scelerisque suspendisse elementum facilisis dignissim non purus torquent turpis interdum hendrerit ultrices pretium risus elementum. Magnis sit. Auctor quam. Mollis. Biben fames lacus. Fringilla aliquet mattis lacinia quam a montes maecenas part urn varius. Sollicitudin pede sapien taciti dui senectus sit diam curabitur.</p>
-                        <div class="testimonial_avata_1 mt-5"> <img src="{{asset('public/house/img\testimonial\1.png')}}" alt="Image Not Found!">
-                        <h5 class="name">Johan Swift</h5>
-                        <span>CEO Unicoder</span> </div>
-                    </div>
-                    <div class="feedback_item_2">
-                        <p>Posuere mus curabitur parturient scelerisque suspendisse elementum facilisis dignissim non purus torquent turpis interdum hendrerit ultrices pretium risus elementum. Magnis sit. Auctor quam. Mollis. Biben fames lacus. Fringilla aliquet mattis lacinia quam a montes maecenas part urn varius. Sollicitudin pede sapien taciti dui senectus sit diam curabitur.</p>
-                        <div class="testimonial_avata_1 mt-5"> <img src="{{asset('public/house/img\testimonial\2.png')}}" alt="Image Not Found!">
-                        <h5 class="name">Johan Swift</h5>
-                        <span>CEO Unicoder</span> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Client Feedback Section End --> 
+    
+    <script defer>
+        function initialize() {
+            var mapOptions = {
+                zoom: 9,
+                minZoom: 6,
+                maxZoom: 17,
+                zoomControl:true,
+                zoomControlOptions: {
+                      style:google.maps.ZoomControlStyle.DEFAULT
+                },
+                center: new google.maps.LatLng(10.0299337, 105.7706153),
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                scrollwheel: false,
+                panControl:false,
+                mapTypeControl:false,
+                scaleControl:false,
+                overviewMapControl:false,
+                rotateControl:false
+              }
+
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            //addMarker({banhbao: {lat: 10.0266048,lng: 105.7767294}});
+            //addMarker({banhbao: {lat: 10.0453833,lng: 105.7796137}});
+            var y = $('#img').attr('data');
+           
+            @php 
+            foreach($bangtin as $nha)
+            {
+                $nha2 = $nha->house;
+                $giathue = number_format($nha->gia_thue,0,',','.');
+               echo'addMarker({banhbao: {lat: '.$nha2->lat.',lng: '.$nha2->lng.'},';
+               echo "content: ' <div style=width:233px><div><img style=width:233px;height:151px; src=./public/upload/$nha2->hinh_anh ></div> <div style=margin-top:5px;margin-bottom:5px; > $nha->ten_bangtin </div><div style=margin-top:5px;margin-bottom:5px;>Giá: <span style=color:red>$giathue</span> đ/tháng</div><div>Địa chỉ: $nha2->dia_chi</div> </div> '});";
+               //muốn viêt dc model trong day phải khai bảng ở ngoài trước không nó sẽ lỗi
+               // style phải viet xác nhau mới nhận được
+                // viet lòng php không cần mở dây nhây kep nó tự hiệu
+                // muốn nhận đươc dấu nhây đơn '' tài phải echo dấu nhây kép ""
+            }
+         
+            
+            @endphp
+            function addMarker(props)
+            {
+                var marker = new google.maps.Marker({
+                    position: props.banhbao,
+                    map:map,
+                    icon: '{{ asset('public/map.png') }}'
+                });
+                if(props.content){
+                    var infoWindow = new google.maps.InfoWindow({
+                        content:props.content
+                    });
+                    marker.addListener('click',function(){
+                        infoWindow.open(map, marker);
+                    });
+                }
+            }
+            
+                
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+        
+    </script>
 
 @endsection

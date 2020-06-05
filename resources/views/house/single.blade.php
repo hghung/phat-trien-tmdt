@@ -600,6 +600,7 @@
 					lng: lng
 				},
 				map : map,
+				icon: '{{ asset('public/map.png') }}',
 			});
 
 			

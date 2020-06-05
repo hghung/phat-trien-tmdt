@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-5">
-            <div class="top_left"> <a href="callto:+14357824312"><i class="fa fa-phone" aria-hidden="true"></i> Cần hỗ trợ ? +84 76 299 9994</a> </div>
+            <div class="top_left"> <a href="callto:+84 762 999 9994"><i class="fa fa-phone" aria-hidden="true"></i> Cần hỗ trợ ? +84 76 299 9994</a> </div>
           </div>
           <div class="col-md-6 col-sm-7">
             <div class="top_right dropdown_1 d-flex float-right">
