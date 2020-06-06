@@ -519,9 +519,10 @@
             foreach($bangtin as $nha)
             {
                 $nha2 = $nha->house;
+                $link = route('deatil.bangtin',['id' => $nha->id]);
                 $giathue = number_format($nha->gia_thue,0,',','.');
                echo'addMarker({banhbao: {lat: '.$nha2->lat.',lng: '.$nha2->lng.'},';
-               echo "content: ' <div style=width:233px><div><img style=width:233px;height:151px; src=./public/upload/$nha2->hinh_anh ></div> <div style=margin-top:5px;margin-bottom:5px; > $nha->ten_bangtin </div><div style=margin-top:5px;margin-bottom:5px;>Giá: <span style=color:red>$giathue</span> đ/tháng</div><div>Địa chỉ: $nha2->dia_chi</div> </div> '});";
+               echo "content: ' <div style=width:233px><div><img style=width:233px;height:151px; src=./public/upload/$nha2->hinh_anh ></div> <div style=margin-top:5px;margin-bottom:5px; ><a href=$link> $nha->ten_bangtin </a></div><div style=margin-top:5px;margin-bottom:5px;>Giá: <span style=color:red>$giathue</span> đ/tháng</div><div>Địa chỉ: $nha2->dia_chi</div> </div> '});";
                //muốn viêt dc model trong day phải khai bảng ở ngoài trước không nó sẽ lỗi
                // style phải viet xác nhau mới nhận được
                 // viet lòng php không cần mở dây nhây kep nó tự hiệu
