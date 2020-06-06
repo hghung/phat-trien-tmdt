@@ -574,6 +574,7 @@
 	<script type="text/javascript" src="{{ asset('public/single/js/owl.carousel.js')}}"></script> 
 	<script type="text/javascript" src="{{ asset('public/single/js/swiper.min.js')}}"></script>
 	<script type="text/javascript" src="{{ asset('public/single/js/custom.js')}}"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
 	<script async defer 
 		src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&&amp;libraries=places%2Cgeometry&amp;callback=initMap&amp;ver=1">
