@@ -100,8 +100,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="d-table float-left mb_30">Recent <span class="text_primary">Properties</span></h3>
-                <a href="{{ route('page.list') }}" class="property_link float-right">View All Properties</a> </div>
+                <h3 class="d-table float-left mb_30">Bảng Tin <span class="text_primary">Nhiều lượt xem</span></h3>
+                <a href="{{ route('page.list') }}" class="property_link float-right">Xem hết bảng tin</a> </div>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6">
@@ -398,9 +398,9 @@
             <div class="row" id="img" data="{{  asset('public/upload/') }}/"  > 
             <div class="col-md-12">
                 <div class="title_row text-center mb-5">
-                <h3 class="title mb-4">Popular <span class="text_primary">Locations</span></h3>
+                <h3 class="title mb-4">Vị trí <span class="text_primary">phổ biến</span></h3>
                 <div class="sub_title text_secondary">
-                    <p>Pellentesque porttitor dolor natoque pretium. Scelerisque Quisque, vel curabitur lobortis potenti primis praesent volutpat mi nonummy faucibus tempor consequat vulputate.</p>
+                    <p>Vị trí phổ biên được mọi người quan tâm và được thuê nhiều nhất.</p>
                 </div>
                 </div>
             </div>
@@ -411,43 +411,43 @@
                     <div class="category_img ctg_1"><img src="{{asset('public/house/img\category_grid\miami.png')}}" alt=""></div>
                     <div class="upper_4">
                         <div class="vertical_center text-center">
-                            <h3 class="title"><a href="#">Appartment</a></h3>
+                            <h3 class="title"><a href="#">Hồ chí minh</a></h3>
                             <span>34 Properties</span> 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-                <div class="col-lg-8 col-md-6">
-                    <div class="category_grid mb_30 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1000ms">
-                        <div class="category_img ctg_1"><img src="{{asset('public/house/img\category_grid\newyork.png')}}" alt=""></div>
-                        <div class="upper_4">
-                            <div class="vertical_center text-center">
-                            <h3 class="title"><a href="#">Condos</a></h3>
-                            <span>20 Properties</span> 
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="category_grid mb_30 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
-                    <div class="category_img ctg_1"><img src="{{asset('public/house/img\category_grid\losangeles.png')}}" alt=""></div>
+            <div class="col-lg-8 col-md-6">
+                <div class="category_grid mb_30 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1000ms">
+                    <div class="category_img ctg_1"><img src="{{asset('public/house/img\category_grid\newyork.png')}}" alt=""></div>
                     <div class="upper_4">
                         <div class="vertical_center text-center">
                         <h3 class="title"><a href="#">Condos</a></h3>
-                        <span>20 Properties</span> </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6" >
-                    <div class="category_grid mb_30 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1000ms">
-                    <div class="category_img ctg_1"><img src="{{asset('public/house/img\category_grid\chicago.png')}}" alt=""></div>
-                    <div class="upper_4">
-                        <div class="vertical_center text-center">
-                        <h3 class="title"><a href="#">Villa</a></h3>
-                        <span>27 Properties</span> </div>
-                    </div>
+                        <span>20 Properties</span> 
                     </div>
                 </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="category_grid mb_30 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
+                <div class="category_img ctg_1"><img src="{{asset('public/house/img\category_grid\losangeles.png')}}" alt=""></div>
+                <div class="upper_4">
+                    <div class="vertical_center text-center">
+                    <h3 class="title"><a href="#">Condos</a></h3>
+                    <span>20 Properties</span> </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6" >
+                <div class="category_grid mb_30 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1000ms">
+                <div class="category_img ctg_1"><img src="{{asset('public/house/img\category_grid\chicago.png')}}" alt=""></div>
+                <div class="upper_4">
+                    <div class="vertical_center text-center">
+                    <h3 class="title"><a href="#">Villa</a></h3>
+                    <span>27 Properties</span> </div>
+                </div>
+                </div>
+            </div>
             </div>
         </div>
 </section>
@@ -492,7 +492,7 @@
     <script defer>
         function initialize() {
             var mapOptions = {
-                zoom: 9,
+                zoom: 8.5,
                 minZoom: 6,
                 maxZoom: 17,
                 zoomControl:true,
@@ -519,10 +519,11 @@
             foreach($bangtin as $nha)
             {
                 $nha2 = $nha->house;
+                $user = $nha->user->member->kh_ten;
                 $link = route('deatil.bangtin',['id' => $nha->id]);
                 $giathue = number_format($nha->gia_thue,0,',','.');
                echo'addMarker({banhbao: {lat: '.$nha2->lat.',lng: '.$nha2->lng.'},';
-               echo "content: ' <div style=width:233px><div><img style=width:233px;height:151px; src=./public/upload/$nha2->hinh_anh ></div> <div style=margin-top:5px;margin-bottom:5px; ><a href=$link> $nha->ten_bangtin </a></div><div style=margin-top:5px;margin-bottom:5px;>Giá: <span style=color:red>$giathue</span> đ/tháng</div><div>Địa chỉ: $nha2->dia_chi</div> </div> '});";
+               echo "content: ' <div style=width:233px><div><img style=width:233px;height:151px; src=./public/upload/$nha2->hinh_anh ></div> <div style=margin-top:5px;margin-bottom:5px;>Tiêu đề: <a href=$link style=color:blue> $nha->ten_bangtin </a> - Người bán: <a href=# style=color:#90c923>$user</a></div><div style=margin-top:5px;margin-bottom:5px;>Giá: <span style=color:red>$giathue</span> đ/tháng</div><div>Địa chỉ: $nha2->dia_chi</div> </div> '});";
                //muốn viêt dc model trong day phải khai bảng ở ngoài trước không nó sẽ lỗi
                // style phải viet xác nhau mới nhận được
                 // viet lòng php không cần mở dây nhây kep nó tự hiệu

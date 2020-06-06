@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\san_pham;
+use App\Models\bangtin;
 
 class TimkiemController extends Controller
 {
@@ -12,13 +12,14 @@ class TimkiemController extends Controller
         
         $tukhoa = $rq->tukhoa;
 
-        $sanpham = san_pham::where('ten_sp','like',"%$tukhoa%")->orwhere('ma_sanpham','like',"%$tukhoa%")->get();
-        $sanpham2 = san_pham::where('ten_sp','like',"%$tukhoa%")->orwhere('ma_sanpham','like',"%$tukhoa%")->count();
+        $bangtin = bangtin::where('ten_sp','like',"%$tukhoa%")->orwhere('ma_sanpham','like',"%$tukhoa%")->get();
 
-        $collection = collect([$sanpham2]);
+        $bangtin2 = bangtin::where('ten_sp','like',"%$tukhoa%")->orwhere('ma_sanpham','like',"%$tukhoa%")->count();
+
+        $collection = collect([$bangtin2]);
         $banhbao = $collection->sum();
 
-        return view('page.tim-kiem.tim-kiem',['sanpham'=>$sanpham,'banhbao'=>$banhbao,'tukhoa'=>$tukhoa]);
+        return view('house.tim-kiem.tim-kiem',['bangtin'=>$bangtin,'banhbao'=>$banhbao,'tukhoa'=>$tukhoa]);
 
     }
 }

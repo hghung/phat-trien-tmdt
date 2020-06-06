@@ -130,7 +130,7 @@
 							
 							<div class="single_feature mb-5">
 								<h4 class="inner-title mb-4">Tiện ích</h4>
-								<ul class="icon_list_1">
+								<ul class="icon_list_1" style="width: 800px;">
 									<li style="padding-left: 30px;"> Wifi </li>
 
 									@foreach($tienich as $tienich2)
@@ -326,7 +326,7 @@
 										
 								
 								<h4>{{ $bangtin->user->member->kh_ho }} {{ $bangtin->user->member->kh_ten }}</h4>
-								<p>
+								<p style="margin-bottom: 0px !important; margin-top: 5px !important;">
 									@if($bangtin->user->vai_tro == 1)
 	
 										<span style="color: #ffc107">Admin</span>
@@ -340,14 +340,15 @@
 									@endif
 	
 								</p>
-								<ul>
+								<ul style="padding-top: 0px !important;">
 									<li><a href="#" class="clr_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 									<li><a href="#" class="clr_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 									<li><a href="#" class="clr_linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
 							{{--  fail  --}}
-							<div class="user_info_share style_2">
+							<div class="user_info_share style_2" style="margin-bottom: 10px !important;
+							padding-bottom: 10px !important;">
 								<ul>
 									<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> 0{{  number_format($bangtin->user->member->kh_phone,0,' ',' ') }}</a></li>
 	

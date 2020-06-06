@@ -17,6 +17,8 @@ use App\Models\taisan;
 use App\Models\loainha;
 
 use App\Models\tienich;
+use App\Models\payment;
+
 
 
 
@@ -49,14 +51,11 @@ Route::post('/dang-nhap','Login_RegController@post_lg')->name('page.login.post')
 Route::get('/dang-xuat','Login_RegController@logout')->name('page.logout');
 
 //payment
-Route::post('/thanh-toan-vnpay','PaymentController@create')->name('vnpay');
+Route::post('/thanh-toan-vnpay','CheckoutController@create')->name('vnpay');
 Route::get('/return-vnpay','PaymentController@return2')->name('vnpay2');
 Route::post('/config-vnpay','PaymentController@config')->name('vnpay.config');
 
 Route::get('/return-vnpay','PaymentController@return')->name('return.post.vnpay');
-
-
-
 
 Route::get('/danh-sach-bang-tin','PageController@list')->name('page.list');
 
@@ -210,6 +209,13 @@ Route::get('/play',function(){
 	$tienich->tien_ich = 'Gần bệnh viện';
 	$tienich->save();
 
+	$tienich = new payment;
+	$tienich->phuong_thuc = 'Thanh toán khi nhận hàng';
+	$tienich->save();
+
+	$tienich = new payment;
+	$tienich->phuong_thuc = 'VN-Pay';
+	$tienich->save();
 	
 
 	

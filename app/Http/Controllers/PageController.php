@@ -47,8 +47,7 @@ class PageController extends Controller
     {
         
 
-        $house = nha::all();
-        $bangtin = bangtin::all();
+        $bangtin = bangtin::where('trang_thai','=',1)->get();
     	return view('house.index',['bangtin' => $bangtin]);
     }
 

@@ -168,7 +168,10 @@
                                 <a href="#" class="btn btn-clean-dark">Change</a>
                             </div>
                             <div>
-                                <a href="{{ route('checkout-2') }}" class="btn btn-main">Tiếp theo <span class="icon icon-chevron-right"></span></a>
+                                <a href="{{ route('checkout-2') }}" class="btn btn-main">
+                                    Tiếp theo 
+                                    <span class="icon icon-chevron-right"></span>
+                                </a>
                             </div>
                         </div>
                     </div>
