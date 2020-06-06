@@ -93,7 +93,6 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS --> 
 <!--===============================================================================================--> 
 <script src="{{asset('public/house/js/jquery-3.3.1.min.js')}}"></script> 
-@yield('js_checkout')
 <script src="{{asset('public/house/js/greensock.js')}}"></script>
 <!-- LayerSlider script files -->
 <script src="{{asset('public/house/js/layerslider.transitions.js')}}"></script>

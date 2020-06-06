@@ -304,7 +304,7 @@
 							</li>
 						</ul>
 						<div class="rle_property_details_box">
-						
+							{{--    --}}
 							<div class="user_info">
 	
 								@if($bangtin->user->member->kh_avatar)
@@ -313,9 +313,8 @@
 									
 								@elseif($bangtin->user->member->kh_gioitinh == 1)
 	
-									<img height="100px" width="100px" src="{{asset('public/house/man.png/')}}" alt="">
+									<img height="100px" width="100px" src="{{asset('public/house/man.png')}}" alt="">
 										
-									</div>
 								
 								@elseif($bangtin->user->member->kh_gioitinh == 2)
 	
@@ -347,7 +346,7 @@
 									<li><a href="#" class="clr_linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
-	
+							{{--  fail  --}}
 							<div class="user_info_share style_2">
 								<ul>
 									<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> 0{{  number_format($bangtin->user->member->kh_phone,0,' ',' ') }}</a></li>
