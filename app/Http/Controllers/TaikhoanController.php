@@ -46,7 +46,7 @@ class TaikhoanController extends Controller
 
     public function profile()
     {
-        $province = Province::all();
+    $province = Province::all();
         $district = District::all();
         $ward = Ward::all();
         return view('house.account.profile',['province' => $province, 'district' => $district, 'ward' => $ward]);
@@ -55,7 +55,6 @@ class TaikhoanController extends Controller
     public function ds_bangtin()
     {
         $dsbangtin = bangtin::where('id_thanhvien','=', Auth::user()->id)->get();
-        
         return view('house.account.ds_bangtin',['dsbangtin' => $dsbangtin]);
     }
 

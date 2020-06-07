@@ -13,6 +13,12 @@
 						<li><a href="{{ route('taikhoan.dangtin') }}"><i class="flaticon-export"></i>Đăng bảng tin</a></li>
 					</ul>
 					<ul>
+						<li><span>Quản lí hợp đồng</span></li>
+						<li><a href="{{ route('taikhoan.hopdong') }}"><i class="flaticon-home"></i>Danh sách hợp đồng</a></li>
+						<li><a href="my_favorite.html"><i class="flaticon-star"></i>Hợp đồng gần hết hạn</a></li>
+					</ul>
+
+					<ul>
 						<li><a href="message.html"><i class="flaticon-notification"></i>Message <sup><i class="fa fa-circle" aria-hidden="true"></i></sup> <span>( 20 )</span></a></li>
 						<li><a href="comments.html"><i class="flaticon-chat"></i>Feedback and Comments</a></li>
 						<li><a href="invoices.html"><i class="flaticon-invoice"></i>Payments and Invoice</a></li>

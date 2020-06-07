@@ -75,23 +75,7 @@ class CheckoutController extends Controller
             }
     }
 
-    public function checkout_3()
-    {
-        $data['total'] = Cart::total(0,',','.'); // cấu hinh format năm ở trong đây ở ngoài html ko sư dụng dc
-        $data['cart'] = Cart::content();
-        $now['now2'] = Carbon::now(); // cách viet mơi sang view
-
-        if($data['cart']->count() > 0 )
-        {
-            
-            return view('house.checkout.checkout-3',$data,$now);
     
-        }
-        else
-        {
-            return redirect()->route('page.home');
-        }
-    }
 
     // Ngân hàng: NCB
     // Số thẻ: 9704198526191432198
@@ -100,13 +84,16 @@ class CheckoutController extends Controller
     // Mật khẩu OTP:123456
     public function create(Request $request)
     {   
+        $thongbao = "Chúc mừng bạn thuê thành công";
+        $hopdong = new hopdong;
+        $hopdong->save();
 
         session(['cost_id' => $request->id]);
         session(['url_prev' => url()->previous()]);
         $vnp_TmnCode = "VVULVOU2"; //Mã website tại VNPAY 
         $vnp_HashSecret = "SBKILOMMRSKUSLHMVFYFATIDBLYKYDAU"; //Chuỗi bí mật
         $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-        $vnp_Returnurl = route('checkout-3');
+        $vnp_Returnurl = route('detail.contract',['id' => $hopdong->id])->with('contract',''.$thongbao.'');
         $vnp_TxnRef = date("YmdHis"); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
         $vnp_OrderType = 'billpayment';
@@ -178,7 +165,7 @@ class CheckoutController extends Controller
 
         // dd($bangtin);
        
-        $hopdong = new hopdong;
+        
         // người thuê
         $hopdong->user1_hoten = Auth::user()->member->kh_ho ."&nbsp". Auth::user()->member->kh_ten ;
         // đê có cach khi 2 biên php thì phải &nbsp
@@ -215,13 +202,15 @@ class CheckoutController extends Controller
         $hopdong->id_user1 = Auth::user()->id;
         $hopdong->id_user2 = $bangtin->user->id;
         $hopdong->id_bangtin = $bangtin->id;
+        $hopdong->trang_thai = '1';
 
-        
-        $hopdong->save();
-        
+
         $hopdong->ma_hopdong = "CONTRACT-000".$hopdong->id;
         $hopdong->save();
 
+        Toastr::success('Hơp đồng thành công', 'Thông báo', ["positionClass" => "toast-top-right"]);
+        Cart::destroy();
+        $data = bangtin::where('id',$id)->update(['trang_thai'=>0]);
         return redirect($vnp_Url);
 
 

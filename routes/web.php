@@ -64,7 +64,6 @@ Route::get('/san-pham-{id}','PageController@single')->name('deatil.bangtin');
 // checkout start
 Route::get('/checkout-1','CheckoutController@checkout_1')->name('checkout-1');
 Route::get('/checkout-2','CheckoutController@checkout_2')->name('checkout-2');
-Route::get('/checkout-3','CheckoutController@checkout_3')->name('checkout-3');
 
 
 Route::post('/them-bang-tin-{id}','CheckoutController@addCart')->name('addcart');
@@ -92,6 +91,11 @@ Route::group(['prefix'=>'tai-khoan','middleware'=>'Page_login'],function(){
 
 	Route::get('/update-password','TaikhoanController@password')->name('taikhoan.password');
 	Route::post('/update-passsword-{id}','TaikhoanController@update_password')->name('taikhoan.update.password');
+
+	//hop dong
+	Route::get('/hop-dong','ContractController@contract')->name('taikhoan.hopdong');
+	Route::get('/hop-dong-{id}','ContractController@detail_contract')->name('detail.contract');
+
 
 });
 
