@@ -45,10 +45,11 @@ class PageController extends Controller
 
     public function home()
     {
-        
-
+        $city = Province::all();
+        $type = loainha::all();
+        // bang do
         $bangtin = bangtin::where('trang_thai','=',1)->get();
-    	return view('house.index',['bangtin' => $bangtin]);
+    	return view('house.index',['bangtin' => $bangtin, 'city' => $city, 'type' => $type]);
     }
 
     public function login()

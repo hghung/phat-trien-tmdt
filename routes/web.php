@@ -35,6 +35,7 @@ Route::get('/gg1','PageController@gg1');
 
 
 
+Route::post('/tim-kiem','TimkiemController@post_search')->name('timkiem');
 	 
 
 Route::get('/trang-chu','PageController@home')->name('page.home');
@@ -49,6 +50,9 @@ Route::get('/dang-nhap','PageController@login')->name('page.login');
 Route::post('/dang-nhap','Login_RegController@post_lg')->name('page.login.post');
 
 Route::get('/dang-xuat','Login_RegController@logout')->name('page.logout');
+
+// tim kiem
+Route::get('/trang-chu','PageController@home')->name('page.home');
 
 //payment
 Route::post('/thanh-toan-vnpay','CheckoutController@create')->name('vnpay');

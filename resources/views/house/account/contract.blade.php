@@ -57,7 +57,16 @@
                                 {{ date("d-m-Y",strtotime($contract->time_end ))  }}
                             </td>
                             <td>
-                               Thành công
+								@if($contract->trang_thai == 1)
+									<span style="color:goldenrod">Đang xử lý</span>
+								@elseif($contract->trang_thai == 2)
+									<span style="color:orange">Đã xác nhận</span>
+								@elseif($contract->trang_thai == 3)
+									<span style="color:green">Thành công</span>
+								@elseif($contract->trang_thai == 4)
+									<span style="color:red">Đã hủy</span>
+								
+								@endif
                             </td>
 							<td>
                                 <a href="#">{{ $contract->user2_hoten }}</a>
@@ -88,3 +97,5 @@
 	</div>
 </div>
 <!-- Profile Setting End -->
+
+@endsection

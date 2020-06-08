@@ -35,10 +35,10 @@
     </div>
 
     <!-- ===  Checkout === -->
-
+    
     <div class="checkout ">
 
-        <a href="{{ route('page.home') }}" style="margin: 10px 0px 0px 10px" class="btn btn-primary">Quay lai </a>
+        <a href="{{ route('page.home') }}" style="margin: 10px 0px 0px 10px;  border-radius: 15px;" class="btn btn-primary">Quay lai </a>
 
         <div class="container">
 

@@ -208,9 +208,9 @@
 					<nav aria-label="page navigation">
 						<ul class="pagination">
                             {{-- Phân trang --}}
-							<li>
+							{{-- <li>
                                 {!! $bangtin->links() !!}
-							</li>
+							</li> --}}
 							
 						</ul>
 					</nav>

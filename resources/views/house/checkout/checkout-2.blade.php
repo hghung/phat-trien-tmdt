@@ -125,7 +125,7 @@
 
                             {{--  start payment  --}}
                             <div class="col-md-6">
-
+                                <form action="{{ route('vnpay') }}" id="create_form" method="post"> {{ csrf_field() }}   
                                 <div class="white-block">
 
                                     <div class="h4">Chọn phương thức thanh toán</div>
@@ -135,8 +135,8 @@
                                     <span class="checkbox">
                                         <input type="radio" id="paymentCart" name="paymentOption">
                                         <label for="paymentCart">
-                                            <strong>Pay via credit cart</strong> <br>
-                                            <small>(MasterCard, Maestro, Visa, Visa Electron, JCB and American Express)</small>
+                                            <strong>Thanh toán tiền mặt</strong> <br>
+                                            <small>Thanh toán khi gặp trực tiếp với chủ nhà</small>
                                         </label>
                                     </span>
 
@@ -144,7 +144,7 @@
                                         <input type="radio" id="paymentPayPal" name="paymentOption">
                                         <label for="paymentPayPal">
                                             <strong>VN-Pay</strong> <br>
-                                            <small>Purchase with your fingertips. Look for us the next time you re paying from a mobile app, and checkout faster on thousands of mobile websites.</small>
+                                            <small>(MasterCard, Maestro, Visa, Visa Electron, JCB and American Express)</small>
                                         </label>
                                     </span>
 
@@ -159,8 +159,9 @@
 
                                     <div class="payment payment-paypal">
                                         <div class="table-responsive">
-                                            <form action="{{ route('vnpay') }}" id="create_form" method="post"> {{ csrf_field() }}      
-                            
+                                               
+                                                <input type="hidden" name="khoangtrang" value="&nbsp" >
+                                                
                                                 <div class="form-group">
                                                     <label for="order_id">Mã hóa đơn</label>
                                                     <input class="form-control" id="order_id" name="order_id" type="text" value="<?php echo date("YmdHis") ?>"/>
@@ -176,54 +177,23 @@
                                                 </div>
                                                
                                                 
-                                                <button type="submit" class="btn btn-main">Thanh toán </button>
+                                                <input name="vnpay" type="submit" class="btn btn-main" value="Thanh toán"> 
                             
-                                            </form>
                                         </div>
                                     </div>
 
+                                    {{-- thanh toán khi nhân hàng --}}
                                     <div class="payment payment-cart">
 
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <div class="payment-header">
-                                                    <div>
-                                                        <strong>Payment details</strong>
-                                                    </div>
-                                                    <div>
-                                                        <i class="fa fa-cc-visa"></i>
-                                                        <i class="fa fa-cc-mastercard"></i>
-                                                        <i class="fa fa-cc-discover"></i>
-                                                        <i class="fa fa-cc-amex"></i>
-                                                        <i class="fa fa-cc-diners-club"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12">
-                                                <div class="form-group">
-                                                    <input class="form-control" type="tel" value="" name="cardNumber" placeholder="Card Number">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <div class="form-group">
-                                                    <input class="form-control" type="tel" value="" name="cardExpiry" placeholder="MM / YY">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <div class="form-group">
-                                                    <input class="form-control" type="tel" value="" name="cardCVC" placeholder="CVC">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12">
-                                                <div class="form-group">
-                                                    <input class="btn btn-main btn-block" type="submit" value="Submit" name="cardNumber">
-                                                </div>
-                                            </div>
+                                            <input name="tienmat" class="btn btn-main btn-block" type="submit" value="Thanh toán" name="cardNumber">
+                                            
                                         </div>
                                     </div>
                                 </div>
+                                </form>
 
                             </div>
+
                             {{--  End payment  --}}
                         </div>
                     </div>

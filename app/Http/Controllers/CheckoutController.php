@@ -84,136 +84,197 @@ class CheckoutController extends Controller
     // Mật khẩu OTP:123456
     public function create(Request $request)
     {   
-        $thongbao = "Chúc mừng bạn thuê thành công";
+        // phải đặt tất cẩ đều null het mới lưu xử lý được
         $hopdong = new hopdong;
         $hopdong->save();
 
-        session(['cost_id' => $request->id]);
-        session(['url_prev' => url()->previous()]);
-        $vnp_TmnCode = "VVULVOU2"; //Mã website tại VNPAY 
-        $vnp_HashSecret = "SBKILOMMRSKUSLHMVFYFATIDBLYKYDAU"; //Chuỗi bí mật
-        $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-        $vnp_Returnurl = route('detail.contract',['id' => $hopdong->id])->with('contract',''.$thongbao.'');
-        $vnp_TxnRef = date("YmdHis"); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
-        $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
-        $vnp_OrderType = 'billpayment';
-        $vnp_Amount = $request->input('amount') * 100;
-        $vnp_Locale = 'vn';
-        $vnp_IpAddr = request()->ip();
-
-        $inputData = array(
-            "vnp_Version" => "2.0.0",
-            "vnp_TmnCode" => $vnp_TmnCode,
-            "vnp_Amount" => $vnp_Amount,
-            "vnp_Command" => "pay",
-            "vnp_CreateDate" => date('YmdHis'),
-            "vnp_CurrCode" => "VND",
-            "vnp_IpAddr" => $vnp_IpAddr,
-            "vnp_Locale" => $vnp_Locale,
-            "vnp_OrderInfo" => $vnp_OrderInfo,
-            "vnp_OrderType" => $vnp_OrderType,
-            "vnp_ReturnUrl" => $vnp_Returnurl,
-            "vnp_TxnRef" => $vnp_TxnRef,
-        );
-
-        if (isset($vnp_BankCode) && $vnp_BankCode != "") {
-            $inputData['vnp_BankCode'] = $vnp_BankCode;
-        }
-        ksort($inputData);
-        $query = "";
-        $i = 0;
-        $hashdata = "";
-        foreach ($inputData as $key => $value) {
-            if ($i == 1) {
-                $hashdata .= '&' . $key . "=" . $value;
-            } else {
-                $hashdata .= $key . "=" . $value;
-                $i = 1;
-            }
-            $query .= urlencode($key) . "=" . urlencode($value) . '&';
-        }
-
-        $vnp_Url = $vnp_Url . "?" . $query;
-        if (isset($vnp_HashSecret)) {
-           // $vnpSecureHash = md5($vnp_HashSecret . $hashdata);
-            $vnpSecureHash = hash('sha256', $vnp_HashSecret . $hashdata);
-            $vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
-        }
-
-        
-        //////////////////////////////////////////////////////////////
-        $data['total'] = Cart::total(0,',','.'); // cấu hinh format năm ở trong đây ở ngoài html ko sư dụng dc
-        $data['cart'] = Cart::content();
-        $now['now2'] = Carbon::now(); // cách viet mơi sang view
-        foreach($data['cart'] as $checkout)
+        if($request->vnpay)
         {
-            // dd($checkout);
+            session(['cost_id' => $request->id]);
+            session(['url_prev' => url()->previous()]);
+            $vnp_TmnCode = "VVULVOU2"; //Mã website tại VNPAY 
+            $vnp_HashSecret = "SBKILOMMRSKUSLHMVFYFATIDBLYKYDAU"; //Chuỗi bí mật
+            $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+            $vnp_Returnurl = route('detail.contract',['id' => $hopdong->id]);
+            $vnp_TxnRef = date("YmdHis"); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+            $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
+            $vnp_OrderType = 'billpayment';
+            $vnp_Amount = $request->input('amount');
+            $vnp_Locale = 'vn';
+            $vnp_IpAddr = request()->ip();
+
+            $inputData = array(
+                "vnp_Version" => "2.0.0",
+                "vnp_TmnCode" => $vnp_TmnCode,
+                "vnp_Amount" => $vnp_Amount,
+                "vnp_Command" => "pay",
+                "vnp_CreateDate" => date('YmdHis'),
+                "vnp_CurrCode" => "VND",
+                "vnp_IpAddr" => $vnp_IpAddr,
+                "vnp_Locale" => $vnp_Locale,
+                "vnp_OrderInfo" => $vnp_OrderInfo,
+                "vnp_OrderType" => $vnp_OrderType,
+                "vnp_ReturnUrl" => $vnp_Returnurl,
+                "vnp_TxnRef" => $vnp_TxnRef,
+            );
+
+            if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+                $inputData['vnp_BankCode'] = $vnp_BankCode;
+            }
+            ksort($inputData);
+            $query = "";
+            $i = 0;
+            $hashdata = "";
+            foreach ($inputData as $key => $value) {
+                if ($i == 1) {
+                    $hashdata .= '&' . $key . "=" . $value;
+                } else {
+                    $hashdata .= $key . "=" . $value;
+                    $i = 1;
+                }
+                $query .= urlencode($key) . "=" . urlencode($value) . '&';
+            }
+
+            $vnp_Url = $vnp_Url . "?" . $query;
+            if (isset($vnp_HashSecret)) {
+            // $vnpSecureHash = md5($vnp_HashSecret . $hashdata);
+                $vnpSecureHash = hash('sha256', $vnp_HashSecret . $hashdata);
+                $vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
+            }
+
+            
+            //////////////////////////////////////////////////////////////
+            $data['total'] = Cart::total(0,',','.'); // cấu hinh format năm ở trong đây ở ngoài html ko sư dụng dc
+            $data['cart'] = Cart::content();
+            $now['now2'] = Carbon::now(); // cách viet mơi sang view
+            foreach($data['cart'] as $checkout)
+            {
+                // dd($checkout);
+            }
+
+            // //chuyên  sáng đụng đinh dạng ngày
+            // $ngayo = Carbon::parse($checkout->options->ngayden) ; 
+            // // $dt = Carbon::now();
+            // // $dt2 = date("d-m-Y",strtotime($dt));
+            // // echo $ngayo;die;
+            // $time = $checkout->options->thoigiano;
+            // // echo $time;die;
+        
+            // $end = $ngayo->addMonths($time);  
+            // echo $ngayo ."banhbao". $end;die;
+            $bangtin = bangtin::find($checkout->id);
+            // lấy thông tin của chủ nhà
+
+            // dd($bangtin);
+            $ddd =   $request->khoangtrang;
+            // đăng <input type="hidden" name="khoangtrang" value="$nbsp" >
+            
+            
+            // người thuê
+            $hopdong->user1_hoten = Auth::user()->member->kh_ho ."$ddd". Auth::user()->member->kh_ten ;
+            // đê có cach khi 2 biên php thì phải $ddd
+            $hopdong->user1_cmnd = Auth::user()->member->kh_cmnd ;
+            $hopdong->user1_phone = Auth::user()->member->kh_phone ;
+            $hopdong->user1_email = Auth::user()->member->kh_email ;
+            $hopdong->user1_diachi = Auth::user()->member->kh_address.","."$ddd".Auth::user()->member->ward->ward_prefix."$ddd".Auth::user()->member->ward->ward_name.","."$ddd".Auth::user()->member->district->district_prefix."$ddd".Auth::user()->member->district->district_name.","."$ddd".Auth::user()->member->province->province_name ;
+
+            // chủ nhà
+            $hopdong->user2_hoten = $bangtin->user->member->kh_ho."$ddd".$bangtin->user->member->kh_ten ;
+            // đê có cach khi 2 biên php thì phải $ddd
+            $hopdong->user2_cmnd = $bangtin->user->member->kh_cmnd ;
+            $hopdong->user2_phone = $bangtin->user->member->kh_phone ;
+            $hopdong->user2_email = $bangtin->user->member->kh_email ;
+            $hopdong->user2_diachi = $bangtin->user->member->kh_address.", $ddd".$bangtin->user->member->ward->ward_prefix."$ddd".$bangtin->user->member->ward->ward_name.", $ddd".$bangtin->user->member->district->district_prefix."$ddd".$bangtin->user->member->district->district_name.", $ddd".$bangtin->user->member->province->province_name ; 
+            
+            $hopdong->ma_bangtin = $bangtin->code_bangtin;
+            $hopdong->ma_nha = $bangtin->house->ma_nha;
+            $hopdong->thoi_gianthue = $checkout->options->thoigiano;
+            // tinh ngay tháng năm
+            $hopdong->time_start = Carbon::parse($checkout->options->ngayden);
+            $start = Carbon::parse($checkout->options->ngayden) ; 
+            $end = $start->addMonths($checkout->options->thoigiano);  
+            $hopdong->time_end = $end;
+
+            // thanh toan vnpay
+            $hopdong->ma_giaodich = $vnp_TxnRef;
+            $hopdong->time_giao_dich = Carbon::now();
+            $hopdong->tien = $vnp_Amount;
+            $hopdong->card = '9871 8211 6278';
+            $hopdong->loainha = $bangtin->house->loainha->ten_loai;
+
+            $hopdong->id_thanhtoan = '2';
+            $hopdong->id_user1 = Auth::user()->id;
+            $hopdong->id_user2 = $bangtin->user->id;
+            $hopdong->id_bangtin = $bangtin->id;
+            $hopdong->trang_thai = '2';
+            $hopdong->ma_hopdong = "CONTRACT-000".$hopdong->id;
+                // dd($hopdong);
+            $hopdong->save();
+            // dd($hopdong);
+            // ra được hợp đồng thì sẽ hủy giỏ hàng đang lưu
+            Cart::destroy();
+            // update lại trang bạn tin thành 2 từ chưa thuê thành đã thue
+            $data = bangtin::where('id',$checkout->id)->update(['trang_thai'=>2]);
+            return redirect($vnp_Url);
+
         }
+        elseif($request->tienmat)
+        {
+            $data['total'] = Cart::total(0,',','.'); // cấu hinh format năm ở trong đây ở ngoài html ko sư dụng dc
+            $data['cart'] = Cart::content();
+            $now['now2'] = Carbon::now(); // cách viet mơi sang view
+            foreach($data['cart'] as $checkout)
+            {
+                // dd($checkout);
+            }
+            $bangtin = bangtin::find($checkout->id);
+            $ddd =   $request->khoangtrang;
+            // người thuê
+            $hopdong->user1_hoten = Auth::user()->member->kh_ho ."$ddd". Auth::user()->member->kh_ten ;
+            // đê có cach khi 2 biên php thì phải $ddd
+            $hopdong->user1_cmnd = Auth::user()->member->kh_cmnd ;
+            $hopdong->user1_phone = Auth::user()->member->kh_phone ;
+            $hopdong->user1_email = Auth::user()->member->kh_email ;
+            $hopdong->user1_diachi = Auth::user()->member->kh_address.","."$ddd".Auth::user()->member->ward->ward_prefix."$ddd".Auth::user()->member->ward->ward_name.","."$ddd".Auth::user()->member->district->district_prefix."$ddd".Auth::user()->member->district->district_name.","."$ddd".Auth::user()->member->province->province_name ;
+            // chủ nhà
+            $hopdong->user2_hoten = $bangtin->user->member->kh_ho."$ddd".$bangtin->user->member->kh_ten ;
+            // đê có cach khi 2 biên php thì phải $ddd
+            $hopdong->user2_cmnd = $bangtin->user->member->kh_cmnd ;
+            $hopdong->user2_phone = $bangtin->user->member->kh_phone ;
+            $hopdong->user2_email = $bangtin->user->member->kh_email ;
+            $hopdong->user2_diachi = $bangtin->user->member->kh_address.", $ddd".$bangtin->user->member->ward->ward_prefix."$ddd".$bangtin->user->member->ward->ward_name.", $ddd".$bangtin->user->member->district->district_prefix."$ddd".$bangtin->user->member->district->district_name.", $ddd".$bangtin->user->member->province->province_name ;
 
-        // //chuyên  sáng đụng đinh dạng ngày
-        // $ngayo = Carbon::parse($checkout->options->ngayden) ; 
-        // // $dt = Carbon::now();
-        // // $dt2 = date("d-m-Y",strtotime($dt));
-        // // echo $ngayo;die;
-        // $time = $checkout->options->thoigiano;
-        // // echo $time;die;
-       
-        // $end = $ngayo->addMonths($time);  
-        // echo $ngayo ."banhbao". $end;die;
-        $bangtin = bangtin::find($checkout->id);
-        // lấy thông tin của chủ nhà
+            $hopdong->ma_bangtin = $bangtin->code_bangtin;
+            $hopdong->ma_nha = $bangtin->house->ma_nha;
+            $hopdong->thoi_gianthue = $checkout->options->thoigiano;
+            // tinh ngay tháng năm
+            $hopdong->time_start = Carbon::parse($checkout->options->ngayden);
+            $start = Carbon::parse($checkout->options->ngayden) ; 
+            $end = $start->addMonths($checkout->options->thoigiano);  
+            $hopdong->time_end = $end;
 
-        // dd($bangtin);
-       
+            // thanh toan tien mat
+            $hopdong->time_giao_dich = Carbon::now();
+            $hopdong->tien = $checkout->options->tongtien;
+            $hopdong->loainha = $bangtin->house->loainha->ten_loai;
+            $hopdong->id_thanhtoan = '1';
+            $hopdong->id_user1 = Auth::user()->id;
+            $hopdong->id_user2 = $bangtin->user->id;
+            $hopdong->id_bangtin = $bangtin->id;
+            $hopdong->trang_thai = '2';
+            $hopdong->ma_hopdong = "CONTRACT-000".$hopdong->id;
+            // dd($hopdong);
+            $hopdong->save();
+            
+            // dd($hopdong);
+            // ra được hợp đồng thì sẽ hủy giỏ hàng đang lưu
+            Cart::destroy();
+            // update lại trang bạn tin thành 2 từ chưa thuê thành đã thue
+            $data = bangtin::where('id',$checkout->id)->update(['trang_thai'=>2]);
+            Toastr::success('Hơp đồng thành công', 'Thông báo', ["positionClass" => "toast-top-right"]);
+            return redirect()->route('detail.contract',['id' => $hopdong->id]);
+        }
         
-        // người thuê
-        $hopdong->user1_hoten = Auth::user()->member->kh_ho ."&nbsp". Auth::user()->member->kh_ten ;
-        // đê có cach khi 2 biên php thì phải &nbsp
-        $hopdong->user1_cmnd = Auth::user()->member->kh_cmnd ;
-        $hopdong->user1_phone = Auth::user()->member->kh_phone ;
-        $hopdong->user1_email = Auth::user()->member->kh_email ;
-        $hopdong->user1_diachi = Auth::user()->member->kh_address.","."&nbsp".Auth::user()->member->ward->ward_prefix."&nbsp".Auth::user()->member->ward->ward_name.","."&nbsp".Auth::user()->member->district->district_prefix."&nbsp".Auth::user()->member->district->district_name.","."&nbsp".Auth::user()->member->province->province_name ;
-
-        // chủ nhà
-        $hopdong->user2_hoten = $bangtin->user->member->kh_ho ."&nbsp". $bangtin->user->member->kh_ten ;
-        // đê có cach khi 2 biên php thì phải &nbsp
-        $hopdong->user2_cmnd = $bangtin->user->member->kh_cmnd ;
-        $hopdong->user2_phone = $bangtin->user->member->kh_phone ;
-        $hopdong->user2_email = $bangtin->user->member->kh_email ;
-        $hopdong->user2_diachi = $bangtin->user->member->kh_address.", &nbsp".$bangtin->user->member->ward->ward_prefix."&nbsp".$bangtin->user->member->ward->ward_name.", &nbsp".$bangtin->user->member->district->district_prefix."&nbsp".$bangtin->user->member->district->district_name.", &nbsp".$bangtin->user->member->province->province_name ; 
-        
-        $hopdong->ma_bangtin = $bangtin->code_bangtin;
-        $hopdong->ma_nha = $bangtin->house->ma_nha;
-        $hopdong->thoi_gianthue = $checkout->options->thoigiano;
-        // tinh ngay tháng năm
-        $hopdong->time_start = Carbon::parse($checkout->options->ngayden);
-        $start = Carbon::parse($checkout->options->ngayden) ; 
-        $end = $start->addMonths($checkout->options->thoigiano);  
-        $hopdong->time_end = $end;
-
-        $hopdong->ma_giaodich = $vnp_TxnRef;
-
-        $hopdong->time_giao_dich = Carbon::now();
-        $hopdong->tien = $vnp_Amount;
-        $hopdong->card = '9871 8211 6278';
-        $hopdong->loainha = $bangtin->house->loainha->ten_loai;
-
-        $hopdong->id_thanhtoan = '2';
-        $hopdong->id_user1 = Auth::user()->id;
-        $hopdong->id_user2 = $bangtin->user->id;
-        $hopdong->id_bangtin = $bangtin->id;
-        $hopdong->trang_thai = '1';
-
-
-        $hopdong->ma_hopdong = "CONTRACT-000".$hopdong->id;
-        $hopdong->save();
-
-        Toastr::success('Hơp đồng thành công', 'Thông báo', ["positionClass" => "toast-top-right"]);
-        Cart::destroy();
-        $data = bangtin::where('id',$id)->update(['trang_thai'=>0]);
-        return redirect($vnp_Url);
-
-
     }
 
        

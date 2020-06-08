@@ -8,7 +8,7 @@
             #map
             {
                 width: 1600px;
-                height: 540px;
+                height: 510px;
             }
         </style>
 
@@ -20,32 +20,33 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="map-search">
-                        <div class="form-up-btn bg_secondary d-table">Tìm kiếm <span><i class="fa fa-angle-up" aria-hidden="true"></i></span>
+                        <div class="form-up-btn bg_secondary d-table" style="background-color: #90c923">Tìm kiếm <span><i class="fa fa-angle-up" aria-hidden="true"></i></span>
                         </div>
                         <div class="property_search_form bg_white p-4">
-                            <form action="#" method="post" class="property_filter_input">
+                            <form action="{{ route('timkiem') }}" method="post" class="property_filter_input"> {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-lg-2 col-sm-6">
-                                        <select class="selectpicker form-control">
-                                            <option>For Rent</option>
-                                            <option>For Sale</option>
-                                            <option>For Buy</option>
+                                        <select class=" form-control" name="city">
+                                            @foreach($city as $cities)
+                                                <option value="{{ $cities->id  }}">{{ $cities->province_name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-lg-2 col-sm-6">
-                                        <select class="selectpicker form-control">
+                                        <select class="selectpicker form-control" name="loainha">
                                             <option>Loại nhà</option>
-                                            <option>Villa</option>
-                                            <option>Appartment</option>
-                                            <option>House</option>
-                                            <option>Room</option>
+
+                                            @foreach($type as $typies)
+                                                <option value="{{ $typies->id }}">{{ $typies->ten_loai }}</option>
+                                            @endforeach
+                                            
                                         </select>
                                     </div>
                                     <div class="col-lg-5 col-sm-8">
-                                        <input class="form-control" type="text" placeholder="Enter address e.g. street, city and state or zip">
+                                        <input class="form-control" name="tukhoa" type="text" placeholder="Nhập mã nhà, mã bảng tin, tên nhà, tên bảng tin, tỉnh thành,....">
                                     </div>
                                     <div class="col-lg-3 col-sm-4">
-                                        <input type="submit" name="search" value="Search" class="btn btn_primary">
+                                        <input type="submit" name="search" value="Tìm kiếm" class="btn btn_primary">
                                     </div>
                                 </div>
                             </form>
@@ -59,7 +60,7 @@
     </div>
 </div>
 <!-- Offer Part Start -->
-<section class="full_row py_80 bg_white">
+<section class="full_row py_80 bg_white" style="padding-top: 20px !important;">
     <div class="container">
         <div class="row">
         <div class="col-xl-3 col-lg-4 col-sm-6">
