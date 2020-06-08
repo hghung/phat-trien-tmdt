@@ -30,7 +30,7 @@
 			<div class="col-md-12">
 				<div class=" bg_white sign_in_up" role="document">
 					<div class="header bg_primary">
-						<h4 class="inner-title text_white">Đăng Nhập Tài Khoản</h4>
+						<h4 class="inner-title text_white">Đăng Nhập Tài Khoản 2</h4>
 					</div>
 					<div class="body">
 						<form class="form"  method="POST"  action="{{Route('page.login.post')}}" enctype="multipart/form-data" > {{ csrf_field() }}
