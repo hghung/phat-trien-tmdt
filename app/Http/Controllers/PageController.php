@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\District;
-use App\Models\Province;
-use App\Models\Ward;
+use App\Models\district;
+use App\Models\province;
+use App\Models\ward;
 use App\Models\bangtin;
 
 use App\Models\taisan;
@@ -45,7 +45,7 @@ class PageController extends Controller
 
     public function home()
     {
-        $city = Province::all();
+        $city = province::all();
         $type = loainha::all();
         // bang do
         $bangtin = bangtin::where('trang_thai','=',1)->get();
@@ -73,7 +73,7 @@ class PageController extends Controller
 
     public function ajax_district($id_province)
     {
-        $quanhuyen = District::where('province_id',$id_province)->get();
+        $quanhuyen = district::where('province_id',$id_province)->get();
         foreach($quanhuyen as $dt)
         {
              echo "<option value='".$dt->id."'>".$dt->district_name."</option>"; 
@@ -83,7 +83,7 @@ class PageController extends Controller
 
     public function ajax_ward($id_ward)
     {
-        $phuongxa = Ward::where('district_id',$id_ward)->get();
+        $phuongxa = ward::where('district_id',$id_ward)->get();
         foreach($phuongxa as $wd)
         {
              echo "<option value='".$wd->id."'>".$wd->ward_name."</option>"; 

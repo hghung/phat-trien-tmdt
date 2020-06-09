@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Cart;
 Use Illuminate\Support\Facades\Auth;
 use App\Models\bangtin;
-use App\Models\Province;
+use App\Models\province;
 use App\Models\payment;
 use App\Models\hopdong;
 
