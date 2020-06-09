@@ -123,14 +123,14 @@ Route::group(['prefix'=>'SPS'],function(){
 
 	});
 
-	// Route::group(['prefix'=>'bang-tin'],function(){
-	// 	Route::get('/','BangtinController@list')->name('bangtin.list');
-	// 	Route::get('/add','BangtinController@add')->name('bangtin.add');
-	// 	Route::post('/post-add','BangtinController@post_add')->name('bangtin.post.add');
+	Route::group(['prefix'=>'bang-tin'],function(){
+		Route::get('/','BangtinController@list')->name('bangtin.list');
+		Route::get('/add','BangtinController@add')->name('bangtin.add');
+		Route::post('/post-add','BangtinController@post_add')->name('bangtin.post.add');
 
 
 
-	// });
+	});
 
 });
 

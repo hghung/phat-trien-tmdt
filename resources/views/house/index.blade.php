@@ -25,7 +25,7 @@
                         <div class="property_search_form bg_white p-4">
                             <form action="{{ route('timkiem') }}" method="post" class="property_filter_input"> {{ csrf_field() }}
                                 <div class="row">
-                                    <div class="col-lg-2 col-sm-6">
+                                    {{-- <div class="col-lg-2 col-sm-6">
                                         <select class=" form-control" name="city">
                                             @foreach($city as $cities)
                                                 <option value="{{ $cities->id  }}">{{ $cities->province_name }}</option>
@@ -41,8 +41,8 @@
                                             @endforeach
                                             
                                         </select>
-                                    </div>
-                                    <div class="col-lg-5 col-sm-8">
+                                    </div> --}}
+                                    <div class="col-lg-9 col-sm-8">
                                         <input class="form-control" name="tukhoa" type="text" placeholder="Nhập mã nhà, mã bảng tin, tên nhà, tên bảng tin, tỉnh thành,....">
                                     </div>
                                     <div class="col-lg-3 col-sm-4">

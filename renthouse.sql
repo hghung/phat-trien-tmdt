@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 12, 2020 lúc 11:32 AM
+-- Thời gian đã tạo: Th6 08, 2020 lúc 06:10 PM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 7.3.3
 
@@ -30,10 +30,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bang_tin` (
   `id` int(10) UNSIGNED NOT NULL,
+  `code_bangtin` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ten_bangtin` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `mo_ta` text COLLATE utf8_unicode_ci NOT NULL,
   `gia_thue` int(11) NOT NULL,
-  `id_khachhang` int(10) UNSIGNED NOT NULL,
+  `trang_thai` int(11) NOT NULL,
+  `id_thanhvien` int(10) UNSIGNED NOT NULL,
   `id_nha` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -43,9 +45,14 @@ CREATE TABLE `bang_tin` (
 -- Đang đổ dữ liệu cho bảng `bang_tin`
 --
 
-INSERT INTO `bang_tin` (`id`, `ten_bangtin`, `mo_ta`, `gia_thue`, `id_khachhang`, `id_nha`, `created_at`, `updated_at`) VALUES
-(1, 'Thue nha 1', 'nha dep', 9000000, 1, 1, '2020-05-12 08:29:15', '2020-05-12 08:29:15'),
-(2, 'Tài sản 2', 'asdasd', 123123123, 1, 2, '2020-05-12 08:43:03', '2020-05-12 08:43:03');
+INSERT INTO `bang_tin` (`id`, `code_bangtin`, `ten_bangtin`, `mo_ta`, `gia_thue`, `trang_thai`, `id_thanhvien`, `id_nha`, `created_at`, `updated_at`) VALUES
+(15, 'POST-00015', 'Bang tin 01', '<p>Demo phat trien thuong mai dien tu</p>', 10000000, 2, 2, 15, '2020-06-05 06:34:07', '2020-06-08 15:59:16'),
+(16, 'POST-00016', 'Bang tin 02', '<p>Phat trien tmdt</p>', 4000000, 1, 2, 16, '2020-06-05 06:37:14', '2020-06-07 16:45:19'),
+(17, 'POST-00017', 'Bang tin 03', '<p>Phat trien thuong mai dien tu</p>', 6000000, 1, 2, 17, '2020-06-05 11:33:37', '2020-06-07 16:31:08'),
+(18, 'POST-00018', 'Bang tin 03', '<p>Phat trien thuong mai dien tu</p>', 8000000, 1, 2, 18, '2020-06-05 11:38:19', '2020-06-05 11:38:19'),
+(19, 'POST-00019', 'Bảng tin 05', '<p>demo &nbsp;thuong mai dien tu</p>', 4000000, 2, 2, 19, '2020-06-05 11:41:04', '2020-06-07 16:48:04'),
+(20, 'POST-00020', 'Bangtin 06', '<p>Demo thuong mai dien tu</p>', 1000000, 1, 2, 21, '2020-06-05 13:18:47', '2020-06-05 13:18:47'),
+(21, 'POST-00021', 'Bảng tin 07', '<p>Demo thuong mai dien tu</p>', 8000000, 1, 3, 22, '2020-06-06 06:59:10', '2020-06-06 06:59:10');
 
 -- --------------------------------------------------------
 
@@ -65,10 +72,26 @@ CREATE TABLE `chi_tiet_tai_san` (
 --
 
 INSERT INTO `chi_tiet_tai_san` (`id`, `so_luong`, `id_taisan`, `id_nha`) VALUES
-(1, 1, 1, 1),
-(2, 2, 2, 1),
-(3, 4, 2, 2),
-(4, 2, 1, 2);
+(9, 2, 1, 15),
+(10, 2, 2, 15),
+(11, 2, 3, 15),
+(12, 1, 5, 15),
+(13, 2, 1, 16),
+(14, 1, 2, 16),
+(15, 1, 1, 17),
+(16, 2, 2, 17),
+(17, 2, 3, 17),
+(18, 1, 1, 18),
+(19, 2, 3, 18),
+(20, 3, 3, 18),
+(21, 2, 1, 19),
+(22, 1, 5, 19),
+(23, 1, 2, 19),
+(24, 2, 2, 21),
+(25, 2, 1, 21),
+(26, 1, 3, 21),
+(27, 2, 2, 22),
+(28, 2, 3, 22);
 
 -- --------------------------------------------------------
 
@@ -819,58 +842,71 @@ CREATE TABLE `hinh_anh` (
 --
 
 INSERT INTO `hinh_anh` (`id`, `hinh_anh`, `id_nha`) VALUES
-(1, 'Vrw6m_book 5.jpg', 1),
-(2, 'XI3Sb_book 6.jpg', 1),
-(3, 'WVo91_book 7.jpg', 1),
-(4, 'VGrVd_glr1.jpg', 2),
-(5, 'PUr3j_glr2.jpg', 2),
-(6, 'yKsOB_glr3.jpg', 2);
+(36, 'FlkSp_h1_slide1.jpg', 15),
+(37, 'KJQgl_h1_slide2.jpg', 15),
+(38, 'VpZoW_h1_slide3.jpg', 15),
+(39, '35tr2_h2_slide1.jpg', 16),
+(40, 'RToCe_h2_slide2.jpg', 16),
+(41, 't4Ych_h2_slide3.jpg', 16),
+(42, '6ehKR_single_house - Copy.png', 17),
+(43, 'DfixM_single_house.png', 17),
+(44, 'zyw8Q_property_grid-4.png', 18),
+(45, 'IW2yX_property_grid-5.png', 18),
+(46, '2du8k_property_grid-6.png', 18),
+(47, 'LvMjV_property_grid-2.png', 19),
+(48, 'jtvuB_property_grid-8.png', 19),
+(49, 'cZFgC_ltn8.jpg', 21),
+(50, 'ZZL9z_ltn9.jpg', 21),
+(51, 'FJAM7_ltn10.jpg', 21),
+(52, 'OqpmX_ltn1.jpg', 22),
+(53, 'nKws4_ltn2.jpg', 22),
+(54, 'FnO4I_ltn3.jpg', 22);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hop_dong`
+-- Cấu trúc bảng cho bảng `hop_dong_thue`
 --
 
-CREATE TABLE `hop_dong` (
+CREATE TABLE `hop_dong_thue` (
   `id` int(10) UNSIGNED NOT NULL,
-  `ma_hopdong` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `ten_hopdong` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `time_start` datetime NOT NULL,
-  `time_end` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `khach_hang`
---
-
-CREATE TABLE `khach_hang` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `kh_ma` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `kh_ten` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `kh_ho` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `kh_email` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `kh_gioitinh` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `kh_birthday` date NOT NULL,
-  `kh_cmnd` int(11) NOT NULL,
-  `kh_phone` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `kh_province` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `kh_district` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `kh_ward` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `kh_address` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `id_user` int(10) UNSIGNED NOT NULL,
+  `user1_hoten` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user1_cmnd` int(11) DEFAULT NULL,
+  `user1_phone` int(11) DEFAULT NULL,
+  `user1_email` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user1_diachi` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user2_hoten` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user2_cmnd` int(11) DEFAULT NULL,
+  `user2_phone` int(11) DEFAULT NULL,
+  `user2_email` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user2_diachi` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ma_hopdong` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ma_bangtin` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ma_nha` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `thoi_gianthue` int(11) DEFAULT NULL,
+  `time_start` date DEFAULT NULL,
+  `time_end` date DEFAULT NULL,
+  `ma_giaodich` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `time_giao_dich` datetime DEFAULT NULL,
+  `tien` bigint(20) DEFAULT NULL,
+  `card` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `loainha` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `trang_thai` int(11) DEFAULT NULL,
+  `id_thanhtoan` int(10) UNSIGNED DEFAULT NULL,
+  `id_user1` int(10) UNSIGNED DEFAULT NULL,
+  `id_user2` int(10) UNSIGNED DEFAULT NULL,
+  `id_bangtin` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `khach_hang`
+-- Đang đổ dữ liệu cho bảng `hop_dong_thue`
 --
 
-INSERT INTO `khach_hang` (`id`, `kh_ma`, `kh_ten`, `kh_ho`, `kh_email`, `kh_gioitinh`, `kh_birthday`, `kh_cmnd`, `kh_phone`, `kh_province`, `kh_district`, `kh_ward`, `kh_address`, `id_user`, `created_at`, `updated_at`) VALUES
-(1, 'USER-0001', 'Hưng', 'Huỳnh', 'hghung151112@gmail.com', '1', '2020-05-01', 331821579, '0762999994', '40', '491', '7847', '65 Tan Xuan', 1, '2020-05-12 06:13:02', '2020-05-12 06:13:02');
+INSERT INTO `hop_dong_thue` (`id`, `user1_hoten`, `user1_cmnd`, `user1_phone`, `user1_email`, `user1_diachi`, `user2_hoten`, `user2_cmnd`, `user2_phone`, `user2_email`, `user2_diachi`, `ma_hopdong`, `ma_bangtin`, `ma_nha`, `thoi_gianthue`, `time_start`, `time_end`, `ma_giaodich`, `time_giao_dich`, `tien`, `card`, `loainha`, `trang_thai`, `id_thanhtoan`, `id_user1`, `id_user2`, `id_bangtin`, `created_at`, `updated_at`) VALUES
+(38, 'Kieu Diem', 331821579, 762999994, 'ntkdiem1511112@gmail.com', 'vinh long, Xã Tân Quý Tây, Huyện Bình Minh, Vĩnh Long', 'Bánh Bao', 331821579, 762999994, 'hghung151112@gmail.com', '65 Tân Xuân Tân Ngãi,  Xã Tân Ngãi,  Thành phố Vĩnh Long,  Vĩnh Long', 'CONTRACT-00038', 'POST-00019', 'HOUSE-00019', 3, '2020-06-17', '2020-09-17', NULL, '2020-06-07 23:48:04', 11400000, NULL, 'Cấp 2', 2, 1, 3, 2, 19, '2020-06-07 16:48:04', '2020-06-07 16:48:04'),
+(39, 'Kieu Diem', 331821579, 762999994, 'ntkdiem1511112@gmail.com', 'vinh long, Xã Tân Quý Tây, Huyện Bình Minh, Vĩnh Long', 'Bánh Bao', 331821579, 762999994, 'hghung151112@gmail.com', '65 Tân Xuân Tân Ngãi,  Xã Tân Ngãi,  Thành phố Vĩnh Long,  Vĩnh Long', 'CONTRACT-00039', 'POST-00015', 'HOUSE-00015', 10, '2020-06-09', '2021-04-09', '20200608225916', '2020-06-08 22:59:16', 95000000, '9871 8211 6278', 'Villa', 2, 2, 3, 2, 15, '2020-06-08 15:59:16', '2020-06-08 15:59:16');
 
 -- --------------------------------------------------------
 
@@ -888,8 +924,12 @@ CREATE TABLE `loai_nha` (
 --
 
 INSERT INTO `loai_nha` (`id`, `ten_loai`) VALUES
-(1, 'Loai nha 1'),
-(2, 'Loai nha 2');
+(1, 'Cấp 1'),
+(2, 'Cấp 2'),
+(3, 'Cấp 3'),
+(4, 'Cấp 4'),
+(5, 'Villa'),
+(6, 'Biệt thự');
 
 -- --------------------------------------------------------
 
@@ -908,18 +948,21 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(61, '2014_10_12_000000_create_users_table', 1),
-(62, '2014_10_12_100000_create_password_resets_table', 1),
-(63, '2020_04_29_213336_loai_nha', 1),
-(64, '2020_04_29_213512_tai_san', 1),
-(65, '2020_04_29_230128_tai_khoan', 1),
-(66, '2020_04_29_230129_nhan_vien', 1),
-(67, '2020_04_29_230130_khach_hang', 1),
-(68, '2020_04_30_133620_nha', 1),
-(69, '2020_04_30_133621_chi_tiet_tai_san', 1),
-(70, '2020_04_30_133622_hop_dongthue', 1),
-(71, '2020_05_01_132338_hinh_anh', 1),
-(72, '2020_05_01_132340_bangtin_thuenha', 1);
+(14, '2014_10_12_000000_create_users_table', 1),
+(15, '2014_10_12_100000_create_password_resets_table', 1),
+(16, '2020_04_29_213336_loai_nha', 1),
+(17, '2020_04_29_213512_tai_san', 1),
+(18, '2020_04_29_230128_tai_khoan', 1),
+(19, '2020_04_29_230130_thanh_vien', 1),
+(20, '2020_04_30_133619_tien_ich', 1),
+(21, '2020_04_30_133620_nha', 1),
+(22, '2020_04_30_133621_chi_tiet_tai_san', 1),
+(23, '2020_04_30_133622_nha_tienich', 1),
+(24, '2020_04_30_133623_hop_dongthue', 1),
+(25, '2020_05_01_132338_hinh_anh', 1),
+(26, '2020_05_01_132340_bangtin_thuenha', 1),
+(39, '2020_06_03_171733_phuong_thuc_thanh_toan', 2),
+(40, '2020_06_04_145542_hop_dong_thue', 2);
 
 -- --------------------------------------------------------
 
@@ -931,7 +974,11 @@ CREATE TABLE `nha` (
   `id` int(10) UNSIGNED NOT NULL,
   `ma_nha` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dien_tich` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `rooms` int(11) NOT NULL,
   `dia_chi` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `province` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `lat` double NOT NULL,
+  `lng` double NOT NULL,
   `tinh_trang` int(11) NOT NULL,
   `hinh_anh` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
   `id_loainha` int(10) UNSIGNED NOT NULL
@@ -941,26 +988,69 @@ CREATE TABLE `nha` (
 -- Đang đổ dữ liệu cho bảng `nha`
 --
 
-INSERT INTO `nha` (`id`, `ma_nha`, `dien_tich`, `dia_chi`, `tinh_trang`, `hinh_anh`, `id_loainha`) VALUES
-(1, 'HOUSE-0001', '30x90', '65 Tan Xuan', 2, 'Z4wA6_book 1.jpg', 2),
-(2, 'HOUSE-0002', '100', '65 vinh liong', 3, 'mGmsk_glr7.jpg', 2);
+INSERT INTO `nha` (`id`, `ma_nha`, `dien_tich`, `rooms`, `dia_chi`, `province`, `lat`, `lng`, `tinh_trang`, `hinh_anh`, `id_loainha`) VALUES
+(15, 'HOUSE-00015', '1000', 4, 'Chợ Xuân Khánh, Đường 30 Tháng 4, Xuân Khánh, Ninh Kiều, Cần Thơ, Vietnam', '12', 9.95857, 105.11882, 1, 'cHS9Y_glr6.jpg', 5),
+(16, 'HOUSE-00016', '100', 2, 'CGV Vincom Hùng Vương, Hùng Vương, Thới Bình, Ninh Kiều, Cần Thơ, Vietnam', '12', 10.0453833, 105.7796137, 2, 'aOJaX_h2_slide2.jpg', 2),
+(17, 'HOUSE-00017', '1000', 4, 'Cà Mau - Hòa Thành - Hòa Tân, Tân Xuyên, Ca Mau, Vietnam', '39', 9.1365855, 105.1846875, 1, 'cdgjq_condos.png', 3),
+(18, 'HOUSE-00018', '1000', 4, 'Cổng chào TP Vĩnh Long, Tân Ngãi, Vĩnh Long, Vinh Long, Vietnam', '40', 10.2662775, 105.9299082, 1, 'NGqbq_property_grid-1.png', 5),
+(19, 'HOUSE-00019', '1000', 4, 'Vĩnh Lợi, Bac Lieu, Vietnam', '55', 9.3450296, 105.7116464, 1, 'GpSbR_property_grid-3.png', 2),
+(21, 'HOUSE-00021', '1000', 4, 'Chợ Lách, Ben Tre, Vietnam', '37', 10.241094, 106.1698563, 1, 'blog_1.jpg', 6),
+(22, 'HOUSE-00022', '200', 4, 'Bánh Pía Tân Huê Viên, Nguyễn Du, phường 4, Sóc Trăng, Soc Trang, Vietnam', '48', 9.6031741, 105.9768252, 1, 'Ok4SU_ltn4.jpg', 5);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `nhan_vien`
+-- Cấu trúc bảng cho bảng `nha_tienich`
 --
 
-CREATE TABLE `nhan_vien` (
+CREATE TABLE `nha_tienich` (
   `id` int(10) UNSIGNED NOT NULL,
-  `nv_ma` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `nv_hoten` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `nv_cmnd` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `nv_diachi` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `id_user` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `check` int(11) NOT NULL,
+  `id_tienich` int(10) UNSIGNED NOT NULL,
+  `id_nha` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `nha_tienich`
+--
+
+INSERT INTO `nha_tienich` (`id`, `check`, `id_tienich`, `id_nha`) VALUES
+(13, 1, 1, 15),
+(14, 1, 3, 15),
+(15, 1, 4, 15),
+(16, 1, 5, 15),
+(17, 1, 6, 15),
+(18, 1, 7, 15),
+(19, 1, 8, 15),
+(20, 1, 1, 16),
+(21, 1, 3, 16),
+(22, 1, 4, 16),
+(23, 1, 6, 16),
+(24, 1, 7, 16),
+(25, 1, 1, 17),
+(26, 1, 2, 17),
+(27, 1, 3, 17),
+(28, 1, 4, 17),
+(29, 1, 5, 17),
+(30, 1, 1, 18),
+(31, 1, 2, 18),
+(32, 1, 3, 18),
+(33, 1, 4, 18),
+(34, 1, 5, 18),
+(35, 1, 1, 19),
+(36, 1, 4, 19),
+(37, 1, 5, 19),
+(38, 1, 7, 19),
+(39, 1, 8, 19),
+(40, 1, 1, 21),
+(41, 1, 2, 21),
+(42, 1, 3, 21),
+(43, 1, 1, 22),
+(44, 1, 4, 22),
+(45, 1, 5, 22),
+(46, 1, 6, 22),
+(47, 1, 7, 22),
+(48, 1, 8, 22);
 
 -- --------------------------------------------------------
 
@@ -973,6 +1063,25 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `phuong_thuc_thanh_toan`
+--
+
+CREATE TABLE `phuong_thuc_thanh_toan` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `phuong_thuc` varchar(191) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `phuong_thuc_thanh_toan`
+--
+
+INSERT INTO `phuong_thuc_thanh_toan` (`id`, `phuong_thuc`) VALUES
+(1, 'Thanh toán tiên mặt'),
+(2, 'VN-Pay');
 
 -- --------------------------------------------------------
 
@@ -1079,7 +1188,9 @@ CREATE TABLE `tai_khoan` (
 --
 
 INSERT INTO `tai_khoan` (`id`, `username`, `password`, `vai_tro`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'hghung', '$2y$10$yO2SSI779txPVJ1NxTcXtOC9GS74XUtG49UFc4eGRqVtOTzic7sey', 2, 1, '2020-05-12 06:13:02', '2020-05-12 06:13:02');
+(1, 'admin', '$2y$10$VMjZuYgGLIGKOuDzEa0AcegVLhhJ31dCFDn.7yUvB70ODRCScpFBq', 2, 1, '2020-05-27 10:06:23', '2020-05-27 10:10:36'),
+(2, 'hghung12', '$2y$10$il2Ykfq9VMzzeHTbIvxPdeHWuZgNdu/HPKBi18FKte628KpvpAMV.', 2, 1, '2020-06-02 12:30:05', '2020-06-02 12:30:05'),
+(3, 'ntkd', '$2y$10$YU0Aq1P52aNqZ6Q9pXzpieFjkFuAOD6DrBZ4ZbbfkHKkNh4gYCusq', 2, 1, '2020-06-06 06:57:17', '2020-06-06 06:57:17');
 
 -- --------------------------------------------------------
 
@@ -1097,8 +1208,71 @@ CREATE TABLE `tai_san` (
 --
 
 INSERT INTO `tai_san` (`id`, `ten_ts`) VALUES
-(1, 'Tai san 1'),
-(2, 'Tai san 2');
+(1, 'TV'),
+(2, 'Điều hòa'),
+(3, 'Tủ lạnh'),
+(4, 'Bàn ghế'),
+(5, 'Máy giặt');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `thanh_vien`
+--
+
+CREATE TABLE `thanh_vien` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `kh_ma` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `kh_ten` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `kh_ho` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `kh_email` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `kh_gioitinh` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `kh_cmnd` int(11) NOT NULL,
+  `kh_phone` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `kh_birthday` date DEFAULT NULL,
+  `kh_province` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `kh_district` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `kh_ward` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `kh_address` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `kh_avatar` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id_user` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `thanh_vien`
+--
+
+INSERT INTO `thanh_vien` (`id`, `kh_ma`, `kh_ten`, `kh_ho`, `kh_email`, `kh_gioitinh`, `kh_cmnd`, `kh_phone`, `kh_birthday`, `kh_province`, `kh_district`, `kh_ward`, `kh_address`, `kh_avatar`, `id_user`, `created_at`, `updated_at`) VALUES
+(1, 'USER-0001', 'Hưng', 'Huỳnh', 'hghung151112@gmail.com', '1', 331821579, '0762999994', '2020-05-14', '9', '130', '1937', '65 Tan Xuan', 'XX4Ei_1.jpg', 1, '2020-05-27 10:06:23', '2020-06-02 09:03:35'),
+(2, 'USER-0002', 'Bao', 'Bánh', 'hghung151112@gmail.com', '1', 331821579, '0762999994', '1998-01-01', '40', '491', '7847', '65 Tân Xuân Tân Ngãi', 'gUbuQ_agnt1.jpg', 2, '2020-06-02 12:30:05', '2020-06-06 06:55:29'),
+(3, 'USER-0003', 'Diem', 'Kieu', 'ntkdiem1511112@gmail.com', '1', 331821579, '0762999994', '2020-06-30', '40', '485', '13', 'vinh long', '', 3, '2020-06-06 06:57:17', '2020-06-06 08:46:11');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tien_ich`
+--
+
+CREATE TABLE `tien_ich` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tien_ich` varchar(191) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tien_ich`
+--
+
+INSERT INTO `tien_ich` (`id`, `tien_ich`) VALUES
+(1, 'Sân vườn'),
+(2, 'Hồ bơi'),
+(3, 'Nhà xe'),
+(4, 'Trung tâm'),
+(5, 'Gần chợ'),
+(6, 'Gần trường'),
+(7, 'Gần siêu thị'),
+(8, 'Gần bệnh viện');
 
 -- --------------------------------------------------------
 
@@ -12452,7 +12626,7 @@ INSERT INTO `ward` (`id`, `ward_name`, `ward_prefix`, `district_id`, `province_i
 --
 ALTER TABLE `bang_tin`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `bang_tin_id_khachhang_foreign` (`id_khachhang`),
+  ADD KEY `bang_tin_id_thanhvien_foreign` (`id_thanhvien`),
   ADD KEY `bang_tin_id_nha_foreign` (`id_nha`);
 
 --
@@ -12480,17 +12654,14 @@ ALTER TABLE `hinh_anh`
   ADD KEY `hinh_anh_id_nha_foreign` (`id_nha`);
 
 --
--- Chỉ mục cho bảng `hop_dong`
+-- Chỉ mục cho bảng `hop_dong_thue`
 --
-ALTER TABLE `hop_dong`
-  ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `khach_hang`
---
-ALTER TABLE `khach_hang`
+ALTER TABLE `hop_dong_thue`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `khach_hang_id_user_foreign` (`id_user`);
+  ADD KEY `hop_dong_thue_id_thanhtoan_foreign` (`id_thanhtoan`),
+  ADD KEY `hop_dong_thue_id_user1_foreign` (`id_user1`),
+  ADD KEY `hop_dong_thue_id_user2_foreign` (`id_user2`),
+  ADD KEY `hop_dong_thue_id_bangtin_foreign` (`id_bangtin`);
 
 --
 -- Chỉ mục cho bảng `loai_nha`
@@ -12512,17 +12683,24 @@ ALTER TABLE `nha`
   ADD KEY `nha_id_loainha_foreign` (`id_loainha`);
 
 --
--- Chỉ mục cho bảng `nhan_vien`
+-- Chỉ mục cho bảng `nha_tienich`
 --
-ALTER TABLE `nhan_vien`
+ALTER TABLE `nha_tienich`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `nhan_vien_id_user_foreign` (`id_user`);
+  ADD KEY `nha_tienich_id_tienich_foreign` (`id_tienich`),
+  ADD KEY `nha_tienich_id_nha_foreign` (`id_nha`);
 
 --
 -- Chỉ mục cho bảng `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Chỉ mục cho bảng `phuong_thuc_thanh_toan`
+--
+ALTER TABLE `phuong_thuc_thanh_toan`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `province`
@@ -12542,6 +12720,19 @@ ALTER TABLE `tai_khoan`
 -- Chỉ mục cho bảng `tai_san`
 --
 ALTER TABLE `tai_san`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `thanh_vien`
+--
+ALTER TABLE `thanh_vien`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `thanh_vien_id_user_foreign` (`id_user`);
+
+--
+-- Chỉ mục cho bảng `tien_ich`
+--
+ALTER TABLE `tien_ich`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -12569,13 +12760,13 @@ ALTER TABLE `ward`
 -- AUTO_INCREMENT cho bảng `bang_tin`
 --
 ALTER TABLE `bang_tin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `chi_tiet_tai_san`
 --
 ALTER TABLE `chi_tiet_tai_san`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT cho bảng `district`
@@ -12587,43 +12778,43 @@ ALTER TABLE `district`
 -- AUTO_INCREMENT cho bảng `hinh_anh`
 --
 ALTER TABLE `hinh_anh`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
--- AUTO_INCREMENT cho bảng `hop_dong`
+-- AUTO_INCREMENT cho bảng `hop_dong_thue`
 --
-ALTER TABLE `hop_dong`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `khach_hang`
---
-ALTER TABLE `khach_hang`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `hop_dong_thue`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT cho bảng `loai_nha`
 --
 ALTER TABLE `loai_nha`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT cho bảng `nha`
 --
 ALTER TABLE `nha`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT cho bảng `nhan_vien`
+-- AUTO_INCREMENT cho bảng `nha_tienich`
 --
-ALTER TABLE `nhan_vien`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `nha_tienich`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT cho bảng `phuong_thuc_thanh_toan`
+--
+ALTER TABLE `phuong_thuc_thanh_toan`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `province`
@@ -12635,13 +12826,25 @@ ALTER TABLE `province`
 -- AUTO_INCREMENT cho bảng `tai_khoan`
 --
 ALTER TABLE `tai_khoan`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `tai_san`
 --
 ALTER TABLE `tai_san`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `thanh_vien`
+--
+ALTER TABLE `thanh_vien`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `tien_ich`
+--
+ALTER TABLE `tien_ich`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
@@ -12663,8 +12866,8 @@ ALTER TABLE `ward`
 -- Các ràng buộc cho bảng `bang_tin`
 --
 ALTER TABLE `bang_tin`
-  ADD CONSTRAINT `bang_tin_id_khachhang_foreign` FOREIGN KEY (`id_khachhang`) REFERENCES `khach_hang` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `bang_tin_id_nha_foreign` FOREIGN KEY (`id_nha`) REFERENCES `nha` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `bang_tin_id_nha_foreign` FOREIGN KEY (`id_nha`) REFERENCES `nha` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `bang_tin_id_thanhvien_foreign` FOREIGN KEY (`id_thanhvien`) REFERENCES `thanh_vien` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `chi_tiet_tai_san`
@@ -12686,10 +12889,13 @@ ALTER TABLE `hinh_anh`
   ADD CONSTRAINT `hinh_anh_id_nha_foreign` FOREIGN KEY (`id_nha`) REFERENCES `nha` (`id`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `khach_hang`
+-- Các ràng buộc cho bảng `hop_dong_thue`
 --
-ALTER TABLE `khach_hang`
-  ADD CONSTRAINT `khach_hang_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `tai_khoan` (`id`) ON DELETE CASCADE;
+ALTER TABLE `hop_dong_thue`
+  ADD CONSTRAINT `hop_dong_thue_id_bangtin_foreign` FOREIGN KEY (`id_bangtin`) REFERENCES `bang_tin` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `hop_dong_thue_id_thanhtoan_foreign` FOREIGN KEY (`id_thanhtoan`) REFERENCES `phuong_thuc_thanh_toan` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `hop_dong_thue_id_user1_foreign` FOREIGN KEY (`id_user1`) REFERENCES `thanh_vien` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `hop_dong_thue_id_user2_foreign` FOREIGN KEY (`id_user2`) REFERENCES `thanh_vien` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `nha`
@@ -12698,10 +12904,17 @@ ALTER TABLE `nha`
   ADD CONSTRAINT `nha_id_loainha_foreign` FOREIGN KEY (`id_loainha`) REFERENCES `loai_nha` (`id`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `nhan_vien`
+-- Các ràng buộc cho bảng `nha_tienich`
 --
-ALTER TABLE `nhan_vien`
-  ADD CONSTRAINT `nhan_vien_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `tai_khoan` (`id`) ON DELETE CASCADE;
+ALTER TABLE `nha_tienich`
+  ADD CONSTRAINT `nha_tienich_id_nha_foreign` FOREIGN KEY (`id_nha`) REFERENCES `nha` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `nha_tienich_id_tienich_foreign` FOREIGN KEY (`id_tienich`) REFERENCES `tien_ich` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `thanh_vien`
+--
+ALTER TABLE `thanh_vien`
+  ADD CONSTRAINT `thanh_vien_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `tai_khoan` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `ward`
