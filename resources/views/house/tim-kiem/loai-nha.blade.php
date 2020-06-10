@@ -156,29 +156,29 @@
 		
 		<!-- Property Grid Start -->
 		<div class="row">
-			@foreach($bangtin as $bangtin2)
+			@foreach($nha as $bangtin2)
 			<div class="col-lg-4 col-md-6">
 				<div class="property_grid_1 property_item bg-white mb_30">
 					<div class="zoom_effect_1">
 						<div class="upper_1 bg_secondary text-white">Sale</div>
 						<div class="upper_2 bg_primary text-white">Featured</div>
 						<a href="#">
-                            <img width="348px" height="233px" src="{{ asset('public/upload/') }}/{{ $bangtin2->house->hinh_anh }}" alt="Image Not Found!">
+                            <img width="348px" height="233px" src="{{ asset('public/upload/') }}/{{ $bangtin2->hinh_anh }}" alt="Image Not Found!">
 						</a>
 						
 
-						<div class="upper_3 text_secondary">{{ $bangtin2->created_at->diffForHumans() }}</div>
+						<div class="upper_3 text_secondary">{{ $bangtin2->bangtin->created_at->diffForHumans() }}</div>
 					</div>
 					
 					
 					<div class="property_text p-3">
 						<h5 class="title">
-                            <a href="{{ route('deatil.bangtin',['id' => $bangtin2->id]) }}">{{ $bangtin2->ten_bangtin }}</a>
+                            <a href="{{ route('deatil.bangtin',['id' => $bangtin2->bangtin->id]) }}">{{ $bangtin2->bangtin->ten_bangtin }}</a>
                         </h5>
-						<span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> {{ $bangtin2->house->dia_chi }} </span>
+						<span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> {{ $bangtin2->dia_chi }} </span>
 						<div class="quantity">
 							<ul>
-								<li><span>Diện tích</span>{{ $bangtin2->house->dien_tich }} m²</li>
+								<li><span>Diện tích</span>{{ $bangtin2->dien_tich }} m²</li>
 								<li><span>Rooms</span>7</li>
 								<li><span>Beds</span>4</li>
 								<li><span>Baths</span>3</li>
@@ -186,39 +186,10 @@
 							</ul>
 						</div>
 					</div>
-					<div class="bed_area d-table w-100" data-postid="{{ $bangtin2->id }}">
+					<div class="bed_area d-table w-100">
 						<ul>
-							<li>{{ number_format($bangtin2->gia_thue,0,',','.') }} đ/tháng</li>
-							<li class="icon_medium" >
-								@if(!Auth::check())
-								<a href="#">
-									<i class="flaticon-like"></i>
-								</a>
-								@elseif(Auth::check())
-									<a href="#" class="like">
-										{!! Auth::user()->user_likes()->where('id_bangtin', $bangtin2->id)->first() ? Auth::user()->user_likes()->where('id_bangtin', $bangtin2->id)->first()->like == 1 ? 
-
-			                 		'Bạn đã thích' : 
-
-			                 		'Thích' : 
-
-									'Thích'  !!}
-									 
-										
-									</a>
-
-									<a href="#" class="like">
-										{!! Auth::user()->user_likes()->where('id_bangtin', $bangtin2->id)->first() ? Auth::user()->user_likes()->where('id_bangtin', $bangtin2->id)->first()->like == 0 ?
-
-										'Bạn không thích' :
-
-										'Không thích' :
-
-										'Không thích'  !!}
-										
-									</a>
-								@endif
-								
+							<li>{{ number_format($bangtin2->bangtin->gia_thue,0,',','.') }} đ/tháng</li>
+							<li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
 							</li>
 							<li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
 							</li>
@@ -237,9 +208,9 @@
 					<nav aria-label="page navigation">
 						<ul class="pagination">
                             {{-- Phân trang --}}
-							<li>
+							{{-- <li>
                                 {!! $bangtin->links() !!}
-							</li>
+							</li> --}}
 							
 						</ul>
 					</nav>
@@ -249,47 +220,5 @@
 	</div>
 </section>
 <!-- Property List End -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
- 
-
-
-<script type="text/javascript">
-    
-	var token = '{{ Session::token() }}';
-	var urlLike = '{{ route('like2') }}';
-	var img = new Image();
-	img.src ='{{asset('public/like/unlike.png')}}';
-	var img2 = new Image();
-	img2.src ='{{asset('public/like/like.png')}}';
-
-	// var postId = 0;
-	$('.like').on('click', function(event) {
-		// console.log(event);
-		event.preventDefault();
-		postId = event.target.parentNode.parentNode.dataset['postid'];
-		var isLike = event.target.previousElementSibling == null;
-		$.ajax({
-			method: 'POST',
-			url: urlLike,
-			data: {isLike: isLike, postId: postId, _token: token}
-		})
-		.done(function() {
-			event.target.innerText = isLike ? event.target.innerText == 'Thích' ?
-				'Bạn đã thích' : 
-				'Thích' : 
-			event.target.innerText == 'Không thích' ?
-				'Bạn không thích ' : 
-				'Không thích';
-			if (isLike) {
-				event.target.nextElementSibling.innerText = 'Không thích';
-			} else {
-				event.target.previousElementSibling.innerText = 'Thích';
-			}
-
-		});
-		location.reload()
-	});
-
-  </script>
 
 @endsection

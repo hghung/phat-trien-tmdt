@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
-use App\Models\category;
+use App\Models\loainha;
 use App\Models\sub_category;
 
 use Cart;
@@ -55,6 +55,12 @@ class AppServiceProvider extends ServiceProvider
             $category2 = category::all();
             $view->with('category2', $category2);
         });
+
+        view()->composer('*', function ($view){
+            $loainha = loainha::all();
+            $view->with('loainha', $loainha);
+        });
+
 
         
 

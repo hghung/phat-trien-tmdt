@@ -105,288 +105,48 @@
                 <a href="{{ route('page.list') }}" class="property_link float-right">Xem hết bảng tin</a> </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="property_grid_1 property_item bg-white mb_30">
-                    <div class="zoom_effect_1">
-                        <div class="upper_1 bg_secondary text-white">Rent</div>
-                        <a href="single_property.html"><img src="{{asset('public/house/img\property_grid\property_grid-4.png')}}" alt="Image Not Found!"></a>
-                        <div class="upper_3 text_secondary">2 Hours Ago</div>
-                    </div>
-                    <div class="property_text p-3">
-                        <h5 class="title"><a href="single_property.html">Lovelece Road Greenfield</a></h5>
-                        <span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 4213 Duff Avenue South Burlington, VT 05403 </span>
-                        <div class="quantity">
-                            <ul>
-                                <li><span>Area</span>1200 Sqft</li>
-                                <li><span>Rooms</span>7</li>
-                                <li><span>Beds</span>5</li>
-                                <li><span>Baths</span>4</li>
-                                <li><span>Garage</span>1</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bed_area d-table w-100">
-                        <ul>
-                            <li>$850/mo</li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-                            </li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            @foreach($bangtin3 as $bangtin2)
+			<div class="col-lg-4 col-md-6">
+				<div class="property_grid_1 property_item bg-white mb_30">
+					<div class="zoom_effect_1">
+						<div class="upper_1 bg_secondary text-white">Sale</div>
+						<div class="upper_2 bg_primary text-white">Featured</div>
+						<a href="#">
+                            <img width="348px" height="233px" src="{{ asset('public/upload/') }}/{{ $bangtin2->house->hinh_anh }}" alt="Image Not Found!">
+						</a>
+						
+
+						<div class="upper_3 text_secondary">{{ $bangtin2->created_at->diffForHumans() }}</div>
+					</div>
+					
+					
+					<div class="property_text p-3">
+						<h5 class="title">
+                            <a href="{{ route('deatil.bangtin',['id' => $bangtin2->id]) }}">{{ $bangtin2->ten_bangtin }}</a>
+                        </h5>
+						<span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> {{ $bangtin2->house->dia_chi }} </span>
+						<div class="quantity">
+							<ul>
+								<li><span>Diện tích</span>{{ $bangtin2->house->dien_tich }} m²</li>
+								<li><span>Rooms</span>7</li>
+								<li><span>Beds</span>4</li>
+								<li><span>Baths</span>3</li>
+								<li><span>Garage</span>1</li>
+							</ul>
+						</div>
+					</div>
+					<div class="bed_area d-table w-100">
+						<ul>
+							<li>{{ number_format($bangtin2->gia_thue,0,',','.') }} đ/tháng</li>
+							<li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
+							</li>
+							<li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="property_grid_1 property_item bg-white mb_30">
-                    <div class="zoom_effect_1">
-                        <div class="upper_1 bg_secondary text-white">Sale</div>
-                        <div class="upper_2 bg_primary text-white">Featured</div>
-                        <a href="single_property.html"><img src="{{asset('public/house/img\property_grid\property_grid-5.png')}}" alt="Image Not Found!"></a>
-                        <div class="upper_3 text_secondary">2 Hours Ago</div>
-                    </div>
-                    <div class="property_text p-3">
-                        <h5 class="title"><a href="single_property.html">Luxury Condos Infront of River</a></h5>
-                        <span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 2305 Tree Frog Lane Overlandpk, MO 66210 </span>
-                        <div class="quantity">
-                            <ul>
-                                <li><span>Area</span>1600 Sqft</li>
-                                <li><span>Rooms</span>7</li>
-                                <li><span>Beds</span>4</li>
-                                <li><span>Baths</span>3</li>
-                                <li><span>Garage</span>1</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bed_area d-table w-100">
-                        <ul>
-                            <li>$1,205,500</li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-                            </li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="property_grid_1 property_item bg-white mb_30">
-                    <div class="zoom_effect_1">
-                        <div class="upper_1 bg_secondary text-white">Rent</div>
-                        <a href="single_property.html"><img src="{{asset('public/house/img\property_grid\property_grid-6.png')}}" alt="Image Not Found!"></a>
-                        <div class="upper_3 text_secondary">2 Hours Ago</div>
-                    </div>
-                    <div class="property_text p-3">
-                        <h5 class="title"><a href="single_property.html">Park Road Appartment Rent</a></h5>
-                        <span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 4133 Arbor Court Worland, WY 82401 </span>
-                        <div class="quantity">
-                            <ul>
-                                <li><span>Area</span>2100 Sqft</li>
-                                <li><span>Rooms</span>9</li>
-                                <li><span>Beds</span>5</li>
-                                <li><span>Baths</span>4</li>
-                                <li><span>Garage</span>1</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bed_area d-table w-100">
-                        <ul>
-                            <li>$1300/mo</li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-                            </li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="property_grid_1 property_item bg-white mb_30">
-                    <div class="zoom_effect_1">
-                        <div class="upper_1 bg_secondary text-white">Rent</div>
-                        <div class="upper_2 bg_primary text-white">Featured</div>
-                        <a href="single_property.html"><img src="{{asset('public/house/img\property_grid\property_grid-7.png')}}" alt="Image Not Found!"></a>
-                        <div class="upper_3 text_secondary">10 Hours Ago</div>
-                    </div>
-                    <div class="property_text p-3">
-                        <h5 class="title"><a href="single_property.html">Lovelece Road Greenfield</a></h5>
-                        <span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 4213 Duff Avenue South Burlington, VT 05403 </span>
-                        <div class="quantity">
-                            <ul>
-                                <li><span>Area</span>1600 Sqft</li>
-                                <li><span>Rooms</span>7</li>
-                                <li><span>Beds</span>5</li>
-                                <li><span>Baths</span>4</li>
-                                <li><span>Garage</span>1</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bed_area d-table w-100">
-                        <ul>
-                            <li>$850/mo</li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-                            </li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="property_grid_1 property_item bg-white mb_30">
-                    <div class="zoom_effect_1">
-                        <div class="upper_1 bg_secondary text-white">Sale</div>
-                        <a href="single_property.html"><img src="{{asset('public/house/img\property_grid\property_grid-8.png')}}" alt="Image Not Found!"></a>
-                        <div class="upper_3 text_secondary">12 Hours Ago</div>
-                    </div>
-                    <div class="property_text p-3">
-                        <h5 class="title"><a href="single_property.html">Luxury Condos Infront of River</a></h5>
-                        <span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 2305 Tree Frog Lane Overlandpk, MO 66210 </span>
-                        <div class="quantity">
-                            <ul>
-                                <li><span>Area</span>1600 Sqft</li>
-                                <li><span>Rooms</span>7</li>
-                                <li><span>Beds</span>5</li>
-                                <li><span>Baths</span>4</li>
-                                <li><span>Garage</span>1</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bed_area d-table w-100">
-                        <ul>
-                            <li>$1,205,500</li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-                            </li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="property_grid_1 property_item bg-white mb_30">
-                    <div class="zoom_effect_1">
-                        <div class="upper_1 bg_secondary text-white">Sale</div>
-                        <a href="single_property.html"><img src="{{asset('public/house/img\property_grid\property_grid-1.png')}}" alt="Image Not Found!"></a>
-                        <div class="upper_3 text_secondary">15 Hours Ago</div>
-                    </div>
-                    <div class="property_text p-3">
-                        <h5 class="title"><a href="single_property.html">New Developed Condos</a></h5>
-                        <span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 367 Sharon Lane South Bend, IN 4601 </span>
-                        <div class="quantity">
-                            <ul>
-                                <li><span>Area</span>1200 Sqft</li>
-                                <li><span>Rooms</span>7</li>
-                                <li><span>Beds</span>5</li>
-                                <li><span>Baths</span>4</li>
-                                <li><span>Garage</span>1</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bed_area d-table w-100">
-                        <ul>
-                            <li>$152,000</li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-                            </li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="property_grid_1 property_item bg-white mb_30">
-                    <div class="zoom_effect_1">
-                        <div class="upper_1 bg_secondary text-white">Sale</div>
-                        <a href="single_property.html"><img src="{{asset('public/house/img\property_grid\property_grid-8.png')}}" alt="Image Not Found!"></a>
-                        <div class="upper_3 text_secondary">17 Hours Ago</div>
-                    </div>
-                    <div class="property_text p-3">
-                        <h5 class="title"><a href="single_property.html">Renovate Small Condos</a></h5>
-                        <span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 499 Tenmile Road Boston, MA 02110 </span>
-                        <div class="quantity">
-                            <ul>
-                                <li><span>Area</span>1200 Sqft</li>
-                                <li><span>Rooms</span>7</li>
-                                <li><span>Beds</span>5</li>
-                                <li><span>Baths</span>4</li>
-                                <li><span>Garage</span>1</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bed_area d-table w-100">
-                        <ul>
-                            <li>$152,000</li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-                            </li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="property_grid_1 property_item bg-white mb_30">
-                    <div class="zoom_effect_1">
-                        <div class="upper_1 bg_secondary text-white">Rent</div>
-                        <a href="single_property.html"><img src="{{asset('public/house/img\property_grid\property_grid-2.png')}}" alt="Image Not Found!"></a>
-                        <div class="upper_3 text_secondary">20 Hours Ago</div>
-                    </div>
-                    <div class="property_text p-3">
-                        <h5 class="title"><a href="single_property.html">Telico Villas House and Condos</a></h5>
-                        <span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 1751 Finwood Road Freehold, NJ 07728 </span>
-                        <div class="quantity">
-                            <ul>
-                                <li><span>Area</span>1200 Sqft</li>
-                                <li><span>Rooms</span>7</li>
-                                <li><span>Beds</span>3</li>
-                                <li><span>Baths</span>3</li>
-                                <li><span>Garage</span>1</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bed_area d-table w-100">
-                        <ul>
-                            <li>$850/mo</li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-                            </li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="property_grid_1 property_item bg-white mb_30">
-                    <div class="zoom_effect_1">
-                        <div class="upper_1 bg_secondary text-white">Rent</div>
-                        <div class="upper_2 bg_primary text-white">Featured</div>
-                        <a href="single_property.html"><img src="{{asset('public/house/img\property_grid\property_grid-3.png')}}" alt="Image Not Found!"></a>
-                        <div class="upper_3 text_secondary">1 Day Ago</div>
-                    </div>
-                    <div class="property_text p-3">
-                        <h5 class="title"><a href="single_property.html">Telico Villas House and Condos</a></h5>
-                        <span class="my-3 d-block"><i class="fas fa-map-marker-alt"></i> 1751 Finwood Road Freehold, NJ 07728 </span>
-                        <div class="quantity">
-                            <ul>
-                                <li><span>Area</span>1200 Sqft</li>
-                                <li><span>Rooms</span>5</li>
-                                <li><span>Beds</span>3</li>
-                                <li><span>Baths</span>3</li>
-                                <li><span>Garage</span>1</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bed_area d-table w-100">
-                        <ul>
-                            <li>$850/mo</li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-like"></i></a>
-                            </li>
-                            <li class="icon_medium"><a href="#"><i class="flaticon-connections"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -462,23 +222,23 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counting_item_1 text-center mb_md_30">
-                <div class="h2 text_white downling_center"><span class="numscroller" data-min="1" data-max="1020" data-delay="35" data-increment="10">0</span></div>
+                <div class="h2 text_white downling_center"><span class="numscroller" data-min="1" data-max="{{ $chuaban }}" data-delay="10" data-increment="1">0</span></div>
                 <span class="text_white subject">Ngôi nhà</span> </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counting_item_1 text-center mb_md_30">
-                <div class="h2 text_white downling_center"><span class="numscroller" data-min="1" data-max="960" data-delay="35" data-increment="10">0</span></div>
+                <div class="h2 text_white downling_center"><span class="numscroller" data-min="1" data-max="{{ $daban }}" data-delay="10" data-increment="1">0</span></div>
+                <span class="text_white subject">Nhà đã bán</span> </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="counting_item_1 text-center mb_md_30">
+                <div class="h2 text_white downling_center"><span class="numscroller" data-min="1" data-max="{{ $nguoidung }}" data-delay="10" data-increment="1">0</span></div>
                 <span class="text_white subject">Người dùng</span> </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counting_item_1 text-center mb_md_30">
-                <div class="h2 text_white downling_center"><span class="numscroller" data-min="1" data-max="420" data-delay="35" data-increment="10">0</span></div>
-                <span class="text_white subject">Yêu thích</span> </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="counting_item_1 text-center mb_md_30">
-                <div class="h2 text_white downling_center"><span class="numscroller" data-min="1" data-max="860" data-delay="35" data-increment="10">0</span></div>
-                <span class="text_white subject">Bình luận</span> </div>
+                <div class="h2 text_white downling_center"><span class="numscroller" data-min="1" data-max="{{ $follow }}" data-delay="10" data-increment="1">0</span></div>
+                <span class="text_white subject">Lượt theo dõi</span> </div>
             </div>
         </div>
     </div>

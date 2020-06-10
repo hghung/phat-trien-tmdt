@@ -16,6 +16,13 @@ use App\Models\loainha;
 
 use App\Models\nha_tienich;
 
+use App\User;
+use App\Views;
+
+
+use Illuminate\Support\collection;
+
+
 
 use App\Models\ct_taisan;
 
@@ -49,8 +56,17 @@ class PageController extends Controller
         $city = province::all();
         $type = loainha::all();
         // bang do
+        $bangtin3 = bangtin::where('trang_thai','=',1)->orderBy('views','desc')->take(6)->get();
+        $chuaban = bangtin::where('trang_thai','=',1)->count();
+        $daban = bangtin::where('trang_thai','=',2)->count();
+        $nguoidung = User::where('status','=',1)->count();
+
+        $follow = bangtin::sum('views');
+
+
+
         $bangtin = bangtin::where('trang_thai','=',1)->get();
-    	return view('house.index',['bangtin' => $bangtin, 'city' => $city, 'type' => $type]);
+    	return view('house.index',['bangtin' => $bangtin, 'city' => $city, 'type' => $type, 'bangtin3' => $bangtin3 , 'chuaban' => $chuaban , 'daban' => $daban , 'nguoidung' => $nguoidung , 'follow' => $follow]);
     }
 
     public function login()

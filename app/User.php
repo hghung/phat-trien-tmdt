@@ -30,11 +30,8 @@ class User extends Authenticatable
         // (tên đường dẫn, 'khoa ngoại', khóa chính)
     }
 
-    public function delivery() // phải viêt liền ko được cách ra hoặc _
-    {
-        return $this->hasOne('App\Models\Delivery','id_account','id'); 
-        // từ sản phẩm cha ra con xài hasone
-        // (tên đường dẫn, 'khoa ngoại', khóa chính)
+    public function user_likes(){
+        return $this->hasMany('App\Models\like','id_user','id');
     }
 
     // protected $primaryKey = 'id_user'; 

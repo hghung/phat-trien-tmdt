@@ -16,20 +16,32 @@ class TimkiemController extends Controller
         $city = $rq->city;
         $loainha = $rq->loainha;
 
-        echo $city;die;
+        // echo $city;die;
 
         // dd($bangtin);
         $bangtin = bangtin::where('code_bangtin','like',"%$tukhoa%")->orwhere('ten_bangtin','like',"%$tukhoa%")->get();
 
-        $city2 = nha::where('province','=',$city)->get();
+        // $city2 = nha::where('province','=',$city)->get();
         
-        dd($city2);
+        // dd($city2);
         // $bangtin2 = bangtin::where('ten_sp','like',"%$tukhoa%")->orwhere('ma_sanpham','like',"%$tukhoa%")->count();
 
         // $collection = collect([$bangtin2]);
         // $banhbao = $collection->sum();
 
         return view('house.tim-kiem.tim-kiem',['bangtin'=>$bangtin,'tukhoa'=>$tukhoa]);
+
+    }
+
+    public function post_loainha($id)
+    {
+        // dd($house);
+        $nha = nha::where('id_loainha','=',$id)->get();
+        // dd($bangtin);
+
+        // dd($nha);
+
+        return view('house.tim-kiem.loai-nha',['nha'=>$nha]);
 
     }
 }

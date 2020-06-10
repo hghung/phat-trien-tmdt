@@ -27,6 +27,10 @@ class bangtin extends Model implements Viewable
         // (tên đường dẫn, 'khoa ngoại', khóa chính)
     }
 
+    public function like_bangtin(){
+        return $this->hasMany('App\Models\like','id_bangtin','id');
+      }
+
     
 
 }

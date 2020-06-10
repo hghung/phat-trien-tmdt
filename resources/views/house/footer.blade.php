@@ -1,18 +1,20 @@
     <!-- Register Section Start -->
-    <section class="full_row py-5 bg_primary">
-    <div class="container">
-        <div class="row">
-        <div class="col-md-9">
-            <div class="reg_banner">
-            <h4 class="title mb-2">Are you looking for a House or Customer for your Property sale?</h4>
-            <span class="text_white">Please click the button for register, we will become your best agent and help you for both.</span> </div>
+    @if(!Auth::check())
+        <section class="full_row py-5 bg_primary">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-9">
+                <div class="reg_banner">
+                <h4 class="title mb-2">Are you looking for a House or Customer for your Property sale?</h4>
+                <span class="text_white">Please click the button for register, we will become your best agent and help you for both.</span> </div>
+            </div>
+            <div class="col-md-3">
+                <div class="float-right"> <a href="#" class="btn btn_default">Register Now</a> </div>
+            </div>
+            </div>
         </div>
-        <div class="col-md-3">
-            <div class="float-right"> <a href="#" class="btn btn_default">Register Now</a> </div>
-        </div>
-        </div>
-    </div>
-    </section>
+        </section>
+    @endif
     <!-- Register Section End --> 
 
     <!-- Footer Section Start -->
@@ -86,8 +88,4 @@
     </section>
     <!-- Footer Section End --> 
 
-    <!-- Bottom Footer Start -->
-    <div class="full_row py-4 bg_black">
-    <span class="copyright_text text-center text_white d-block">Copyright &copy; 2019 Uniland All Right Reserve</span>
-    </div>
-    <!-- Bottom Footer End --> 
+ 

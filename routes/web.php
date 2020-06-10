@@ -36,7 +36,10 @@ Route::get('/gg1','PageController@gg1');
 
 
 Route::post('/tim-kiem','TimkiemController@post_search')->name('timkiem');
+Route::get('/loai-nha-{id}','TimkiemController@post_loainha')->name('timkiem.loainha');
+
 	 
+Route::post('/like', 'LikeController@like_bangtin')->name('like2');
 
 Route::get('/trang-chu','PageController@home')->name('page.home');
 

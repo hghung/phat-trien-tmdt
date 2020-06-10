@@ -65,58 +65,19 @@
 
                   <li class="nav-item"> <a class="nav-link" href="#">Giới thiệu</a> </li>
 
-                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="blog-grid-classic.php" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Agents</a>
+                  <li class="nav-item dropdown"> 
+                    <a class="nav-link dropdown-toggle" href="blog-grid-classic.php" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Loại nhà</a>
+
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="agents.html">Agents</a></li>
-                      <li><a class="dropdown-item" href="agent_profile_grid.html">Agent Profile Grid</a></li>
-                      <li><a class="dropdown-item" href="agent_profile_list.html">Agent Profile List</a></li>
+                      @foreach($loainha as $loainha2)
+                      <li>
+                        <a class="dropdown-item" href="{{ route('timkiem.loainha',['id' => $loainha2->id]) }}">{{ $loainha2->ten_loai }}</a>
+                      </li>
+                      @endforeach 
+                      
                     </ul>
                   </li>
-                  <li class="nav-item dropdown mega_menu_dropdown">
-                      <a class="nav-link dropdown-toggle" href="blog-grid-classic.php" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                      <ul class="dropdown-menu mega_menu">
-                          <li>
-                              <ul class="mega-dropdown">
-                                  <li><a class="dropdown-item" href="about.html">About Us</a></li>
-                                  <li><a class="dropdown-item" href="mission.html">Our Mission</a></li>
-                                  <li><a class="dropdown-item" href="career.html">Careers</a></li>
-                                  <li><a class="dropdown-item" href="award.html">Awards</a></li>
-                                  <li><a class="dropdown-item" href="testimonial.html">Testimonials</a></li>
-                                  <li><a class="dropdown-item" href="timeline.html">Timeline</a></li>
-                              </ul>
-                          </li>
-                          <li>
-                              <ul class="mega-dropdown">
-                                  <li><a class="dropdown-item" href="my_profile.html">My Profile</a></li>
-                                  <li><a class="dropdown-item" href="profile_media.html">Social Media</a></li>
-                                  <li><a class="dropdown-item" href="my_properties.html">My Properties</a></li>
-                                  <li><a class="dropdown-item" href="my_favorite.html">Favorited Properties</a></li>
-                                  <li><a class="dropdown-item" href="submit_property.html">Submit New Property</a></li>
-                                  <li><a class="dropdown-item" href="shortcodes.html">Shortcodes</a></li>
-                              </ul>
-                          </li>
-                          <li>
-                              <ul class="mega-dropdown">
-                                  <li><a class="dropdown-item" href="comments.html">Feedback and Comments</a></li>
-                                  <li><a class="dropdown-item" href="invoices.html">Payments and Invoice</a></li>
-                                  <li><a class="dropdown-item" href="change_password.html">Change Password</a></li>
-                                  <li><a class="dropdown-item" href="terms_and_condition.html">Terms And Condition</a></li>
-                                  <li><a class="dropdown-item" href="pricing_table.html">Pricing Table</a></li>
-                                  <li><a class="dropdown-item" href="agency_profile.html">Agency Profile</a></li>
-                              </ul>
-                          </li>
-                          <li>
-                              <ul class="mega-dropdown">
-                                  <li><a class="dropdown-item" href="our_service.html">Our Services</a></li>
-                                  <li><a class="dropdown-item" href="submit_property.html">Submit Property</a></li>
-                                  <li><a class="dropdown-item" href="invoice_details.html">Invoice Details</a></li>
-                                  <li><a class="dropdown-item" href="message_view.html">Message</a></li>
-                                  <li><a class="dropdown-item" href="error.html">Error Page</a></li>
-                                  <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
-                              </ul>
-                          </li>
-                      </ul>
-                  </li>
+                  
                   <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="blog-grid-classic.php" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="blog_grid.html">Blog Grid</a></li>
