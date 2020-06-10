@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use Laravelista\Comments\Commentable;
 
 class bangtin extends Model implements Viewable
 {
     protected $table='bang_tin';
-    use InteractsWithViews;
+    use InteractsWithViews, Commentable;
 
 
     public function house() // phải viêt liền ko được cách ra hoặc _

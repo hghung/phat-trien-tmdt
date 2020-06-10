@@ -149,6 +149,7 @@ class PageController extends Controller
             }
         }
 
+        // luot xem 
         views($bangtin)
             ->cooldown(Carbon::now()->addMinutes(1))
             ->record();

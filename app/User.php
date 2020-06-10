@@ -6,11 +6,15 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Laravelista\Comments\Commenter;
+
+
 
 
 class User extends Authenticatable
 {
     protected $table='tai_khoan';
+    use Notifiable, Commenter;
 
     public function vaitro() // phải viêt liền ko được cách ra hoặc _
     {

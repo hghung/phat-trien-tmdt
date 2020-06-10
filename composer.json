@@ -15,6 +15,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "6.0.*",
         "laravel/tinker": "^1.0",
+        "laravelista/comments": "^3.6",
         "phpviet/laravel-omnipay": "^1.0",
         "rackspace/php-opencloud": "dev-master"
     },

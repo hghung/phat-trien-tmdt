@@ -148,41 +148,7 @@
 
 							{{-- Viết Đánh giá  --}}
 							<div class="mb-5 star_rating">
-								<h4 class="inner-title mb-4">Đánh giá</h4>
-								<form action="#" method="post">
-									<div class="row">
-										<div class="col-md-12">
-											<div class="mb-4 d-inline-block">
-												<span>Move Mouse for Rating</span>
-												<select id="example-reversed" name="rating" autocomplete="off">
-													<option value="Strongly Disagree">Very Bad Review</option>
-													<option value="Disagree">Bad Review</option>
-													<option value="Neither Agree or Disagree" selected="selected">Good Review</option>
-													<option value="Agree">Very Good Quality</option>
-													<option value="Strongly Agree">Excellent Quality</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12">
-											<div class="form-group">
-												<input class="form-control" type="text" value="{{ $bangtin->user->member->kh_ho }} {{ $bangtin->user->member->kh_ten }}" name="hoten" readonly="">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12">
-											<div class="form-group">
-												<input class="form-control" type="text" value="{{ $bangtin->user->member->kh_email }}" name="hoten" readonly="">
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<div class="form-group">
-												<textarea rows="5" class="form-control resize_none" name="ratingcomments" placeholder="Nội dung đánh giá"></textarea>
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<input id="send" class="btn btn_primary" value="Send" type="submit">
-										</div>
-									</div>
-								</form>
+								@comments(['model' => $bangtin])
 							</div>
 						</div>
 					</div>
@@ -190,90 +156,7 @@
 
 				{{--  Bài đánh giá  --}}
 				
-				<div class="col-md-12">
-					<div class="people_rating">
-						<h4 class="inner-title mb-5">Review and Comments</h4>
-						<div class="comment_item">
-							<img src="{{ asset('public/house/img/blog_detail\comment-1.png')}}" alt="">
-							<div class="author_text">
-								<div class="author_info">
-									<h5 class="author_name">Rebecca D. Nagy </h5>
-									<span>27 February, 2017 at 3.27 pm</span>
-								</div>
-								<div class="user-rating">
-									<ul>
-										<li class="active"></li>
-										<li class="active"></li>
-										<li class="active"></li>
-										<li class="active"></li>
-										<li class="deactive"></li>
-									</ul>
-								</div>
-								<p>Fermentum mus porttitor tempor arcu posuere. Nibh consectetuer condimentum ultricies pulvinar eget pede litora interdum magna aenean ullamcorper nisi dis. Viverra. Vulputate. Quisque neque luctus quis rhoncus.</p>
-								<a href="#" class="btn btn_primary">Replay</a>
-							</div>
-						</div>
-						<div class="comment_item">
-							<img src="{{ asset('public/house/img/blog_detail\comment-2.png')}}" alt="">
-							<div class="author_text">
-								<div class="author_info">
-									<h5 class="author_name">Charles F. Bush </h5>
-									<span>12 February, 2017 at 10.32 pm</span>
-								</div>
-								<div class="user-rating">
-									<ul>
-										<li class="active"></li>
-										<li class="active"></li>
-										<li class="active"></li>
-										<li class="active"></li>
-										<li class="active"></li>
-									</ul>
-								</div>
-								<p>FUllamcorper parturient elit, mauris congue duis morbi lacus eget id pellentesque commodo porta bibendum ullamcorper mauris dui fusce dolor massa class ultricies.</p>
-								<a href="#" class="btn btn_primary">Replay</a>
-							</div>
-						</div>
-						<div class="comment_item replay">
-							<img src="{{ asset('public/house/img/blog_detail\comment-3.png')}}" alt="">
-							<div class="author_text">
-								<div class="author_info">
-									<h5 class="author_name">Patty Hurd </h5>
-									<span>17 February, 2017 at 11.17 am</span>
-								</div>
-								<div class="user-rating">
-									<ul>
-										<li class="active"></li>
-										<li class="active"></li>
-										<li class="active"></li>
-										<li class="deactive"></li>
-										<li class="deactive"></li>
-									</ul>
-								</div>
-								<p>Pretium urna nonummy sodales, dictumst blandit, magna. Quis porttitor lobortis lectus fringilla nam at Sociis vel pharetra enim per praesent viverra consequat litora, pharetra turpis magna tincidunt curae; molestie non.</p>
-								<a href="#" class="btn btn_primary">Replay</a>
-							</div>
-						</div>
-						<div class="comment_item">
-							<img src="{{ asset('public/house/img/blog_detail\comment-4.png')}}" alt="">
-							<div class="author_text">
-								<div class="author_info">
-									<h5 class="author_name">Joseph Richard  </h5>
-									<span>30 January, 2017 at 10.32 pm</span>
-								</div>
-								<div class="user-rating">
-									<ul>
-										<li class="active"></li>
-										<li class="active"></li>
-										<li class="active"></li>
-										<li class="active"></li>
-										<li class="deactive"></li>
-									</ul>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
+				
 				
 				
 			</div>
