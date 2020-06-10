@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Session;
 
 use Illuminate\Http\Request;
 use App\Models\district;
@@ -147,6 +148,12 @@ class PageController extends Controller
                 
             }
         }
+
+        views($bangtin)
+            ->cooldown(Carbon::now()->addMinutes(1))
+            ->record();
+        
+        $data = bangtin::where('id',$id)->update(['views'=>views($bangtin)->count()]);
 
         
 

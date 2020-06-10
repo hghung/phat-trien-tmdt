@@ -3,10 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
 
-class bangtin extends Model
+class bangtin extends Model implements Viewable
 {
     protected $table='bang_tin';
+    use InteractsWithViews;
+
 
     public function house() // phải viêt liền ko được cách ra hoặc _
     {
@@ -21,5 +25,7 @@ class bangtin extends Model
         // từ sản phẩm cha ra con xài hasone
         // (tên đường dẫn, 'khoa ngoại', khóa chính)
     }
+
+    
 
 }

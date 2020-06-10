@@ -21,6 +21,8 @@ class BangtinThuenha extends Migration
             $table->text('mo_ta');
             $table->integer('gia_thue');
             $table->integer('trang_thai');
+            $table->integer('views')->nullable();
+
 
 
             

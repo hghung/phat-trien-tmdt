@@ -166,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Brian2694\Toastr\ToastrServiceProvider::class,
         
 
@@ -231,6 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Input' => Illuminate\Support\Facades\Input::class,
+        
         'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
         
 
