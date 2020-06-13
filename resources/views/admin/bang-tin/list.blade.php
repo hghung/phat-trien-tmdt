@@ -31,7 +31,7 @@
                         <div class="ul-contact-main-content">
                             {{--  show du lieu  --}}
                             <div class="ul-contact-content">
-                                <div class="card " style="width: 1300px;">
+                                <div class="card " style="width: 1450px;">
                                     <div class="card-body">
                                         <div class="float-left"><i class="nav-icon i-Align-Justify-All text-25 ul-contact-mobile-icon"></i></div>
                                         <div class="tab-content ul-contact-list-table--label" id="nav-tabContent">
