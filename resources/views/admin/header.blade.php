@@ -147,10 +147,29 @@
         <!-- User avatar dropdown -->
         <div class="dropdown">
             <div class="user col align-self-end">
-                <img src="{{asset('public/admin/img/1.jpg')}}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @if(Auth::user()->member->kh_avatar)
+	
+                <img src="{{ asset('public/upload/avatar') }}/{{ Auth::user()->member->kh_avatar }}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    
+                @elseif(Auth::user()->member->kh_gioitinh == 1)
+
+                    <img src="{{asset('public/house/man.png')}}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        
+                
+                @elseif(Auth::user()->member->kh_gioitinh == 2)
+
+                    <img height="100px" width="100px" src="{{asset('public/house/woman.png')}}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        
+
+                @endif
+                
+
+
+
+
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <div class="dropdown-header">
-                        <i class="i-Lock-User mr-1"></i> Timothy Carlson
+                        <i class="i-Lock-User mr-1"></i> {{ Auth::user()->member->kh_ho }} {{ Auth::user()->member->kh_ten }}
                     </div>
                     <a class="dropdown-item">Account settings</a>
                     <a class="dropdown-item">Billing history</a>
@@ -165,6 +184,14 @@
 <div class="side-content-wrap">
     <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
         <ul class="navigation-left">
+            <li class="nav-item" >
+                <a class="nav-item-hold" href="{{ route('page.home') }}">
+                    <i class="nav-icon i-Medal-2"></i>
+                    <span class="nav-text">Trang chủ</span>
+                </a>
+                <div class="triangle"></div>
+            </li>
+
             <li class="nav-item" >
                 <a class="nav-item-hold" href="{{ route('admin.home') }}">
                     <i class="nav-icon i-Computer-Secure"></i>
@@ -190,7 +217,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-item-hold" href="#" target="_blank">
+                <a class="nav-item-hold" href="{{ route('backup') }}" >
                     <i class="nav-icon i-Safe-Box1"></i>
                     <span class="nav-text">Backup</span>
                 </a>

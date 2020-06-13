@@ -6,11 +6,11 @@
     <div class="row">
 
         <div class="breadcrumb">
-            <h1>Danh sách bảng tin</h1>
+            <h1>Khôi phục</h1>
         </div>
 
-        <div style="margin-left: 75%;">
-            <a href="{{ route('bangtin.list.restore') }}" class="btn btn-info">Khôi phục</a>
+        <div style="margin-left: 82%;">
+            <a href="{{ route('bangtin.list') }}" class="btn btn-secondary ">Quay lại</a>
         </div>
     </div>
     <div class="separator-breadcrumb border-top"></div>
@@ -57,7 +57,8 @@
                                                                     <td>{{$bangtin2->ten_bangtin}}</td>
                                                                     <td>
                                                                         <button class="btn bg-transparent _r_btn border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="_dot _r_block-dot bg-dark"></span><span class="_dot _r_block-dot bg-dark"></span><span class="_dot _r_block-dot bg-dark"></span></button>
-                                                                        <div class="dropdown-menu" x-placement="bottom-start"><a class="dropdown-item" href="#"><i class="nav-icon i-Pen-2 text-success font-weight-bold mr-2"></i>Edit </a><a class="dropdown-item" href="{{ route('bangtin.delete',['id' => $bangtin2->id]) }}"><i class="nav-icon i-Close-Window text-danger font-weight-bold mr-2"></i>Delete </a></div>
+                                                                        <div class="dropdown-menu" x-placement="bottom-start"><a class="dropdown-item" href="{{ route('bangtin.restore',['id' => $bangtin2->id]) }}"><i class="nav-icon i-Close-Window text-danger font-weight-bold mr-2"></i>Khôi phục</a>
+                                                                        </div>
                                                                     </td>
                                                                 </tr>
                                                                 @endforeach

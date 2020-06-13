@@ -28,17 +28,38 @@ class BangtinController extends Controller
     	return view('admin.bang-tin.list',['bangtin' =>$bangtin]);
     }
 
+    public function delete($id){
+        $bangtin = bangtin::find($id);
 
-    public function add()
-    {
-        $loainha = loainha::all();
-        $taisan = taisan::all();
+        $delete = $bangtin->delete();
 
-    	return view('admin.bang-tin.add',['loainha' => $loainha, 'taisan' =>$taisan]);
+        Toastr::warning('Đã xóa danh mục', 'Thông báo', ["positionClass" => "toast-top-right"]);
+
+        return redirect()->back();
     }
 
 
+    public function list_restore()
+    {   
+        // lấy ra nhưng soft đã bị xóa
+        $bangtin = bangtin::onlyTrashed()->get();
 
+    	return view('admin.bang-tin.khoi-phuc',['bangtin' =>$bangtin]);
+    }
+
+    public function restore($id)
+    {   
+        //withTrashed mới hiêu dc hàng trong delete_at bị xóa và khôi phục
+        $bangtin = bangtin::withTrashed()->find($id);
+
+        $restore = $bangtin->restore();
+
+    	return  redirect()->back();
+    }
+
+    
+
+////////////////////////////////////////////////////////////////////
     public function post_add(Request $bangtin2)
     {   
             
@@ -239,4 +260,6 @@ class BangtinController extends Controller
         Toastr::success('Them thanh cong', 'Thông báo', ["positionClass" => "toast-top-right"]);
         return redirect(''.route('taikhoan.dsbangtin').'');
     }
+
+    
 }

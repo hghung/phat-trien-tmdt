@@ -33,15 +33,5 @@ class TimkiemController extends Controller
 
     }
 
-    public function post_loainha($id)
-    {
-        // dd($house);
-        $nha = nha::where('id_loainha','=',$id)->get();
-        // dd($bangtin);
-
-        // dd($nha);
-
-        return view('house.tim-kiem.loai-nha',['nha'=>$nha]);
-
-    }
+   
 }

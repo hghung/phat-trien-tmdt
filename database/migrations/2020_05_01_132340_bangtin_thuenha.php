@@ -38,6 +38,10 @@ class BangtinThuenha extends Migration
                     ->on('nha')
                     ->onDelete('cascade');
 
+
+            // khôi phục tệp tin bị xoa
+            $table->softDeletes();
+
             $table->timestamps();
             
 

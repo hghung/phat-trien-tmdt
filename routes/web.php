@@ -119,6 +119,18 @@ Route::group(['prefix'=>'SPS', 'middleware'=>'Ad_login'],function(){
 
 	});
 
+	Route::group(['prefix'=>'backup'],function(){
+		Route::get('/','BackupController@backup')->name('backup');
+		
+		Route::get('/run','BackupController@run_backup')->name('backup.run');
+
+		Route::get('/delete','BackupController@delete_backup')->name('delete.run');
+
+		// Route::get('/add','LoainhaController@post_add')->name('backup.add');
+
+
+	});
+
 	Route::group(['prefix'=>'tai-san'],function(){
 		Route::get('/','TaisanController@list')->name('taisan.list');
 		Route::post('/add','TaisanController@post_add')->name('taisan.post.add');
@@ -131,6 +143,14 @@ Route::group(['prefix'=>'SPS', 'middleware'=>'Ad_login'],function(){
 		Route::get('/add','BangtinController@add')->name('bangtin.add');
 		Route::post('/post-add','BangtinController@post_add')->name('bangtin.post.add');
 
+		//Khoi phuc dữ liệu Softdelte
+		Route::get('/danh-sach-khoi-phuc','BangtinController@list_restore')->name('bangtin.list.restore');
+
+		Route::get('/khoi-phuc-{id}','BangtinController@restore')->name('bangtin.restore');
+
+
+		//xoa bangtin
+		Route::get('/delete-{id}','BangtinController@delete')->name('bangtin.delete');
 
 
 	});
