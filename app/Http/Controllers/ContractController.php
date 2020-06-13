@@ -22,4 +22,18 @@ class ContractController extends Controller
         return view('house.account.detail-contract',$hopdong);
     
     }
+
+    public function huy_hopdong($id)
+    {   
+       // tac_gia::where('id',$id)->update(['phe_duyet'=>1]);
+       //  return redirect('/Ntkd@@/danh-sach-tac-gia');
+        $data = hopdong::where('id',$id)->update(['trang_thai'=>1]);
+        $data2 = bangtin::where('id_bangtin','=',$id)->update(['trang_thai'=>2]);
+
+        //var_dump($data);die;
+        // Session::put('msg','')
+        Toastr::warning('Hủy hợp đồng', 'Thông báo', ["positionClass" => "toast-top-right"]);
+
+        return redirect()->back();
+    }
 }

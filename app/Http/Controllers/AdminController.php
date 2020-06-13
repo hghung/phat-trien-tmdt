@@ -15,15 +15,10 @@ class AdminController extends Controller
 {
     public function home()
     {
-        if(Auth::check())
-        {
-            return view('admin.index');
+        $thanhvien = User::where('trang_thai','=','2')->get()
+        return view('admin.index');
 
-        }
-        else
-        {
-            return redirect(''.route('page.home').'');
-        }
+        
         
     }
 

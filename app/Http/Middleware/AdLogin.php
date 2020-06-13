@@ -20,15 +20,15 @@ class AdLogin
        if(Auth::check())
         {
             $user = Auth::user();
-            if($user->level == 1 || $user->level == 2 )
+            if($user->vai_tro == 1 )
                 return $next($request);
-            else
-                return redirect(''.Route('p.logout').'')->with('thongbao','Tài khoản và mật khẩu không chính xác');
+            elseif($user->vai_tro == 2 )
+                return redirect()->route('taikhoan.dashboard');
             
         }       
         else
         {
-            return redirect(''.Route('p.logout').'')->with('thongbao','Tài khoản và mật khẩu không chính xác');
+            return redirect(''.Route('page.logout').'')->with('thongbao','Tài khoản và mật khẩu không chính xác');
 
         }
                 

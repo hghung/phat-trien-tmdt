@@ -108,7 +108,7 @@ Route::group(['prefix'=>'tai-khoan','middleware'=>'Page_login'],function(){
 
 
 // admin ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-Route::group(['prefix'=>'SPS'],function(){
+Route::group(['prefix'=>'SPS', 'middleware'=>'Ad_login'],function(){
 	Route::get('/','AdminController@home')->name('admin.home');
 	Route::get('/master','AdminController@master')->name('admin.lyout');
 

@@ -175,11 +175,7 @@
             <div class="col-md-6">
                 <div class="card o-hidden mb-4">
                     <div class="card-header d-flex align-items-center">
-                        <h3 class="w-50 float-left card-title m-0">New Users</h3>
-                        <div class="dropdown dropleft text-right w-50 float-right">
-                            <button class="btn bg-gray-100" id="dropdownMenuButton_table1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="nav-icon i-Gear-2"></i></button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_table1"><a class="dropdown-item" href="#">Add new user</a><a class="dropdown-item" href="#">View All users</a><a class="dropdown-item" href="#">Something else here</a></div>
-                        </div>
+                        <h3 class="w-50 float-left card-title m-0">Thành viên chưa duyệt</h3>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
