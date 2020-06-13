@@ -67,12 +67,17 @@
                 <div class="card mb-4">
                     <div class="card-body p-0" style="margin-left: 20px; padding-bottom: 10px !important;">
                         <div class="row">
-                            <h5 class="card-title m-0 p-3">
+                            <h5 class="card-title m-0 p-3" style="padding-bottom: 0px !important;">
                                 Thông tin:
                                 <span style="color: blue">{{ Auth::user()->member->kh_ma }}</span>
                             </h5>
+                            
                             <a href="#" class="card-title m-0 p-3 " style="margin-left: 50% !important;">Câp nhật</a>
                         </div>
+                        {{-- <h6>
+                            Vai trò:
+                            <span style="color: red">Admin</span>
+                        </h6> --}}
                         <div class="row">
                             <div class="col-md-4 col-6" style="margin-top: 15px;">
 
@@ -225,7 +230,7 @@
             <div class="col-md-6">
                 <div class="card o-hidden mb-4">
                     <div class="card-header d-flex align-items-center">
-                        <h3 class="w-50 float-left card-title m-0">Total Sales</h3>
+                        <h3 class="w-50 float-left card-title m-0">Bảng tin chưa được duyệt</h3>
                         <div class="dropdown dropleft text-right w-50 float-right">
                             <button class="btn bg-gray-100" id="dropdownMenuButton_table2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="nav-icon i-Gear-2"></i></button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_table2"><a class="dropdown-item" href="#">Add new user</a><a class="dropdown-item" href="#">View All users</a><a class="dropdown-item" href="#">Something else here</a></div>

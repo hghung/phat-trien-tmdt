@@ -15,7 +15,8 @@ class AdminController extends Controller
 {
     public function home()
     {
-        $thanhvien = User::where('trang_thai','=','2')->get()
+        
+        $thanhvien = User::where('status','=','2')->get();
         return view('admin.index');
 
         

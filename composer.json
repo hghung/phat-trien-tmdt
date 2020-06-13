@@ -14,11 +14,13 @@
         "cyrildewit/eloquent-viewable": "^5.2",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "6.0.*",
+        "laravel/slack-notification-channel": "^2.0",
         "laravel/tinker": "^1.0",
         "laraveldaily/laravel-charts": "^0.1.18",
         "laravelista/comments": "^3.6",
         "phpviet/laravel-omnipay": "^1.0",
-        "rackspace/php-opencloud": "dev-master"
+        "rackspace/php-opencloud": "dev-master",
+        "spatie/laravel-backup": "^6.10"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
