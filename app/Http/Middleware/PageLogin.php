@@ -20,10 +20,10 @@ class PageLogin
        if(Auth::check())
         {
             $user = Auth::user();
-            if($user->vai_tro == 2 )
+            if($user->vai_tro == 2 || $user->vai_tro == 1 )
                 return $next($request);
-            elseif($user->vai_tro == 1 )
-                return redirect()->route('admin.home');
+            // elseif($user->vai_tro == 1 )
+            //     return redirect()->route('admin.home');
             
         }       
         else

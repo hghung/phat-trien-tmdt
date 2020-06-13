@@ -4,11 +4,8 @@
     <!-- ============ Body content start ============= -->
     <div class="main-content">
         <div class="breadcrumb">
-            <h1 class="mr-2">Version 2</h1>
-            <ul>
-                <li><a href="">Dashboard</a></li>
-                <li>Version 2</li>
-            </ul>
+            <h1 class="mr-2">Tổng quát</h1>
+            
         </div>
         <div class="separator-breadcrumb border-top"></div>
         <div class="row">
@@ -18,31 +15,31 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="card card-icon mb-4">
                             <div class="card-body text-center"><i class="i-Data-Upload"></i>
-                                <p class="text-muted mt-2 mb-2">Today&apos;s Upload</p>
-                                <p class="text-primary text-24 line-height-1 m-0">21</p>
+                                <p class="text-muted mt-2 mb-2">Hợp đồng</p>
+                                <p class="text-primary text-24 line-height-1 m-0">{{ $hopdong }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="card card-icon mb-4">
                             <div class="card-body text-center"><i class="i-Add-User"></i>
-                                <p class="text-muted mt-2 mb-2">New Users</p>
-                                <p class="text-primary text-24 line-height-1 m-0">21</p>
+                                <p class="text-muted mt-2 mb-2">Người dùng</p>
+                                <p class="text-primary text-24 line-height-1 m-0">{{ $thanhvien }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="card card-icon mb-4">
                             <div class="card-body text-center"><i class="i-Money-2"></i>
-                                <p class="text-muted mt-2 mb-2">Total sales</p>
-                                <p class="text-primary text-24 line-height-1 m-0">4021</p>
+                                <p class="text-muted mt-2 mb-2">Tổng tiền thuê</p>
+                                <p class="text-primary text-24 line-height-1 m-0">{{ number_format($price,0,',','.') }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="card card-icon-big mb-4">
-                            <div class="card-body text-center"><i class="i-Money-2"></i>
-                                <p class="line-height-1 text-title text-18 mt-2 mb-0">4021</p>
+                            <div class="card-body text-center"><i class="i-Data-Upload"></i>
+                                <p class="line-height-1 text-title text-18 mt-2 mb-0">{{ $bangtin }} bảng tin</p>
                             </div>
                         </div>
                     </div>

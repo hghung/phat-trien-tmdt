@@ -36,7 +36,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+       // thong ke
        
+
         View::composer('*', function ($view){
             view()->share(['data2' => Cart::content(), 'data3' => Cart::total(0,',','.')]);
         });
@@ -60,6 +62,9 @@ class AppServiceProvider extends ServiceProvider
             $loainha = loainha::all();
             $view->with('loainha', $loainha);
         });
+
+
+        
 
 
         

@@ -184,7 +184,7 @@
 										<li>
 											<span>Vai trò: </span> 
 											@if(Auth::user()->vai_tro == 1)
-												<span style="color:yellow"> Admin </span>
+												<span style="color:red"> Admin </span>
 											@elseif(Auth::user()->vai_tro == 2)
 												<span style="color:blue"> Member</span>
 											@endif

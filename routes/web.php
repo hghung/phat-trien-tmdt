@@ -112,6 +112,10 @@ Route::group(['prefix'=>'SPS', 'middleware'=>'Ad_login'],function(){
 	Route::get('/','AdminController@home')->name('admin.home');
 	Route::get('/master','AdminController@master')->name('admin.lyout');
 
+	Route::get('/thong-ke','ChartController@chart')->name('admin.chart');
+
+
+
 	Route::group(['prefix'=>'loai-nha'],function(){
 		Route::get('/','LoainhaController@list')->name('loainha.list');
 		Route::post('/add','LoainhaController@post_add')->name('loainha.post.add');

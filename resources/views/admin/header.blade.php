@@ -193,15 +193,15 @@
             </li>
 
             <li class="nav-item" >
-                <a class="nav-item-hold" href="{{ route('admin.home') }}">
+                <a class="nav-item-hold" href="{{ route('admin.home') }}"  data-item="dashboard">
                     <i class="nav-icon i-Computer-Secure"></i>
                     <span class="nav-text">Dasboard</span>
                 </a>
                 <div class="triangle"></div>
             </li>
             {{-- Thống kê --}}
-            <li class="nav-item" data-item="dashboard">
-                <a class="nav-item-hold" href="#">
+            <li class="nav-item">
+                <a class="nav-item-hold" href="{{ route('admin.chart') }}">
                     <i class="nav-icon i-Bar-Chart"></i>
                     <span class="nav-text">Thông kê</span>
                 </a>

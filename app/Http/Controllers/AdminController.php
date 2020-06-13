@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Models\bangtin;
+use App\Models\hopdong;
+
 
 Use Illuminate\Support\Facades\Auth;
 
@@ -16,39 +19,19 @@ class AdminController extends Controller
     public function home()
     {
         
-        $thanhvien = User::where('status','=','2')->get();
-        // $follow = User::sum('views');
-        return view('admin.index');
+        $thanhvien = User::where('status','=','1')->count();
+        $price = hopdong::where('trang_thai','=','1')->sum('tien');
+        $bangtin = bangtin::where('trang_thai','=','1')->count();
+        $hopdong = hopdong::where('trang_thai','=','1')->count();
+
+
+        return view('admin.index',['thanhvien' => $thanhvien, 'bangtin' => $bangtin , 'price' => $price, 'hopdong' => $hopdong]);
 
         
-        
-    }
-
-    public function backup()
-    {
-        // $schedule->command('backup:clean')->daily()->at('01:00');
-
-        return view('admin.backup.backup');
         
     }
 
     
-
-    public function run_backup()
-    {
-        $backup = Artisan::call('backup:run');
-        // echo "banhbao";
-        return redirect()->back()->with('backup','Dữ liệu của bạn được backup thành công !');
-        
-    }
-
-    public function delete_backup()
-    {
-        $backup = Artisan::call('backup:clean');
-        // echo "banhbao";
-        return redirect()->back()->with('delete','Dữ liệu backup đã được xóa sạch !');
-        
-    }
 
 
     public function master()
