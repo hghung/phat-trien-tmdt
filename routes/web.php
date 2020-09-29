@@ -20,11 +20,6 @@ use App\Models\tienich;
 use App\Models\payment;
 
 
-
-
-
-use Carbon\Carbon; // lấy ngày hiên tại
-
 Route::get('/','PageController@home');
 
 Route::get('/gg','PageController@googlemap');

@@ -19,7 +19,6 @@
         "laravel/tinker": "^1.0",
         "laraveldaily/laravel-charts": "^0.1.18",
         "laravelista/comments": "^3.6",
-        "phpviet/laravel-omnipay": "^1.0",
         "rackspace/php-opencloud": "dev-master",
         "spatie/laravel-backup": "^6.10"
     },

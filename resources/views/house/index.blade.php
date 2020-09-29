@@ -260,7 +260,7 @@
                 zoomControlOptions: {
                       style:google.maps.ZoomControlStyle.DEFAULT
                 },
-                center: new google.maps.LatLng(10.0299337, 105.7706153),
+                center: new google.maps.LatLng(10.0469359, 105.7551903),
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 scrollwheel: false,
                 panControl:false,
