@@ -280,9 +280,7 @@ Route::get('/banhbao',function(){
 });
 
 ////////////////////////s
-Route::get('foo', function () {
-    return view('admin.book.test');
-});
+Route::get('/update-{id}','TaikhoanController@update_mk');
 
 
 

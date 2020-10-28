@@ -160,10 +160,11 @@ class BangtinController extends Controller
             {
                 // $banhbao22 = $bangtin2->hasFile('hinhanh2');
                 // echo $banhbao22;die;
+                    dd($bangtin2->file('hinhanh2'));
+
                 foreach ($bangtin2->file('hinhanh2') as $file2)
                 {
                     $dshinhanh = new hinhanh;
-
                     if(isset($file2))
                     {
                         $dshinhanh->id_nha = $nha->id;
@@ -226,7 +227,6 @@ class BangtinController extends Controller
 
                 ];
             }
-            // dd($data2);
             foreach($banhbao as $key => $value)
             {
                 $banhbao3 = new nha_tienich;

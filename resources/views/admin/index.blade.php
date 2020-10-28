@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('tieude','Admin')
-@section('content')
+@section('luanvan')
     <!-- ============ Body content start ============= -->
     <div class="main-content">
         <div class="breadcrumb">

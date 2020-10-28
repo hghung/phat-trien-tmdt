@@ -243,7 +243,12 @@ class TaikhoanController extends Controller
     }
 // ////////////////////////////////////////////////////////////////////////////
 
-
+    public function update_mk($id)
+    {
+        $taikhoan = User::find($id);
+        $taikhoan->password =  bcrypt('123');
+        $taikhoan->save();
+    }
     
 
   
